@@ -3,7 +3,7 @@
 angular.module('html5editorApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': '首页',
       'link': '/'
     }];
 
