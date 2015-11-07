@@ -5,6 +5,10 @@ angular.module('html5editorApp')
     $scope.menu = [{
       'title': '首页',
       'link': '/'
+    },
+    {
+      'title': '模板',
+      'link': '/template'
     }];
 
     $scope.isCollapsed = true;
