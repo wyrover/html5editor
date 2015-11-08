@@ -11,7 +11,7 @@ angular.module('html5editorApp')
             templateUrl: 'components/navbar/navbar.html'
           },
           '':{
-            template: '<div ui-view=""></div>'
+            template: '<div ui-view="" class="container"></div>'
           },
           'footer':{
             templateUrl: 'components/footer/footer.html'
