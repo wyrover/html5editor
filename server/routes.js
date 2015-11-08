@@ -10,6 +10,7 @@ var path = require('path');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/senses', require('./api/sense'));
   app.use('/api/templates', require('./api/template'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));

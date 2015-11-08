@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/sense/sense.socket').register(socket);
   require('../api/template/template.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }
