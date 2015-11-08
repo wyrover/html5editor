@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .service('sense', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .service('Sense', function (Resource) {
+    return Resource('/api/senses/:id/:controller');
   });

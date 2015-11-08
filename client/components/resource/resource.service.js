@@ -7,8 +7,14 @@ angular.module('html5editorApp')
         update: { method: 'PUT', isArray: false },
         create: { method: 'POST', isArray: false }
       };
+
+      var default_params = {
+        'id':'@_id'
+      };
       
      methods = angular.extend( defaults, methods );
+
+     params = angular.extend( default_params, params);
  
      var resource = $resource( url, params, methods );
  
