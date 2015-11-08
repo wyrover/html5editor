@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('toolbar', function () {
+  .directive('actionbar', function () {
     return {
       require: 'ngModel',
-      templateUrl: 'app/editor/toolbar.html',
+      templateUrl: 'app/editor/actionbar.html',
       restrict: 'EA',
       link: function (scope, element, attrs) {
       }
