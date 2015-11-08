@@ -5,7 +5,18 @@ angular.module('html5editorApp')
     $stateProvider
       .state('template', {
         url: '/template',
-        templateUrl: 'app/template/template.html',
+        views: {
+          'nav':{
+            templateUrl: 'components/navbar/navbar.html'
+          },
+          '':{
+            templateUrl: 'app/template/template.html',
         controller: 'TemplateCtrl'
+          },
+          'footer':{
+            templateUrl: 'components/footer/footer.html'
+          }
+        }
+        
       });
   });
