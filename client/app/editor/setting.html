@@ -1,11 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <toolbar ng-model="sense"></toolbar>
+    
   </div>
   <div class="panel-body">
-    Panel content
+    <tabset class="settings-tab">
+      <tab heading="内容">
+        <editor-setting-content></editor-setting-content>
+      </tab>
+      <tab heading="样式">
+        <editor-setting-style></editor-setting-style>
+      </tab>
+      <tab heading="动画">
+        <editor-setting-animation></editor-setting-animation>
+      </tab>
+    </tabset>
   </div>
   <div class="panel-footer">
-    <actionbar ng-model="sense"></actionbar>
+    
   </div>
 </div>
