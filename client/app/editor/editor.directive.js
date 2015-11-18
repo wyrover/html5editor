@@ -10,7 +10,7 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/editor.html',
       restrict: 'EA',
       link: function (scope, element, attrs, ngModel) {
-        console.log(scope.sense, ngModel)
+        
       }
     };
   });
