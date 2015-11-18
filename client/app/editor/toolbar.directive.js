@@ -9,14 +9,13 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
-      controller: 'EditorToolbarCtrl',
+      controller: function($scope){
+        $scope.insertWidget = function(type){
+          console.log(type)
+        };
+      },
       link: function (scope, element, attrs) {
 
       }
-    };
-  })
-  .controller('EditorToolbarCtrl', function($scope){
-    $scope.insertWidget = function(type){
-      
     };
   });
