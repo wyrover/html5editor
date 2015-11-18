@@ -24,6 +24,7 @@ module.exports = function(config) {
       'bower_components/lodash/lodash.js',
       'bower_components/angular-socket-io/socket.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-async-loader/dist/angular-async-loader.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',
