@@ -7,15 +7,10 @@ angular.module('html5editorApp')
     
     $scope.init = function(id){
       $scope.sense = new Sense({
+        _id:id,
         name: '新场景',
         contents:[{background:{type:'background'},contents:[]}]
       });
-
-      if(id){
-        $scope.sense._id = id;
-        $scope.sense.$get();
-      }
-
     };
 
     $scope.init($state.params.id);

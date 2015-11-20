@@ -10,10 +10,18 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/editor.html',
       restrict: 'EA',
       controller: function($scope){
-        $scope.page = $scope.sense.contents[0];
-        $scope.page.active = true;
-        $scope.widget = $scope.page.background;
-        $scope.widget.active = true;
+        $scope.init = function(){
+          $scope.page = $scope.sense.contents[0];
+          $scope.page.active = true;
+          $scope.widget = $scope.page.background;
+          $scope.widget.active = true;
+        };
+        if($scope.sense._id){
+          $scope.sense.$get(function(){
+            $scope.init();
+          });
+        }
+        $scope.init();
       },
       link: function (scope, element, attrs, ngModel) {
         
