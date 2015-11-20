@@ -4,7 +4,6 @@ angular.module('html5editorApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'btford.socket-io',
   'ui.router',
   'ui.bootstrap'
 ])
