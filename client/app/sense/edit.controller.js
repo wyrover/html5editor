@@ -14,8 +14,6 @@ angular.module('html5editorApp')
         $scope.sense.contents = [{background:{type:'background'},contents:[]}];
       }
 
-      $scope.page = $scope.sense.contents[0];
-      $scope.widget = $scope.background;
     };
 
     $scope.init($state.params.id);

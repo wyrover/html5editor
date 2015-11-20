@@ -1,17 +1,16 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('editor', function () {
+  .directive('stage', function () {
     return {
       require: 'ngModel',
       scope:{
         sense: '=ngModel'
       },
-      templateUrl: 'app/editor/editor.html',
+      templateUrl: 'app/editor/stage.html',
       restrict: 'EA',
       controller: function($scope){
-        $scope.page = $scope.sense.contents[0];
-        $scope.widget = $scope.background;
+        console.log($scope.sense)
       },
       link: function (scope, element, attrs, ngModel) {
         

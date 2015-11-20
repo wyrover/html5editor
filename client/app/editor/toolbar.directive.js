@@ -5,13 +5,14 @@ angular.module('html5editorApp')
     return {
       require: 'ngModel',
       scope: {
-        sense: '=ngModel'
+        page: '=ngModel'
       },
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
       controller: function($scope){
         $scope.insertWidget = function(type){
-          console.log(type)
+          $scope.page.contents.push({type:type});
+          $scope.page.contents = angular.copy($scope.page.contents)
         };
       },
       link: function (scope, element, attrs) {
