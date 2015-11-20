@@ -27,5 +27,10 @@ angular.module('html5editorApp')
         url: '/new',
         templateUrl: 'app/sense/edit.html',
         controller: 'SenseEditCtrl'
+      })
+      .state('sense.edit', {
+        url: '/edit/:id',
+        templateUrl: 'app/sense/edit.html',
+        controller: 'SenseEditCtrl'
       });
   });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('actionbar', function () {
+  .directive('actionbar', function ($state) {
     return {
       require: 'ngModel',
       scope: {
@@ -11,7 +11,9 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope){
         $scope.save = function(){
-          return $scope.sense.$save();
+          return $scope.sense.$save(function(){
+            $state.go('sense.edit',{id:$scope.sense._id});
+          });
         };
       },
       link: function (scope, element, attrs) {
