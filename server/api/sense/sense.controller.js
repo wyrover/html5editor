@@ -35,6 +35,7 @@ exports.update = function(req, res) {
     if (err) { return handleError(res, err); }
     if(!sense) { return res.status(404).send('Not Found'); }
     var updated = _.merge(sense, req.body);
+    updated.markModified('contents');
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.status(200).json(sense);
