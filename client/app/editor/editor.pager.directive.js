@@ -11,7 +11,9 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope){
         $scope.insertPage = function($index){
-            $scope.sense.contents.push({background:{type:'background'}})
+            $scope.page = {background:{type:'background'}};
+            $scope.sense.contents.push($scope.page);
+            $scope.activePage($scope.page);
         };
 
         $scope.activePage = function(page){
