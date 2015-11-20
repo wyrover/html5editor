@@ -13,6 +13,15 @@ angular.module('html5editorApp')
         $scope.insertPage = function($index){
             $scope.sense.contents.push({background:{type:'background'}})
         };
+
+        $scope.activePage = function(page){
+            angular.forEach(sense.contents, function(item){
+                if(item.active){
+                    item.active = false;
+                }
+            });
+            page.active = true;
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         

@@ -11,7 +11,9 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope){
         $scope.page = $scope.sense.contents[0];
-        $scope.widget = $scope.background;
+        $scope.page.active = true;
+        $scope.widget = $scope.page.background;
+        $scope.widget.active = true;
       },
       link: function (scope, element, attrs, ngModel) {
         

@@ -12,7 +12,6 @@ angular.module('html5editorApp')
       controller: function($scope){
         $scope.insertWidget = function(type){
           $scope.page.contents.push({type:type});
-          $scope.page.contents = angular.copy($scope.page.contents)
         };
       },
       link: function (scope, element, attrs) {
