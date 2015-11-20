@@ -24,6 +24,7 @@ angular.module('html5editorApp')
                 }
             });
             page.active = true;
+            $scope.page = page;
         };
       },
       link: function (scope, element, attrs, ngModel) {
