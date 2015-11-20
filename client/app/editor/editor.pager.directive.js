@@ -5,7 +5,8 @@ angular.module('html5editorApp')
     return {
       require: 'ngModel',
       scope:{
-        sense: '=ngModel'
+        sense: '=ngModel',
+        page: '='
       },
       templateUrl: 'app/editor/editor-pager.html',
       restrict: 'EA',
