@@ -5,12 +5,12 @@ angular.module('html5editorApp')
     return {
       require: 'ngModel',
       scope:{
-        sense: '=ngModel'
+        page: '=ngModel'
       },
       templateUrl: 'app/editor/stage.html',
       restrict: 'EA',
       controller: function($scope){
-        console.log($scope.sense)
+        console.log($scope.page)
       },
       link: function (scope, element, attrs, ngModel) {
         
