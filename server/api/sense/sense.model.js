@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var SenseSchema = new Schema({
   name: String,
-  info: String,
+  contents: Array,
   active: Boolean
 });
 
