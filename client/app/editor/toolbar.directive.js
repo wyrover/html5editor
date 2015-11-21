@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('toolbar', function () {
+  .directive('editorToolbar', function () {
     return {
       require: 'ngModel',
       scope: {
