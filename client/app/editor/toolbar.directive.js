@@ -11,7 +11,9 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope){
         var defaults = {
-          position:'absolute'
+          position:'absolute',
+          top:'0',
+          left:'0'
         };
 
         $scope.insertWidget = function(type){

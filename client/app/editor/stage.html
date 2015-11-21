@@ -1,6 +1,8 @@
 <div ng-repeat="widget in page.contents"
-    ng-style="{position:widget.position}"
-    hm-panstart="onPanStart($event)"
-    hm-panmove="onPanMove($event)" >
+    ng-style="{position:widget.position,
+               left:widget.left+'px',
+               top:widget.top+'px'}"
+    hm-panstart="onPanStart($event, widget)"
+    hm-panmove="onPanMove($event, widget)" >
     <editor-widget ng-model="widget"></editor-widget>
 </div>
