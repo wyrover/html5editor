@@ -1,1 +1,4 @@
-<div ng-repeat="widget in page.contents">{{widget.type}}</div>
+<div ng-repeat="widget in page.contents"
+    ng-style="{position:widget.position}">
+{{widget.type}}
+</div>

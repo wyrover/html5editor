@@ -10,8 +10,14 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
       controller: function($scope){
+        var defaults = {
+          position:'absolute'
+        };
+
         $scope.insertWidget = function(type){
-          $scope.page.contents.push({type:type});
+          var conf = angular.copy(defaults);
+          conf.type = type;
+          $scope.page.contents.push(conf);
         };
       },
       link: function (scope, element, attrs) {
