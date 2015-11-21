@@ -1,4 +1,6 @@
 <div ng-repeat="widget in page.contents"
-    ng-style="{position:widget.position}">
+    ng-style="{position:widget.position}"
+    hm-panstart="onPanStart($event)"
+    hm-panmove="onPanMove($event)" >
 {{widget.type}}
 </div>
