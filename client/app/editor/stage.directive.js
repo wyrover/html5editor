@@ -10,11 +10,14 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/stage.html',
       restrict: 'EA',
       controller: function($scope){
-        $scope.onPanStart = function($event){
-          console.log($event)
+        var x = 0, y = 0;
+        $scope.onPanStart = function($event, widget){
+          x = widget.left;
+          y = widget.top;
         };
-        $scope.onPanMove = function($event){
-          console.log($event)
+        $scope.onPanMove = function($event, widget){
+          widget.left = x + $event.deltaX;
+          widget.top = y + $event.deltaY;
         };
       },
       link: function (scope, element, attrs, ngModel) {
