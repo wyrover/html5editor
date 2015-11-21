@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('stage', function () {
+  .directive('editorStage', function () {
     return {
       require: 'ngModel',
       scope:{
