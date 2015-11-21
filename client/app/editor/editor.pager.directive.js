@@ -28,7 +28,13 @@ angular.module('html5editorApp')
         };
       },
       link: function (scope, element, attrs, ngModel) {
-        
+        element.on('click', function(event){
+          var target = angular.element(event.target);
+          var list = element.find('li');
+          angular.forEach(list, function(item,i){
+            
+          })
+        });
       }
     };
   });

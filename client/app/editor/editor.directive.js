@@ -12,9 +12,7 @@ angular.module('html5editorApp')
       controller: function($scope){
         $scope.init = function(){
           $scope.page = $scope.sense.contents[0];
-          $scope.page.active = true;
           $scope.widget = $scope.page.background;
-          $scope.widget.active = true;
         };
         if($scope.sense._id){
           $scope.sense.$get(function(){
