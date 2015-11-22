@@ -9,11 +9,16 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/stage.html',
       restrict: 'EA',
-      controller: function($scope){
+      controller: function($scope, EditorWidget){
         var x = 0, y = 0;
+
+        $scope.changeWidget = function($event, widget){
+          EditorWidget.widget = widget;
+        };
         $scope.onPanStart = function($event, widget){
           x = widget.left;
           y = widget.top;
+          EditorWidget.widget = widget;
         };
         $scope.onPanMove = function($event, widget){
           widget.left = parseInt(x) + $event.deltaX;

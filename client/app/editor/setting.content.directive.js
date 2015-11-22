@@ -9,6 +9,12 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/content.html',
       restrict: 'EA',
+      controller: function($scope, EditorWidget){
+        $scope.widget = EditorWidget;
+        $scope.$watch('widget', function(newVal){
+          console.log(newVal)
+        })
+      },
       link: function (scope, element, attrs, ngModel) {
         
       }

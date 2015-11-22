@@ -9,8 +9,8 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-widget.html',
       restrict: 'EA',
-      controller: function($scope){
-        
+      controller: function($scope, EditorWidget){
+        //EditorWidget.widget = $scope.widget;
       },
       link: function (scope, element, attrs, ngModel) {
         

@@ -2,6 +2,7 @@
     ng-style="{position:widget.position,
                left:widget.left+'px',
                top:widget.top+'px'}"
+    ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
     class="editor-widgets-item" >
