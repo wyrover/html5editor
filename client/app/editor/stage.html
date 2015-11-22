@@ -1,7 +1,10 @@
 <div ng-repeat="widget in page.contents"
     ng-style="{position:widget.position,
                left:widget.left+'px',
-               top:widget.top+'px'}"
+               top:widget.top+'px',
+               width:widget.width+'px',
+               height:widget.height+'px',
+               backgroundColor:widget.backgroundColor}"
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"

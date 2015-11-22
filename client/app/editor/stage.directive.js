@@ -18,7 +18,6 @@ angular.module('html5editorApp')
         $scope.onPanStart = function($event, widget){
           x = widget.left;
           y = widget.top;
-          EditorWidget.widget = widget;
         };
         $scope.onPanMove = function($event, widget){
           widget.left = parseInt(x) + $event.deltaX;
