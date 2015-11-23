@@ -19,6 +19,18 @@ angular.module('html5editorApp')
         $scope.insertWidget = function(type){
           var conf = angular.copy(defaults);
           conf.type = type;
+          switch(type){
+            case 'text':
+              conf.text = '点击可编辑';
+              break;
+            case 'shape':
+              conf.shape = 'rect';
+              break;
+            case 'image':
+              conf.src = 'assets/images/widget.png';
+              break;
+          }
+
           $scope.page.contents.push(conf);
         };
       },
