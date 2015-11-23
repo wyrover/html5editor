@@ -2,5 +2,5 @@
 
 angular.module('html5editorApp')
   .service('EditorWidget', function ($rootScope) {
-    return {};
+    return {widget:{}};
   });

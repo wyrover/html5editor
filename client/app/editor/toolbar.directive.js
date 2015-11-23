@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
-      controller: function($scope){
+      controller: function($scope, EditorWidget){
         var defaults = {
           position:'absolute',
           top:'0',
@@ -32,6 +32,7 @@ angular.module('html5editorApp')
           }
 
           $scope.page.contents.push(conf);
+          EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
         };
       },
       link: function (scope, element, attrs) {
