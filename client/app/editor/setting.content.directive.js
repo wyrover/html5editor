@@ -14,7 +14,7 @@ angular.module('html5editorApp')
         
         $scope.upload = function(file){
           Upload.upload({
-            url:'/upload',
+            url:'/api/files',
             data: {
               file: file
             }

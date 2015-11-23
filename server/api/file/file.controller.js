@@ -22,6 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new file in the DB.
 exports.create = function(req, res) {
+  console.log(req.file, req.body)
   File.create(req.body, function(err, file) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(file);
