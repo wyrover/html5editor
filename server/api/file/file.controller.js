@@ -26,6 +26,7 @@ exports.create = function(req, res) {
   if(!req.file){
     res.status(500).json({message:'上传失败'});
   }
+  req.file.type = req.file.mimetype.split('/')[0];
   File.create(req.file, function(err, file) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(file);

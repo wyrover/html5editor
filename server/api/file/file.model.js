@@ -9,6 +9,7 @@ var FileSchema = new Schema({
   originname: String,
   encoding: String,
   mimetype: String,
+  type: String,
   size: Number,
   destination: String,
   path: String,
