@@ -4,5 +4,7 @@ public
 .idea
 bower_components
 dist
+files/img/*
+files/docs/*
 /server/config/local.env.js
 npm-debug.log
