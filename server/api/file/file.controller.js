@@ -23,7 +23,10 @@ exports.show = function(req, res) {
 // Creates a new file in the DB.
 exports.create = function(req, res) {
   console.log(req.file, req.body)
-  File.create(req.body, function(err, file) {
+  if(!req.file){
+    res.status(500).json({message:'上传失败'});
+  }
+  File.create(req.file, function(err, file) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(file);
   });
