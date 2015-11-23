@@ -6,7 +6,8 @@ angular.module('html5editorApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'hmTouchEvents'
+  'hmTouchEvents',
+  'ngFileUpload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

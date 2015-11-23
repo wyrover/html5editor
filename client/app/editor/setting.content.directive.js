@@ -9,11 +9,17 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/content.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, Upload, EditorWidget){
         $scope.widget = EditorWidget;
-        $scope.$watch('widget', function(newVal){
-          console.log(newVal)
-        })
+        
+        $scope.upload = function(file){
+          Upload.upload({
+            url:'/upload',
+            data: {
+              file: file
+            }
+          });
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         
