@@ -4,8 +4,14 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var FileSchema = new Schema({
-  name: String,
-  info: String,
+  filename: String,
+  fieldname: String,
+  originname: String,
+  encoding: String,
+  mimetype: String,
+  size: Number,
+  destination: String,
+  path: String,
   active: Boolean
 });
 
