@@ -18,6 +18,9 @@ angular.module('html5editorApp')
             data: {
               file: file
             }
+          })
+          .success(function(res){
+            $scope.widget.widget.src = res.path;
           });
         };
       },
