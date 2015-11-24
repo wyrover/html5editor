@@ -10,7 +10,7 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget){
-        $scope.insertWidget = function(type){console.log($scope.page)
+        $scope.insertWidget = function(type){
           var defaults = EditorWidget.getDefaults(type);
           $scope.page.contents.push(defaults);
           EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
