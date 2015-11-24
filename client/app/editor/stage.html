@@ -4,7 +4,10 @@
                top:widget.top+'px',
                width:widget.width+'px',
                height:widget.height+'px',
-               backgroundColor:widget.backgroundColor}"
+               backgroundColor:widget.backgroundColor,
+               fontWeight:widget.fontWeight,
+               fontStyle:widget.fontStyle,
+               textDecoration:widget.textDecoration}"
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
