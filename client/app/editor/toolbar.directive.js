@@ -27,7 +27,7 @@ angular.module('html5editorApp')
               conf.shape = 'rect';
               break;
             case 'image':
-              conf.src = 'assets/images/widget.png';
+              conf.src = 'assets/images/default.png';
               break;
           }
 
