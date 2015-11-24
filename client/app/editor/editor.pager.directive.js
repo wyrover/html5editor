@@ -5,14 +5,14 @@ angular.module('html5editorApp')
     return {
       require: 'ngModel',
       scope:{
-        sense: '=ngModel',
-        page: '='
+        page: '=ngModel',
+        sense: '=sense'
       },
       templateUrl: 'app/editor/editor-pager.html',
       restrict: 'EA',
       controller: function($scope){
         $scope.insertPage = function($index){
-            $scope.page = {background:{type:'background'}};
+            $scope.page = {background:{type:'background'},contents:[]};
             $scope.sense.contents.push($scope.page);
             $scope.activePage($scope.page);
         };

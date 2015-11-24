@@ -36,7 +36,7 @@ angular.module('html5editorApp')
       getDefaults: function(type){
         var conf = angular.copy(defaults);
         angular.extend(conf, angular.copy(widgets[type]));
-console.log(conf)
+
         return conf;
       }
     };

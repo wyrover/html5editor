@@ -11,9 +11,6 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, Upload, EditorWidget){
         $scope.widget = EditorWidget;
-        $scope.$watch('widget.widget', function(newVal){
-          console.log(newVal)
-        })
         
         $scope.upload = function(file){
           Upload.upload({
