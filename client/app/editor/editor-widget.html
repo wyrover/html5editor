@@ -1,5 +1,7 @@
 <img ng-if="widget.type=='image'" ng-src="{{widget.src}}" />
-<svg ng-if="widget.type=='shape'"></svg>
+<svg ng-if="widget.type=='shape'"  viewBox="0 0 500 500" preserveAspectRatio="none">
+    <rect x="0" y="0" fill="{{widget.fill}}" width="100%" height="100%" />
+</svg>
 <p ng-if="widget.type=='text'">{{widget.text}}</p>
 
 <div class="full absolute widget-editor"></div>

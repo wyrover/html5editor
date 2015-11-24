@@ -24,7 +24,8 @@ angular.module('html5editorApp')
         type: 'shape',
         shape: 'rect',
         width: '50',
-        height: '50'
+        height: '50',
+        fill: '#f00'
       }
     };
 
