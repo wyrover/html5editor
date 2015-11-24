@@ -10,28 +10,9 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget){
-        var defaults = {
-          position:'absolute',
-          top:'0',
-          left:'0'
-        };
-
         $scope.insertWidget = function(type){
-          var conf = angular.copy(defaults);
-          conf.type = type;
-          switch(type){
-            case 'text':
-              conf.text = '点击可编辑';
-              break;
-            case 'shape':
-              conf.shape = 'rect';
-              break;
-            case 'image':
-              conf.src = 'assets/images/default.png';
-              break;
-          }
-
-          $scope.page.contents.push(conf);
+          var defaults = EditorWidget.getDefaults(type);console.log(defaults)
+          $scope.page.contents.push(defaults);
           EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
         };
       },
