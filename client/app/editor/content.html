@@ -1,5 +1,6 @@
 <div ng-if="widget.widget.type=='image'" class="form-group">
-    <button class="btn btn-default" ngf-select="upload($file)" ng-model="file">Select</button>
+    <uploader></uploader>
+<!--     <button class="btn btn-default" ngf-select="upload($file)" ng-model="file">Select</button> -->
 </div>
 <div ng-if="widget.widget.type=='text'" ng-include="'app/editor/content-text.html'" class="form-group"></div>
 <div ng-if="widget.widget.type=='shape'" ng-include="'app/editor/content-shape.html'" class="form-group"></div>
