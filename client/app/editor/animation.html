@@ -1,0 +1,26 @@
+<table class="table table-bordered table-stripped">
+    <tbody>
+        <tr>
+            <th>延迟</th>
+            <td><input type="range" ng-model="widget.widget.animationDelay" min="1" max="20" step="0.1" /></td>
+        </tr>
+        <tr>
+            <th>速度</th>
+            <td><input type="range" ng-model="widget.widget.animationDuration" min="1" max="20" step="0.1" /></td>
+        </tr>
+<!--         <tr>
+            <th>曲线</th>
+            <td><input type="range" ng-model="widget.widget.width" min="1" max="320" step="1" /></td>
+        </tr> -->
+    </tbody>
+</table>
+
+<div class="settings-animations">
+    <div ng-repeat="animation in animations" class="col-sm-3">
+        <div class="well well-sm text-center" 
+            ng-mouseenter="animationName=animation.animation"
+            ng-mouseout="animationName=''">
+            <i class="glyphicon glyphicon-star  animated {{animationName}}" style="animation-iteration-count:infinite" ></i>
+        </div>
+    </div>
+</div>
