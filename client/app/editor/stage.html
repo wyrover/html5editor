@@ -3,11 +3,7 @@
                left:widget.left+'px',
                top:widget.top+'px',
                width:widget.width+'px',
-               height:widget.height+'px',
-               backgroundColor:widget.backgroundColor,
-               fontWeight:widget.fontWeight,
-               fontStyle:widget.fontStyle,
-               textDecoration:widget.textDecoration}"
+               height:widget.height+'px'}"
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
@@ -19,6 +15,10 @@
         transform:'rotate('+widget.transform+'deg)',
         borderWidth:widget.borderWidth+'px',
         borderStyle:widget.borderStyle,
-        borderColor:widget.borderColor
+        borderColor:widget.borderColor,
+       backgroundColor:widget.backgroundColor,
+       fontWeight:widget.fontWeight,
+       fontStyle:widget.fontStyle,
+       textDecoration:widget.textDecoration
     }"></editor-widget>
 </div>
