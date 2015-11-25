@@ -14,6 +14,16 @@
             </td>
         </tr>
         <tr>
+            <th width="20%">对齐</th>
+            <td>
+                <div class="btn-group btn-group-justified btn-group-sm">
+                    <label class="btn btn-default btn-sm" ng-model="widget.widget.textAlign" btn-radio="'left'">左对齐</label>
+                    <label class="btn btn-default btn-sm" ng-model="widget.widget.textAlign" btn-radio="'center'">居中</label>
+                    <label class="btn btn-default btn-sm" ng-model="widget.widget.textAlign" btn-radio="'right'">右对齐</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
             <th>链接</th>
             <td>
                 <input type="text" class="form-control input-sm" ng-model="widget.widget.href" />
