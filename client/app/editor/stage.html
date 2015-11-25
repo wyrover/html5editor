@@ -12,7 +12,13 @@
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
     class="editor-widgets-item animated {{widget.animation}}" >
-    <editor-widget ng-model="widget" ng-style="{
-        transform:'rotate('+widget.transform+'deg)'
+    <editor-widget 
+        ng-model="widget" 
+        class="block full"
+        ng-style="{
+        transform:'rotate('+widget.transform+'deg)',
+        borderWidth:widget.borderWidth+'px',
+        borderStyle:'solid',
+        borderColor:'#ccc'
     }"></editor-widget>
 </div>

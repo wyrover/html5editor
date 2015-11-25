@@ -13,6 +13,7 @@ angular.module('html5editorApp')
         type: 'text',
         text: '点击可编辑',
         width: '100',
+        borderWidth: 1,
         textAlign: 'left'
       },
       image: {
