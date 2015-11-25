@@ -17,7 +17,9 @@
 
 <div class="settings-animations">
     <div ng-repeat="animation in animations" class="col-sm-3">
-        <div class="well well-sm text-center" 
+        <div class="alert well-sm text-center" 
+            ng-class="{'alert-success': animationName==animation.animation,
+                        'alert-danger': animationName!=animation.animation}"
             ng-mouseenter="animationName=animation.animation"
             ng-mouseout="animationName=''">
             <i class="glyphicon glyphicon-star  animated {{animationName}}" style="animation-iteration-count:infinite" ></i>
