@@ -30,7 +30,10 @@
         </tr>
         <tr>
             <th>阴影</th>
-            <td><input type="range" ng-model="widget.widget.boxShadow" min="1" max="100" step="1" /></td>
+            <td>
+                <div class="col-sm-6"><input type="range" ng-model="widget.widget.boxShadow" min="0" max="100" step="1" /></div>
+                <div class="col-sm-6"><input type="color" ng-model="widget.widget.boxShadowColor" class="" /></div>
+            </td>
         </tr>
         <tr>
             <th>背景</th>
