@@ -1,7 +1,7 @@
 <table class="table table-bordered table-stripped">
     <tbody>
         <tr>
-            <th>左移</th>
+            <th width="20%">左移</th>
             <td><input type="range" ng-model="widget.widget.left" min="1" max="320" step="1" /></td>
         </tr>
         <tr>
@@ -22,7 +22,11 @@
         </tr>
         <tr>
             <th>边框</th>
-            <td><input type="range" ng-model="widget.widget.borderWidth" min="1" max="100" step="1" /></td>
+            <td>
+                <div class="col-sm-4"><input type="range" ng-model="widget.widget.borderWidth" min="0" max="100" step="1" /></div>
+                <div class="col-sm-4"><select ng-model="widget.widget.borderStyle" ng-options="style.style as style.name for style in border_style"></select></div>
+                <div class="col-sm-4"><input type="color" ng-model="widget.widget.borderColor" class="" /></div>
+            </td>
         </tr>
         <tr>
             <th>阴影</th>

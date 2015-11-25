@@ -5,7 +5,10 @@ angular.module('html5editorApp')
     var defaults = {
           position:'absolute',
           top:'0',
-          left:'0'
+          left:'0',
+          borderWidth: '1',
+          borderStyle: 'none',
+          borderColor: '#888888'
         };
     
     var widgets = {
@@ -13,7 +16,6 @@ angular.module('html5editorApp')
         type: 'text',
         text: '点击可编辑',
         width: '100',
-        borderWidth: 1,
         textAlign: 'left'
       },
       image: {
