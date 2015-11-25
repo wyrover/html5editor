@@ -4,13 +4,19 @@
             <td colspan="2"><textarea rows="3" ng-model="widget.widget.text" class="form-control"></textarea></td>
         </tr>
         <tr>
-            <th>风格</th>
+            <th width="20%">风格</th>
             <td>
                 <div class="btn-group btn-group-justified btn-group-sm">
                     <label class="btn btn-default btn-sm" ng-model="widget.widget.fontWeight" btn-checkbox btn-checkbox-true="'bold'" style="font-weight:bold">B</label>
                     <label class="btn btn-default btn-sm" ng-model="widget.widget.fontStyle" btn-checkbox btn-checkbox-true="'italic'" style="font-style:italic">I</label>
                     <label class="btn btn-default btn-sm" ng-model="widget.widget.textDecoration" btn-checkbox btn-checkbox-true="'underline'"  style="text-decoration:underline">U</label>
                 </div>
+            </td>
+        </tr>
+        <tr>
+            <th>链接</th>
+            <td>
+                <input type="text" class="form-control input-sm" ng-model="widget.widget.href" />
             </td>
         </tr>
     </tbody>
