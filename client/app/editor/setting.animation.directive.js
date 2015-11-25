@@ -40,10 +40,15 @@ angular.module('html5editorApp')
                     {name:'向左上旋转', animation:'rotateInUpRight'},
                     {name:'中心放大', animation:'zoomIn'}
                 ];
-                
+
         $scope.animationName = '';
 
         $scope.widget = EditorWidget;
+
+        $scope.changeAnimation = function(animation){
+          //$scope.animationName = animation.animation;
+          $scope.widget.widget.animation = animation.animation;
+        };
       },
       link: function (scope, element, attrs, ngModel) {
       }

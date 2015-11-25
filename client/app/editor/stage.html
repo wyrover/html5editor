@@ -11,6 +11,6 @@
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
-    class="editor-widgets-item" >
+    class="editor-widgets-item animated {{widget.animation}}" >
     <editor-widget ng-model="widget"></editor-widget>
 </div>

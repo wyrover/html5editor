@@ -21,7 +21,8 @@
             ng-class="{'alert-success': animationName==animation.animation,
                         'alert-danger': animationName!=animation.animation}"
             ng-mouseenter="animationName=animation.animation"
-            ng-mouseout="animationName=''">
+            ng-mouseout="animationName=''"
+            ng-click="changeAnimation(animation)">
             <i class="glyphicon glyphicon-star  animated {{animationName}}" style="animation-iteration-count:infinite" ></i>
         </div>
     </div>
