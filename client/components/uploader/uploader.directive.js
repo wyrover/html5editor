@@ -6,6 +6,8 @@ angular.module('html5editorApp')
       templateUrl: 'components/uploader/uploader.html',
       restrict: 'EA',
       controller: function($scope, Upload){
+        $scope.progress = 0;
+
         $scope.upload = function(file){
           Upload.upload({
             url:'/api/files',
@@ -13,11 +15,13 @@ angular.module('html5editorApp')
           })
           .then(function(resp){
             console.log(resp)
+            $scope.progress = 0;
           },
           function(resp){
             console.log(resp)
-          },function(resp){
-            console.log(resp)
+            $scope.progress = 0;
+          },function(e){
+            $scope.progress = parseInt(100*(e.loaded/e.total));
           });
         };
       },
