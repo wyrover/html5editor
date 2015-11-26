@@ -1,6 +1,13 @@
 <table class="table table-bordered table-stripped">
     <tbody>
         <tr>
+            <th>动画</th>
+            <td>
+                <select ng-model="widget.widget.animation" ng-options="animation.animation as animation.name for animation in animations"></select> 
+                <input type="checkbox" ng-model="widget.widget.animationIterationCount" ng-true-value="'infinite'" />循环播放
+            </td>
+        </tr>
+        <tr>
             <th>延迟</th>
             <td><input type="range" ng-model="widget.widget.animationDelay" min="1" max="20" step="0.1" /></td>
         </tr>
@@ -8,22 +15,5 @@
             <th>速度</th>
             <td><input type="range" ng-model="widget.widget.animationDuration" min="0" max="2" step="0.1" tooltip="{{widget.wiget.type}}" /></td>
         </tr>
-<!--         <tr>
-            <th>曲线</th>
-            <td><input type="range" ng-model="widget.widget.width" min="1" max="320" step="1" /></td>
-        </tr> -->
     </tbody>
 </table>
-
-<div class="settings-animations">
-    <div ng-repeat="animation in animations" class="col-sm-3">
-        <div class="alert well-sm text-center" 
-            ng-class="{'alert-success': animationName==animation.animation,
-                        'alert-danger': animationName!=animation.animation}"
-            ng-mouseenter="animationName=animation.animation"
-            ng-mouseout="animationName=''"
-            ng-click="changeAnimation(animation)">
-            <i class="glyphicon glyphicon-star  animated {{animationName}}" style="animation-iteration-count:infinite" ></i>
-        </div>
-    </div>
-</div>
