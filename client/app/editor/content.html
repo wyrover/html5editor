@@ -1,4 +1,4 @@
-<div ng-if="widget.widget.type=='image'" class="form-group widget-image-settins">
+{{widget.widget}}<div ng-if="widget.widget.type=='image'" class="form-group widget-image-settins">
     <uploader></uploader>
 </div>
 <div ng-if="widget.widget.type=='text'" ng-include="'app/editor/content-text.html'" class="form-group widget-text-settings"></div>

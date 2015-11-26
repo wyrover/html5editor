@@ -1,3 +1,15 @@
+<div class="full"
+    ng-style="{position:page.background.position,
+               left:page.background.left+'px',
+               top:page.background.top+'px',
+               width:page.background.width+'px',
+               height:page.background.height+'px',
+               backgroundColor:page.background.backgroundColor,
+               animationDelay: page.background.animationDelay+'s',
+               animationDuration: page.background.animationDuration+'s',
+               animationIterationCount:page.background.animationIterationCount}"
+    ng-click="changeWidget($event, page.background)">
+</div>
 <div ng-repeat="widget in page.contents"
     ng-style="{position:widget.position,
                left:widget.left+'px',
