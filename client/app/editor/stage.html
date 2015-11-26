@@ -1,4 +1,4 @@
-<div class="full"
+<div class="full editor-widget-background"
     ng-style="{position:page.background.position,
                left:page.background.left+'px',
                top:page.background.top+'px',
@@ -22,7 +22,7 @@
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
-    class="editor-widgets-item animated {{widget.animation}}" >
+    class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
     <editor-widget 
         ng-model="widget" 
         class="block full"
