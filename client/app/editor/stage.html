@@ -3,7 +3,9 @@
                left:widget.left+'px',
                top:widget.top+'px',
                width:widget.width+'px',
-               height:widget.height+'px'}"
+               height:widget.height+'px',
+               animationDelay: widget.animationDelay+'s',
+               animationDuration: widget.animationDuration+'s'}"
     ng-click="changeWidget($event, widget)"
     hm-panstart="onPanStart($event, widget)"
     hm-panmove="onPanMove($event, widget)"
@@ -12,6 +14,7 @@
         ng-model="widget" 
         class="block full"
         ng-style="{
+        padding:widget.padding+'px',
         transform:'rotate('+widget.transform+'deg)',
         borderWidth:widget.borderWidth+'px',
         borderStyle:widget.borderStyle,
