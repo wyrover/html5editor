@@ -16,11 +16,11 @@ angular.module('html5editorApp')
             contents = angular.copy($scope.page.contents);
 
         $scope.changeWidget = function($event, widget){
-          if(!$event.shiftKey){
+          if(!$event.shiftKey&&!widget.active){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
             });
-            multi = false;
+            //multi = widget.active;
           }
           else{
             multi = true;
@@ -28,22 +28,20 @@ angular.module('html5editorApp')
           widget.active = true;
           EditorWidget.widget = widget;
         };
-        $scope.onPanStart = function($event, widget){
+        $scope.onPanStart = function($event, widget){console.log(multi)
           x = widget.left;
           y = widget.top;
-          if(multi)
-            contents = angular.copy($scope.page.contents);
+          contents = angular.copy($scope.page.contents);
         };
         $scope.onPanMove = function($event, widget){
           widget.left = parseInt(x) + $event.deltaX;
           widget.top = parseInt(y) + $event.deltaY;
-          if(multi){
-            angular.forEach($scope.page.contents, function(item, index){
-              if(!item.active)return;
-              item.left = parseInt(contents[index].left) + $event.deltaX;
-              item.top = parseInt(contents[index].top) + $event.deltaY;
-            })
-          }
+
+          angular.forEach($scope.page.contents, function(item, index){
+            if(!item.active)return;
+            item.left = parseInt(contents[index].left) + $event.deltaX;
+            item.top = parseInt(contents[index].top) + $event.deltaY;
+          });
         };
       },
       link: function (scope, element, attrs, ngModel) {
