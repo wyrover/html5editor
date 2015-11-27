@@ -12,7 +12,6 @@ angular.module('html5editorApp')
       controller: function($scope, EditorWidget){
         var x = 0, 
             y = 0, 
-            multi = false,
             contents = angular.copy($scope.page.contents);
 
         $scope.changeWidget = function($event, widget){
@@ -20,15 +19,11 @@ angular.module('html5editorApp')
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
             });
-            //multi = widget.active;
-          }
-          else{
-            multi = true;
           }
           widget.active = true;
           EditorWidget.widget = widget;
         };
-        $scope.onPanStart = function($event, widget){console.log(multi)
+        $scope.onPanStart = function($event, widget){
           x = widget.left;
           y = widget.top;
           contents = angular.copy($scope.page.contents);
