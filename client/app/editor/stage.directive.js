@@ -12,7 +12,13 @@ angular.module('html5editorApp')
       controller: function($scope, EditorWidget){
         var x = 0, y = 0;
 
-        $scope.changeWidget = function($event, widget){
+        $scope.changeWidget = function($event, widget){console.log($event)
+          if(!$event.shiftKey){
+            angular.forEach($scope.page.contents, function(item){
+              item.active = false;
+            });
+          }
+          widget.active = true;
           EditorWidget.widget = widget;
         };
         $scope.onPanStart = function($event, widget){

@@ -44,5 +44,10 @@
        textDecoration:widget.textDecoration,
        textAlign:widget.textAlign
     }"></editor-widget>
-    <editor-resizer ng-model="widget" class="editor-resizer" ng-style="{transform:'rotate('+widget.transform+'deg)'}"></editor-resizer>
+    <editor-resizer 
+        ng-model="widget" 
+        ng-if="widget.active"
+        class="editor-resizer" 
+        ng-style="{transform:'rotate('+widget.transform+'deg)'}">
+    </editor-resizer>
 </div>
