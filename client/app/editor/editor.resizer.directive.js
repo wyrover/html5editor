@@ -11,6 +11,7 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope){
         var widget = $scope.widget;
+
         $scope.onPanStart = function(){
             widget = angular.copy($scope.widget);
         };
@@ -27,6 +28,23 @@ angular.module('html5editorApp')
             $scope.widget.width = parseInt(widget.width) + $event.deltaX;
             $scope.widget.left = widget.left;
         };
+        $scope.bottomLeft = function($event){
+            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
+            $scope.widget.width = parseInt(widget.width) - $event.deltaX;
+            $scope.widget.top = widget.top;
+        };
+        $scope.bottomRight = function($event){
+            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
+            $scope.widget.width = parseInt(widget.width) + $event.deltaX;
+            $scope.widget.left = widget.left;
+            $scope.widget.top = widget.top;
+        };
+        $scope.bottomMiddle = function($event){
+            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
+            $scope.widget.left = widget.left;
+            $scope.widget.top = widget.top;
+        };
+        
       },
       link: function (scope, element, attrs) {
       }
