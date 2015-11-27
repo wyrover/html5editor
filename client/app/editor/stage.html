@@ -1,53 +1,53 @@
-<div class="full editor-widget-background  animated {{page.background.animation}}"
-    ng-style="{position:page.background.position,
-               left:page.background.left+'px',
-               top:page.background.top+'px',
-               width:page.background.width+'px',
-               height:page.background.height+'px',
-               backgroundImage:'url('+page.background.src+')',
+<div class="full  animated {{page.background.animation}}"
+    ng-style="{backgroundImage:'url('+page.background.src+')',
                backgroundSize: 'cover',
                backgroundColor:page.background.backgroundColor,
                animationDelay: page.background.animationDelay+'s',
                animationDuration: page.background.animationDuration+'s',
-               animationIterationCount:page.background.animationIterationCount}"
+               animationIterationCount:page.background.animationIterationCount}">
+  
+  <div class="full editor-widget-background "
     ng-click="changeWidget($event, page.background)">
-</div>
-<div ng-repeat="widget in page.contents"
-    ng-style="{position:widget.position,
-               left:widget.left+'px',
-               top:widget.top+'px',
-               width:widget.width+'px',
-               height:widget.height+'px',
-               animationDelay: widget.animationDelay+'s',
-               animationDuration: widget.animationDuration+'s',
-               animationIterationCount:widget.animationIterationCount}"
-    ng-mousedown="changeWidget($event, widget)"
-    hm-panstart="onPanStart($event, widget)"
-    hm-panmove="onPanMove($event, widget)"
-    class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
-    <editor-widget 
-        ng-model="widget" 
-        class="block full"
-        ng-style="{
-        padding:widget.padding+'px',
-        lineHeight:widget.lineHeight+'em',
-        transform:'rotate('+widget.transform+'deg)',
-        borderWidth:widget.borderWidth+'px',
-        borderStyle:widget.borderStyle,
-        borderColor:widget.borderColor,
-        borderRadius: widget.borderRadius+'px',
-        boxShadow: '0px 0px '+widget.boxShadow+'px '+widget.boxShadowColor,
-       backgroundColor:widget.backgroundColor,
-       opacity:widget.opacity,
-       fontWeight:widget.fontWeight,
-       fontStyle:widget.fontStyle,
-       textDecoration:widget.textDecoration,
-       textAlign:widget.textAlign
-    }"></editor-widget>
-    <editor-resizer 
-        ng-model="widget" 
-        ng-if="widget.active"
-        class="editor-resizer" 
-        ng-style="{transform:'rotate('+widget.transform+'deg)'}">
-    </editor-resizer>
+  </div>
+
+    <div ng-repeat="widget in page.contents"
+        ng-style="{position:widget.position,
+                   left:widget.left+'px',
+                   top:widget.top+'px',
+                   width:widget.width+'px',
+                   height:widget.height+'px',
+                   animationDelay: widget.animationDelay+'s',
+                   animationDuration: widget.animationDuration+'s',
+                   animationIterationCount:widget.animationIterationCount}"
+        ng-mousedown="changeWidget($event, widget)"
+        hm-panstart="onPanStart($event, widget)"
+        hm-panmove="onPanMove($event, widget)"
+        class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
+        <editor-widget 
+            ng-model="widget" 
+            class="block full"
+            ng-style="{
+            padding:widget.padding+'px',
+            lineHeight:widget.lineHeight+'em',
+            transform:'rotate('+widget.transform+'deg)',
+            borderWidth:widget.borderWidth+'px',
+            borderStyle:widget.borderStyle,
+            borderColor:widget.borderColor,
+            borderRadius: widget.borderRadius+'px',
+            boxShadow: '0px 0px '+widget.boxShadow+'px '+widget.boxShadowColor,
+           backgroundColor:widget.backgroundColor,
+           opacity:widget.opacity,
+           fontWeight:widget.fontWeight,
+           fontStyle:widget.fontStyle,
+           textDecoration:widget.textDecoration,
+           textAlign:widget.textAlign
+        }"></editor-widget>
+        <editor-resizer 
+            ng-model="widget" 
+            ng-if="widget.active"
+            class="editor-resizer" 
+            ng-style="{transform:'rotate('+widget.transform+'deg)'}">
+        </editor-resizer>
+    </div>
+
 </div>
