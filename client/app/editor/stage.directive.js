@@ -15,7 +15,7 @@ angular.module('html5editorApp')
             contents = angular.copy($scope.page.contents);
 
         $scope.changeWidget = function($event, widget){
-          if(!$event.shiftKey&&!widget.active){
+          if(!$event.shiftKey&&!widget.active||widget.type=='background'){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
             });
