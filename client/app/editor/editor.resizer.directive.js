@@ -44,6 +44,15 @@ angular.module('html5editorApp')
             $scope.widget.left = widget.left;
             $scope.widget.top = widget.top;
         };
+        $scope.middleRight = function($event){
+            $scope.widget.width = parseInt(widget.width) + $event.deltaX;
+            $scope.widget.left = widget.left;
+            $scope.widget.top = widget.top;
+        };
+        $scope.middleLeft = function($event){
+            $scope.widget.width = parseInt(widget.width) - $event.deltaX;
+            $scope.widget.top = widget.top;
+        };
         
       },
       link: function (scope, element, attrs) {
