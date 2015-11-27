@@ -15,7 +15,7 @@ angular.module('html5editorApp')
             multi = false,
             contents = angular.copy($scope.page.contents);
 
-        $scope.changeWidget = function($event, widget){console.log($event)
+        $scope.changeWidget = function($event, widget){
           if(!$event.shiftKey){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
