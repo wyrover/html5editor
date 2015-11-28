@@ -23,6 +23,7 @@ module.exports = function(config) {
       'bower_components/AngularHammer/angular.hammer.js',
       'bower_components/angular-fx/dist/angular-fx.min.js',
       'bower_components/ng-file-upload/ng-file-upload.js',
+      'bower_components/angular-contextmenu/dist/contextmenu.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',

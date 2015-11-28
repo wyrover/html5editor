@@ -1,4 +1,5 @@
 <div class="full  animated {{page.background.animation}}"
+    contextmenu-container="meta.contextmenu"
     ng-style="{backgroundImage:'url('+page.background.src+')',
                backgroundSize: 'cover',
                backgroundColor:page.background.backgroundColor,
@@ -11,6 +12,7 @@
   </div>
 
     <div ng-repeat="widget in page.contents"
+        contextmenu-item="widget"
         ng-style="{position:widget.position,
                    left:widget.left+'px',
                    top:widget.top+'px',
@@ -51,4 +53,14 @@
         </editor-resizer>
     </div>
 
+</div>
+
+<div contextmenu="meta.contextmenu" class="dropdown contextmenu absolute">
+  <ul class="dropdown-menu" role="menu">
+    <li >
+      <a>
+      {{ meta.contextmenu.get().item.type }}
+      </a>
+    </li>
+  </ul>
 </div>
