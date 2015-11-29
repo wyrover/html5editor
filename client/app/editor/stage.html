@@ -1,5 +1,5 @@
 <div class="full  animated {{page.background.animation}}"
-    contextmenu-container="meta.contextmenu"
+    contextmenu-container="editor.contextmenu"
     ng-style="{backgroundImage:'url('+page.background.src+')',
                backgroundSize: 'cover',
                backgroundColor:page.background.backgroundColor,
@@ -11,7 +11,7 @@
     ng-click="changeWidget($event, page.background)">
   </div>
 
-    <div ng-repeat="widget in page.contents"
+    <div ng-repeat="widget in page.contents track by $index"
         contextmenu-item="widget"
         ng-style="{position:widget.position,
                    left:widget.left+'px',
@@ -55,12 +55,9 @@
 
 </div>
 
-<div contextmenu="meta.contextmenu" class="dropdown contextmenu absolute">
+<div contextmenu="editor.contextmenu" class="dropdown contextmenu editor-contextmenu">
   <ul class="dropdown-menu" role="menu">
-    <li >
-      <a>
-      {{ meta.contextmenu.get().item.type }}
-      </a>
-    </li>
+    <li><a ng-click="pull(editor.contextmenu.item)">上一层</a></li>
+    <li><a ng-click="push(editor.contextmenu.item)">下一层</a></li>
   </ul>
 </div>

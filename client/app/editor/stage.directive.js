@@ -23,11 +23,13 @@ angular.module('html5editorApp')
           widget.active = true;
           EditorWidget.widget = widget;
         };
+
         $scope.onPanStart = function($event, widget){
           x = widget.left;
           y = widget.top;
           contents = angular.copy($scope.page.contents);
         };
+
         $scope.onPanMove = function($event, widget){
           widget.left = parseInt(x) + $event.deltaX;
           widget.top = parseInt(y) + $event.deltaY;
@@ -37,6 +39,22 @@ angular.module('html5editorApp')
             item.left = parseInt(contents[index].left) + $event.deltaX;
             item.top = parseInt(contents[index].top) + $event.deltaY;
           });
+        };
+
+        $scope.push = function(widget){
+          var index = $scope.page.contents.indexOf(widget);
+          if(index>0){
+            $scope.page.contents[index] = $scope.page.contents[index-1];
+            $scope.page.contents[index-1] = widget;
+          };
+        };
+
+        $scope.pull = function(widget){
+          var index = $scope.page.contents.indexOf(widget);
+          if(index>-1&&index<$scope.page.contents.length-1){
+            $scope.page.contents[index] = $scope.page.contents[index+1];
+            $scope.page.contents[index+1] = widget;
+          };
         };
       },
       link: function (scope, element, attrs, ngModel) {
