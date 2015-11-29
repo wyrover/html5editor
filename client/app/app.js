@@ -8,7 +8,8 @@ angular.module('html5editorApp', [
   'ui.bootstrap',
   'hmTouchEvents',
   'ngFileUpload',
-  'io.dennis.contextmenu'
+  'io.dennis.contextmenu',
+  'cgBusy'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
