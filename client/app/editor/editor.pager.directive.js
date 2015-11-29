@@ -26,6 +26,11 @@ angular.module('html5editorApp')
             page.active = true;
             $scope.page = page;
         };
+
+        $scope.removePage = function($index){
+          $scope.sense.contents.splice($scope.sense.contents.length-1, 1);
+          $scope.page = $scope.sense.contents[$scope.sense.contents.length-1];
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         element.on('click', function(event){
