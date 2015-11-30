@@ -70,12 +70,16 @@ angular.module('html5editorApp')
       link: function (scope, element, attrs, ctrls) {
         var ctrl = ctrls[1];
         element.on('keydown', function(e){
-          e.preventDefault();
+          
           switch(e.keyCode){
-            case 37: ctrl.left();break;
-            case 38: ctrl.up();break;
-            case 39: ctrl.right();break;
-            case 40: ctrl.down();break;
+            case 37: ctrl.left();
+              e.preventDefault();break;
+            case 38: ctrl.up();
+              e.preventDefault();break;
+            case 39: ctrl.right();
+              e.preventDefault();break;
+            case 40: ctrl.down();
+              e.preventDefault();break;
           };
           scope.$apply();
         });
