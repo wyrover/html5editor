@@ -55,7 +55,10 @@ angular.module('html5editorApp')
         };
         
       },
-      link: function (scope, element, attrs) {
+      link: function (scope, element, attrs) {console.log(element)
+        element.on('click', function(e){
+          console.log(e)
+        });
       }
     };
   });
