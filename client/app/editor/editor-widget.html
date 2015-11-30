@@ -1,5 +1,5 @@
 <img ng-if="widget.type=='image'" ng-src="{{widget.src}}" class="full img-responsive" />
-<svg ng-if="widget.type=='shape'"  viewBox="0 0 500 500" preserveAspectRatio="none">
+<svg ng-if="widget.type=='shape'"  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
     <rect ng-if="widget.shape=='rect'" x="0" y="0" fill="{{widget.fill}}" width="100%" height="100%" />
     <ellipse ng-if="widget.shape=='circle'" rx="250" ry="250" cx="250" cy="250" fill="{{widget.fill}}"  width="100%" height="100%" />
     <polygon ng-if="widget.shape=='traingle'" points="250,0 500,500 0,500" fill="{{widget.fill}}"  width="100%" height="100%"></polygon>
