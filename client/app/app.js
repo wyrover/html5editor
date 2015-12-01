@@ -13,12 +13,13 @@ angular.module('html5editorApp', [
   'cfp.hotkeys',
   'decipher.history'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $modalProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+    $modalProvider.options.templateUrl = "components/modal/modal.html";
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
