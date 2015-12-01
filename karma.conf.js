@@ -26,6 +26,7 @@ module.exports = function(config) {
       'bower_components/angular-contextmenu/dist/contextmenu.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-busy/dist/angular-busy.js',
+      'bower_components/angular-hotkeys/build/hotkeys.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',
