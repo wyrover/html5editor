@@ -19,7 +19,7 @@ angular.module('html5editorApp', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-    $modalProvider.options.templateUrl = "components/modal/modal.html";
+    $modalProvider.options.windowTemplateUrl = "components/modal/modal.html";
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

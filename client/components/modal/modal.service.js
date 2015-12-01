@@ -16,7 +16,6 @@ angular.module('html5editorApp')
       angular.extend(modalScope, scope);
 
       return $modal.open({
-        windowTemplateUrl: 'components/modal/modal.html',
         template:'aaa',
         windowClass: modalClass,
         scope: modalScope
@@ -24,16 +23,15 @@ angular.module('html5editorApp')
     }
 
     // Public API here
-    return  function() {
-            var args = Array.prototype.slice.call(arguments),
-                name = args.shift(),
-                normalModal;
+    return  function(options) {
+            var normalModal;
 
             normalModal = openModal({
               modal: {
                 dismissable: true,
+                animate:true,
                 title: 'Confirm Delete',
-                template: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                template: '<p>Are you sure you want to delete <strong></strong> ?</p>',
                 buttons: [{
                   classes: 'btn-danger',
                   text: 'Delete',
@@ -48,7 +46,7 @@ angular.module('html5editorApp')
                   }
                 }]
               }
-            }, 'modal-danger');
+            });
 
             normalModal.result.then(function(event) {
               del.apply(event, args);
