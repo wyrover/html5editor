@@ -9,14 +9,9 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-widget.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys){
-        hotkeys.bindTo($scope)
-        .add({
-          combo:'ctrl+z',
-          callback: function(){
-            console.log('undo')
-          }
-        });
+      controller: function($scope, EditorWidget, hotkeys, History){
+        
+        
       },
       link: function (scope, element, attrs, ngModel) {
         
