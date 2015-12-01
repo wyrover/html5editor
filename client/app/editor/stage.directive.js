@@ -20,7 +20,7 @@ angular.module('html5editorApp')
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
-              if(item.group==widget.group){
+              if(widget.group&&item.group==widget.group){
                     item.active = true;
               }
             });
@@ -89,6 +89,7 @@ angular.module('html5editorApp')
             angular.forEach($scope.page.contents, function(item, index){
                   if(item.active){
                         delete item.group;
+                        item.active = false;
                   }
             });
         };
