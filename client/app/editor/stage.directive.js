@@ -71,6 +71,24 @@ angular.module('html5editorApp')
               EditorWidget.widget = w;
               $scope.page.contents.push(w);
         };
+
+        $scope.group = function(){
+            $scope.page.glen = $scope.page.glen||1;
+            angular.forEach($scope.page.contents, function(item, index){
+                  if(item.active){
+                        item.group = $scope.page.glen+1;
+                  }
+            });
+            $scope.page.glen++;
+        };
+
+        $scope.split = function(){
+            angular.forEach($scope.page.contents, function(item, index){
+                  if(item.active){
+                        delete item.group;
+                  }
+            });
+        };
         
         hotkeys.bindTo($scope)
             .add({
