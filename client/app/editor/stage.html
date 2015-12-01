@@ -22,7 +22,7 @@
                    animationDelay: widget.animationDelay+'s',
                    animationDuration: widget.animationDuration+'s',
                    animationIterationCount:widget.animationIterationCount}"
-        ng-mousedown="changeWidget($event, widget)"
+        ng-click="changeWidget($event, widget)"
         hm-panstart="onPanStart($event, widget)"
         hm-panmove="onPanMove($event, widget)"
         class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >

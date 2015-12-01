@@ -64,12 +64,12 @@ angular.module('html5editorApp')
         };
 
         $scope.paste = function(widget){
-              var w = angular.copy(widget);
+              var w = angular.copy($scope.widget);
               w.top += 10;
               w.left += 10;
               EditorWidget.widget.active = false;
               EditorWidget.widget = w;
-              $scope.page.contents.push(w);
+              $scope.page.contents.push(w);console.log(w)
         };
       },
       link: function (scope, element, attrs, ngModel) {

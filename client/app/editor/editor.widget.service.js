@@ -50,19 +50,25 @@ angular.module('html5editorApp')
       }
     });
 
-    History.watch('widget.width', s);
+    s.$watch('widget.type',function(nv,ov){
+      if(nv!=ov){
+        History.forget('widget', s)
+      }
+    });
+
+    History.watch('widget', s);
     
     hotkeys.bindTo(s)
         .add({
           combo:'ctrl+z',
           callback: function(){
-            History.undo('widget.width',s)
+            History.undo('widget',s);
           }
         })
         .add({
           combo:'ctrl+y',
           callback: function(){
-            History.redo('widget.width',s)
+            History.redo('widget',s);
           }
         });
 
