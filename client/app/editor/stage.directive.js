@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, EditorWidget, hotkeys){
         var x = 0, 
             y = 0, 
             contents = angular.copy($scope.page.contents);
@@ -69,8 +69,23 @@ angular.module('html5editorApp')
               w.left += 10;
               EditorWidget.widget.active = false;
               EditorWidget.widget = w;
-              $scope.page.contents.push(w);console.log(w)
+              $scope.page.contents.push(w);
         };
+        
+        hotkeys.bindTo($scope)
+            .add({
+                combo:'ctrl+c',
+                callback: function(){
+                  $scope.copy(EditorWidget.widget);
+                }
+              })
+              .add({
+                combo:'ctrl+v',
+                callback: function(){
+                  $scope.paste();
+                }
+              });
+
       },
       link: function (scope, element, attrs, ngModel) {
         
