@@ -1,6 +1,19 @@
 'use strict';
 
 angular.module('html5editorApp')
+  .controller('FileModalCtrl', function($scope, $modalInstance, files){
+    $scope.files = files;
+
+    $scope.remove = function(index){
+      files[index].$remove(function(){
+        files.splice(index, 1)
+      });
+    };
+
+    $scope.select = function(file){
+      $modalInstance.close(file);
+    };
+  })
   .factory('FileModal', function ($rootScope, $modal, File) {
     
     function openModal(scope){
@@ -12,14 +25,7 @@ angular.module('html5editorApp')
       return $modal.open({
         size:'lg',
         templateUrl: 'app/file/modal.html',
-        controller: function($scope, files){console.log(files)
-          $scope.files = files;
-          $scope.remove = function(index){
-            files[index].$remove(function(){
-              files.splice(index, 1)
-            });
-          };
-        },
+        controller: 'FileModalCtrl',
         resolve: {
           files: function(){
             return File.query();
