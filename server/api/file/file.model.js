@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var FileSchema = new Schema({
   filename: String,
   fieldname: String,
-  originname: String,
+  originalname: String,
   encoding: String,
   mimetype: String,
   type: String,
