@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         page: '=ngModel'
       },
-      templateUrl: 'app/editor/stage.html',
+      templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget, hotkeys){
         var x = 0, 
