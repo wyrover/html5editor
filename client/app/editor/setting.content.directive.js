@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/setting-content.html',
       restrict: 'EA',
-      controller: function($scope, Upload, EditorWidget, $modal){
+      controller: function($scope, Upload, EditorWidget, FileModal){
         $scope.widget = EditorWidget;
         
         $scope.upload = function(file){
@@ -24,7 +24,7 @@ angular.module('html5editorApp')
           });
         };
         $scope.selectBackground = function(){
-          
+          FileModal();
         };
       },
       link: function (scope, element, attrs, ngModel) {

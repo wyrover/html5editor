@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <button type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 class="modal-title">选择文件</h4>
+</div>
+<div class="modal-body">
+<div class="row" cg-busy="files.$promise">
+  <div  class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <div class="caption">
+        <p><a ng-click="upload($file)" class="btn btn-link btn-block" role="button">+添加</a>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="file in files track by $index" class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img ng-src="" alt="...">
+      <div class="caption">
+        <h3>{{file.name}}</h3>
+        <p><a ng-click="select(file)" class="btn btn-primary" role="button">选择</a> 
+            <a href="#" class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
