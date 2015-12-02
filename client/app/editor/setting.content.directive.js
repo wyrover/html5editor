@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         sense: '=ngModel'
       },
-      templateUrl: 'app/editor/content.html',
+      templateUrl: 'app/editor/setting-content.html',
       restrict: 'EA',
       controller: function($scope, Upload, EditorWidget){
         $scope.widget = EditorWidget;
