@@ -24,7 +24,9 @@ angular.module('html5editorApp')
           });
         };
         $scope.selectBackground = function(){
-          FileModal();
+          FileModal().result.then(function(file){
+            $scope.widget.widget.src = file.path;
+          });
         };
       },
       link: function (scope, element, attrs, ngModel) {
