@@ -22,7 +22,7 @@ angular.module('html5editorApp')
         }
       })
       .success(function(res){
-        files.unshift(new File(res))
+        $scope.files.unshift(new File(res))
       });
     };
   })
