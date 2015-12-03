@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .service('EditorWidget', function ($rootScope, History, hotkeys) {
+  .service('EditorWidget', function ($rootScope) {
     var defaults = {
           position:'absolute',
           top:'0',
@@ -36,9 +36,7 @@ angular.module('html5editorApp')
       }
     };
 
-    var s = $rootScope.$new(true);
-    angular.extend(s, 
-    {
+    return {
       widget:{
 
       },
@@ -48,29 +46,5 @@ angular.module('html5editorApp')
 
         return conf;
       }
-    });
-
-    s.$watch('widget.type',function(nv,ov){
-      if(nv!=ov){
-        History.forget('widget', s)
-      }
-    });
-
-    History.watch('widget', s);
-    
-    hotkeys.bindTo(s)
-        .add({
-          combo:'ctrl+z',
-          callback: function(){
-            History.undo('widget',s);
-          }
-        })
-        .add({
-          combo:'ctrl+y',
-          callback: function(){
-            History.redo('widget',s);
-          }
-        });
-
-    return s;
+    };
   });
