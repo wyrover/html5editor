@@ -13,15 +13,14 @@ angular.module('html5editorApp')
         var x = 0, 
             y = 0, 
             contents = angular.copy($scope.page.contents),
-            current = EditorWidget.widget;
-
-        $scope.widget_copy = {};
+            current = EditorWidget.widget,
+            widget_copy = {};
 
         $scope.changeWidget = function($event, widget){
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
-              if(widget.group&&item.group==widget.group){
+              if(widget.group&&widget.group>0&&item.group==widget.group){
                     item.active = true;
               }
             });
@@ -64,16 +63,18 @@ angular.module('html5editorApp')
         };
 
         $scope.copy = function(widget){
-          $scope.widget_copy = widget;
+          widget_copy = widget;
         };
 
-        $scope.paste = function(widget){
-              if(!$scope.widget_copy.type) return;
-              var w = angular.copy($scope.widget_copy);
+        $scope.paste = function(widget){console.log(widget_copy)
+              if(!widget_copy.type) return;
+              var w = angular.copy(widget_copy);
               w.top += 10;
               w.left += 10;
-              EditorWidget.widget.active = false;
+              w.active = false;
+              w.group = -1;
               EditorWidget.widget = w;
+              widget_copy = w;
               $scope.page.contents.push(w);
         };
 
