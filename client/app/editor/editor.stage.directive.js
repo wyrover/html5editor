@@ -9,10 +9,11 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys){
+      controller: function($scope, EditorWidget, hotkeys, History){
         var x = 0, 
             y = 0, 
-            contents = angular.copy($scope.page.contents);
+            contents = angular.copy($scope.page.contents),
+            current = EditorWidget.widget;
 
         $scope.widget_copy = {};
 
@@ -26,7 +27,7 @@ angular.module('html5editorApp')
             });
           }
           widget.active = true;
-          EditorWidget.widget = widget;
+          current = EditorWidget.widget = widget;
         };
 
         $scope.onPanStart = function($event, widget){
@@ -94,6 +95,13 @@ angular.module('html5editorApp')
                   }
             });
         };
+
+        $scope.remove = function(){
+            var index = $scope.page.contents.indexOf(EditorWidget.widget);
+            if(index>-1){
+              $scope.page.contents.splice(index, 1);
+            }
+        };
         
         hotkeys.bindTo($scope)
             .add({
@@ -106,6 +114,12 @@ angular.module('html5editorApp')
                 combo:'ctrl+v',
                 callback: function(){
                   $scope.paste();
+                }
+              })
+              .add({
+                combo:'del',
+                callback: function(){
+                  $scope.remove();
                 }
               });
 
