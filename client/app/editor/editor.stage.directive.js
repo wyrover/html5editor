@@ -14,7 +14,7 @@ angular.module('html5editorApp')
             y = 0, 
             contents = angular.copy($scope.page.contents);
 
-        $scope.widget = {};
+        $scope.widget_copy = {};
 
         $scope.changeWidget = function($event, widget){
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
@@ -63,11 +63,12 @@ angular.module('html5editorApp')
         };
 
         $scope.copy = function(widget){
-          $scope.widget = widget;
+          $scope.widget_copy = widget;
         };
 
         $scope.paste = function(widget){
-              var w = angular.copy($scope.widget);
+              if(!$scope.widget_copy.type) return;
+              var w = angular.copy($scope.widget_copy);
               w.top += 10;
               w.left += 10;
               EditorWidget.widget.active = false;
