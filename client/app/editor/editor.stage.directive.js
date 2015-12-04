@@ -131,6 +131,12 @@ angular.module('html5editorApp')
                 }
               })
               .add({
+                combo: 'ctrl+y',
+                callback: function(){
+                  $scope.page.contents = history.forward();
+                }
+              })
+              .add({
                 combo:'del',
                 callback: function(){
                   $scope.remove();
