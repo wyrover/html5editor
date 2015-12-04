@@ -3,10 +3,11 @@
 angular.module('html5editorApp')
   .service('History', function () {
 
-    function History(timeout){
+    function History(timeout, size){
       this.cur = 0;
       this.stack = [];
       this.timeout = timeout;
+      this.size = size||100;
       this.lastTime = new Date().getTime()+timeout;
     }
 
@@ -15,6 +16,7 @@ angular.module('html5editorApp')
       this.stack.push(angular.copy(val));
       this.lastTime = new Date().getTime();
       this.cur++;
+      if(this.stack.length>this.size) this.stack.shift();
     };
 
     History.prototype.canAdd = function(){
