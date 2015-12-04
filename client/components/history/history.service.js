@@ -6,7 +6,7 @@ angular.module('html5editorApp')
     function History(timeout, size){
       this.cur = 0;
       this.stack = [];
-      this.timeout = timeout;
+      this.timeout = timeout||500;
       this.size = size||100;
       this.lastTime = new Date().getTime()+timeout;
     }

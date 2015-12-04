@@ -67,7 +67,7 @@ angular.module('html5editorApp')
           widget_copy = widget;
         };
 
-        $scope.paste = function(widget){console.log(widget_copy)
+        $scope.paste = function(widget){
               if(!widget_copy.type) return;
               var w = angular.copy(widget_copy);
               w.top += 10;
