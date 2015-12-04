@@ -12,15 +12,18 @@ angular.module('html5editorApp')
     }
 
     History.prototype.add = function(val){
-      if(!this.canAdd()) return;
+      if(!this.canAdd(val)) return;
       this.stack.push(angular.copy(val));
       this.lastTime = new Date().getTime();
-      this.cur++;
+      this.cur = this.stack.length-1;
       if(this.stack.length>this.size) this.stack.shift();
     };
 
-    History.prototype.canAdd = function(){
-      return this.cur>=this.stack.length-1&&this.lastTime + this.timeout < new Date().getTime();
+    History.prototype.canAdd = function(val){
+      if(this.cur<this.stack.length-1&&angular.equals(val,this.get())){
+        this.stack.splice(this.cur, this.stack.length-this.cur);
+      }
+      return this.lastTime + this.timeout < new Date().getTime();
     };
 
     History.prototype.get = function(){
@@ -28,17 +31,17 @@ angular.module('html5editorApp')
     };
 
     History.prototype.back = function(){
-      this.canBack()&&this.cur--;
+      this.cur--;
       return this.get();
     };
 
     History.prototype.forward = function(){
-      this.canForward()&&this.cur++;
+      this.cur++;
       return this.get();
     };
 
     History.prototype.canBack = function(){
-      return this.cur>0;
+      return this.cur>0&&this.stack.length;
     };
 
     History.prototype.canForward = function(){

@@ -106,7 +106,7 @@ angular.module('html5editorApp')
         };
 
         $scope.$watch('page.contents',function(nv, ov){
-              if(nv!==ov){
+              if(nv.length&&nv!==ov){
                     history.add(nv);
               }
         },true);
@@ -127,13 +127,15 @@ angular.module('html5editorApp')
               .add({
                 combo: 'ctrl+z',
                 callback: function(){
-                  $scope.page.contents = history.back();
+                  if(history.canBack()) 
+                        $scope.page.contents = history.back();
                 }
               })
               .add({
                 combo: 'ctrl+y',
                 callback: function(){
-                  $scope.page.contents = history.forward();
+                  if(history.canForward())
+                        $scope.page.contents = history.forward();
                 }
               })
               .add({
