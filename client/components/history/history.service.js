@@ -3,31 +3,36 @@
 angular.module('html5editorApp')
   .service('History', function () {
 
-    function History(timout){
+    function History(timeout){
       this.cur = 0;
       this.stack = [];
-      this.timeout = timout;
-      this.lastTime = new Date().getTime();
+      this.timeout = timeout;
+      this.lastTime = new Date().getTime()+timeout;
     }
 
     History.prototype.add = function(val){
-      this.stack.push(val);
+      if(!this.canAdd()) return;
+      this.stack.push(angular.copy(val));
+      this.lastTime = new Date().getTime();
+      this.cur++;
     };
 
     History.prototype.canAdd = function(){
-      return this.lastTime + this.timout < new Date().getTime();
+      return this.cur>=this.stack.length-1&&this.lastTime + this.timeout < new Date().getTime();
     };
 
     History.prototype.get = function(){
-      return this.stack[this.cur];
+      return angular.copy(this.stack[this.cur]);
     };
 
     History.prototype.back = function(){
       this.canBack()&&this.cur--;
+      return this.get();
     };
 
     History.prototype.forward = function(){
       this.canForward()&&this.cur++;
+      return this.get();
     };
 
     History.prototype.canBack = function(){

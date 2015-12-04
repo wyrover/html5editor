@@ -9,12 +9,13 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys){
+      controller: function($scope, EditorWidget, hotkeys, History){
         var x = 0, 
             y = 0, 
             contents = angular.copy($scope.page.contents),
             current = EditorWidget.widget,
-            widget_copy = {};
+            widget_copy = {},
+            history = new History(100);
 
         $scope.changeWidget = function($event, widget){
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
@@ -103,6 +104,12 @@ angular.module('html5editorApp')
               $scope.page.contents.splice(index, 1);
             }
         };
+
+        $scope.$watch('page.contents',function(nv, ov){
+              if(nv!==ov){
+                    history.add(nv);
+              }
+        },true);
         
         hotkeys.bindTo($scope)
             .add({
@@ -115,6 +122,12 @@ angular.module('html5editorApp')
                 combo:'ctrl+v',
                 callback: function(){
                   $scope.paste();
+                }
+              })
+              .add({
+                combo: 'ctrl+z',
+                callback: function(){
+                  $scope.page.contents = history.back();
                 }
               })
               .add({
