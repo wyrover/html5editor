@@ -15,7 +15,7 @@ angular.module('html5editorApp')
             contents = angular.copy($scope.page.contents),
             current = EditorWidget.widget,
             widget_copy = {},
-            history = new History(100);
+            history = new History(200);
 
         $scope.changeWidget = function($event, widget){
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
