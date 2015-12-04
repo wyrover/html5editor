@@ -20,10 +20,7 @@ angular.module('html5editorApp')
     };
 
     History.prototype.canAdd = function(val){
-      if(this.cur<this.stack.length-1&&angular.equals(val,this.get())){
-        this.stack.splice(this.cur, this.stack.length-this.cur);
-      }
-      return this.lastTime + this.timeout < new Date().getTime();
+      return this.cur>=this.stack.length-1&&this.lastTime + this.timeout < new Date().getTime();
     };
 
     History.prototype.get = function(){
