@@ -10,8 +10,7 @@ angular.module('html5editorApp', [
   'ngFileUpload',
   'io.dennis.contextmenu',
   'cgBusy',
-  'cfp.hotkeys',
-  'decipher.history'
+  'cfp.hotkeys'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $modalProvider) {
     $urlRouterProvider

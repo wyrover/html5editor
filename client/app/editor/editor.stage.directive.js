@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History){
+      controller: function($scope, EditorWidget, hotkeys){
         var x = 0, 
             y = 0, 
             contents = angular.copy($scope.page.contents),

@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-widget.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History){
+      controller: function($scope, EditorWidget){
         
         
       },
