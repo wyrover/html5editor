@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       this.prev = -1;
       this.timeout = timeout||500;
       this.size = size||100;
-      this.lastTime = new Date().getTime()+timeout;
+      this.lastTime = new Date().getTime()+this.timeout;
     }
 
     History.prototype.add = function(val){//console.log(this.canAdd())
