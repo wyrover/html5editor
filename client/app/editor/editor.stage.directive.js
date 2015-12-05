@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History){
+      controller: function($scope, EditorWidget, hotkeys, History, Modal){
         var widget_copy = {},
             history = new History(200);
 
@@ -90,6 +90,12 @@ angular.module('html5editorApp')
             if(index>-1){
               $scope.page.contents.splice(index, 1);
             }
+        };
+
+        $scope.save = function(){
+              Modal.prompt({title:'请输入名字',value:'新名字'}).result.then(function(name){console.log(name)
+                    //Template.save();
+              });
         };
 
         $scope.$watch('page.contents',function(nv, ov){

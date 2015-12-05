@@ -1,6 +1,14 @@
 'use strict';
 
 angular.module('html5editorApp')
+  .controller('ModalCtrl', function($scope, $modalInstance){
+    $scope.ok = function(){
+      $modalInstance.close($scope.value)
+    };
+    $scope.cancel = function(){
+      $modalInstance.dismiss();
+    };
+  })
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal
@@ -14,19 +22,19 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, scope);
 
-      return $modal.open({
+      var instance = $modal.open({
+        controller:'ModalCtrl',
         scope: modalScope
       });
+
+      return instance;
     }
 
     // Public API here
-    return  function(options, cb) {
-            var normalModal;
-
-            normalModal = openModal(options);
-
-            normalModal.result.then(function(event) {
-              cb.apply(null, arguments);
-            });
-          };
+    return  {
+      prompt:function(options) {
+        options.type = 'prompt';
+        return openModal(options);
+      }
+    };
   });
