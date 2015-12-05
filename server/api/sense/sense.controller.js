@@ -22,6 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new sense in the DB.
 exports.create = function(req, res) {
+  req.body.user = req.user._id;
   Sense.create(req.body, function(err, sense) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(sense);
@@ -31,6 +32,7 @@ exports.create = function(req, res) {
 // Updates an existing sense in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
+  req.body.user = req.user._id;
   Sense.findById(req.params.id, function (err, sense) {
     if (err) { return handleError(res, err); }
     if(!sense) { return res.status(404).send('Not Found'); }
