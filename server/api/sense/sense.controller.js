@@ -37,7 +37,7 @@ exports.update = function(req, res) {
   req.body.user = req.user._id;
   Sense.findById(req.params.id, function (err, sense) {
     if (err) { return handleError(res, err); }
-    if(!sense) { return res.status(404).send('Not Found'); }
+    if(!sense||String(sense.user)!=String(req.user._id)) { return res.status(404).send('Not Found'); }
     var updated = _.merge(sense, req.body);
     updated.markModified('contents');
     updated.save(function (err) {
@@ -51,7 +51,7 @@ exports.update = function(req, res) {
 exports.destroy = function(req, res) {
   Sense.findById(req.params.id, function (err, sense) {
     if(err) { return handleError(res, err); }
-    if(!sense) { return res.status(404).send('Not Found'); }
+    if(!sense||String(sense.user)!=String(req.user._id)) { return res.status(404).send('Not Found'); }
     sense.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.status(204).send('No Content');
