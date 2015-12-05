@@ -5,7 +5,7 @@ var Sense = require('./sense.model');
 
 // Get list of senses
 exports.index = function(req, res) {
-  Sense.find(function (err, senses) {
+  Sense.find({user: req.user._id}, function (err, senses) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(senses);
   });
@@ -15,7 +15,9 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   Sense.findById(req.params.id, function (err, sense) {
     if(err) { return handleError(res, err); }
-    if(!sense) { return res.status(404).send('Not Found'); }
+    if(!sense||String(sense.user)!=String(req.user._id)) { 
+      return res.status(404).send('Not Found'); 
+    }
     return res.json(sense);
   });
 };
