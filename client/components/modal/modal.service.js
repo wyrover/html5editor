@@ -25,6 +25,7 @@ angular.module('html5editorApp')
       var instance = $modal.open({
         controller:'ModalCtrl',
         scope: modalScope,
+        size:'sm',
         backdrop:scope.type!='alert'
       });
 

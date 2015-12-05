@@ -1,9 +1,9 @@
-<div class="modal-header">
+<div class="modal-header" ng-if="type!='alert'">
   <button type="button" ng-click="$dismiss()" class="close">&times;</button>
   <h4 ng-if="title" ng-bind="title" class="modal-title"></h4>
 </div>
-<div class="modal-body" ng-if="type!='alert'">
-<p ng-if="type=='confirm'">{{value}}</p>
+<div class="modal-body">
+<p ng-if="type=='confirm'||type=='alert'">{{value}}</p>
 <input ng-if="type=='prompt'" ng-model="value" class="form-control" />
 </div>
 <div class="modal-footer"  ng-if="type!='alert'">
