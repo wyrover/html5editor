@@ -1,10 +1,4 @@
 <button class="btn btn-default btn-block" ng-click="selectBackground()">选择图片</button>
-<progressbar ng-if="progress" class="progress-striped active" value="progress" type="'success'">{{progress}}%</progressbar>
-<div ngf-drop 
-     ng-model="file"
-     ngf-drag-over-class="uploader-drop-box-drag-over"
-      ngf-select="upload($file)"
-     class="uploader-drop-box" 
-     ngf-drop-available="true">Select File,
-  <span >Drop File or Paste/Drop Image</span>
-</div>
+<div class="background-setting" ng-style="{
+  backgroundImage: 'url('+widget.widget.src+')'
+}"></div>

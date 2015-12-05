@@ -14,7 +14,7 @@ angular.module('html5editorApp')
         
         $scope.$on('widget.panstart', function(){
           x = Number($scope.widget.left);
-          y = Number($scope.widget.top);console.log(x,y)
+          y = Number($scope.widget.top);
         });
         $scope.$on('widget.panmove', function(e, deltaX, deltaY){
           if(!$scope.widget.active) return;
