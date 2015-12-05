@@ -10,7 +10,7 @@ angular.module('html5editorApp')
           borderStyle: 'none',
           borderColor: '#888888',
           padding: '0',
-          animation: ''
+          animation: '',
         };
     
     var widgets = {
