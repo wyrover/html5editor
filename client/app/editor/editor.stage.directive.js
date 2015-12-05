@@ -93,7 +93,7 @@ angular.module('html5editorApp')
         };
 
         $scope.save = function(){
-              Modal.prompt({title:'请输入名字',value:'新名字'}).result.then(function(name){console.log(name)
+              Modal.prompt({title:'请输入名字',value:'新名字'}).result.then(function(name){
                     //Template.save();
               });
         };

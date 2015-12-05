@@ -35,6 +35,10 @@ angular.module('html5editorApp')
       prompt:function(options) {
         options.type = 'prompt';
         return openModal(options);
+      },
+      confirm:function(options){
+        options.type = 'confirm';
+        return openModal(options);
       }
     };
   });
