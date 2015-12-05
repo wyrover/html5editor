@@ -24,7 +24,8 @@ angular.module('html5editorApp')
 
       var instance = $modal.open({
         controller:'ModalCtrl',
-        scope: modalScope
+        scope: modalScope,
+        backdrop:scope.type!='alert'
       });
 
       return instance;
@@ -38,6 +39,10 @@ angular.module('html5editorApp')
       },
       confirm:function(options){
         options.type = 'confirm';
+        return openModal(options);
+      },
+      alert:function(options){
+        options.type = 'alert';
         return openModal(options);
       }
     };
