@@ -3,7 +3,7 @@
 angular.module('html5editorApp')
   .directive('editorResizer', function (EditorWidget) {
     return {
-      require: ['ngModel','editorResizer'],
+      require: ['ngModel'],
       scope: {
         widget: '=ngModel'
       },
@@ -53,36 +53,9 @@ angular.module('html5editorApp')
             $scope.widget.width = parseInt(widget.width) - $event.deltaX;
             $scope.widget.top = widget.top;
         };
-
-        this.left = function(){
-          $scope.widget.left--;
-        };
-        this.right = function(){
-          $scope.widget.left++;
-        };
-        this.up = function(){
-          $scope.widget.top--;
-        };
-        this.down = function(){
-          $scope.widget.top++;
-        };
       },
       link: function (scope, element, attrs, ctrls) {
-        var ctrl = ctrls[1];
-        element.on('keydown', function(e){
-          
-          switch(e.keyCode){
-            case 37: ctrl.left();
-              e.preventDefault();break;
-            case 38: ctrl.up();
-              e.preventDefault();break;
-            case 39: ctrl.right();
-              e.preventDefault();break;
-            case 40: ctrl.down();
-              e.preventDefault();break;
-          };
-          scope.$apply();
-        });
+
       }
     };
   });

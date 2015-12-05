@@ -11,6 +11,7 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         var x,y;
+        
         $scope.$on('widget.panstart', function(){
           x = Number($scope.widget.left);
           y = Number($scope.widget.top);console.log(x,y)

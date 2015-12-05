@@ -130,6 +130,38 @@ angular.module('html5editorApp')
                 callback: function(){
                   $scope.remove();
                 }
+              })
+              .add({
+                    combo:'left',
+                    callback:function(e){
+                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          $rootScope.$broadcast('widget.panstart');
+                          $rootScope.$broadcast('widget.panmove', -1, 0);
+                    }
+              })
+              .add({
+                    combo:'down',
+                    callback:function(e){
+                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          $rootScope.$broadcast('widget.panstart');
+                          $rootScope.$broadcast('widget.panmove', 0, 1);
+                    }
+              })
+              .add({
+                    combo:'right',
+                    callback:function(e){
+                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          $rootScope.$broadcast('widget.panstart');
+                          $rootScope.$broadcast('widget.panmove', 1, 0);
+                    }
+              })
+              .add({
+                    combo:'up',
+                    callback:function(e){
+                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          $rootScope.$broadcast('widget.panstart');
+                          $rootScope.$broadcast('widget.panmove', 0, -1);
+                    }
               });
 
       },
