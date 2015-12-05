@@ -11,10 +11,14 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         $scope.$on('widget.change', function(e, multi, active){
-          if(EditorWidget.widget.type=='background'||$scope.widget!=EditorWidget.widget&&$scope.widget.group!=EditorWidget.widget.group&&!multi&!active)
+          if(EditorWidget.widget.type=='background')
+            return $scope.widget.active = false;
+          if($scope.widget==EditorWidget.widget)
+            return $scope.widget.active = true;
+          if($scope.widget.group==EditorWidget.widget.group)
+            return $scope.widget.active = true;
+          if(!multi&!active)
             $scope.widget.active = false;
-          else
-            $scope.widget.active = true;
         })
       },
       link: function (scope, element, attrs, ngModel) {
