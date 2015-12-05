@@ -5,8 +5,10 @@ var mongoose = require('mongoose'),
 
 var TemplateSchema = new Schema({
   name: String,
-  info: String,
-  active: Boolean
+  contents: Array,
+  active: Boolean,
+  type:String,
+  user: Schema.Types.ObjectId
 });
 
 module.exports = mongoose.model('Template', TemplateSchema);

@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History, Modal){
+      controller: function($scope, EditorWidget, hotkeys, History, Modal, Template){
         var widget_copy = {},
             history = new History(200);
 
@@ -92,9 +92,19 @@ angular.module('html5editorApp')
             }
         };
 
-        $scope.save = function(){
-              Modal.prompt({title:'请输入名字',value:'新名字'}).result.then(function(name){
-                    //Template.save();
+        $scope.save = function(widget){
+              Modal.prompt({title:'请输入名字',value:'新名字'})
+              .result.then(function(name){
+                    var widgets = [];
+                    angular.forEach($scope.page.contents, function(item){
+                          item.active&&widgets.push(item);
+                    });
+                    if(!widgets.length) return;
+                    Template.save({
+                          name:name,
+                          type:'widget',
+                          contents:[{contents:[widget]}]
+                    });
               });
         };
 
