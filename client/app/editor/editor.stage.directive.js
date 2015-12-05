@@ -10,11 +10,7 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/editor-stage.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget, hotkeys, History){
-        var x = 0, 
-            y = 0, 
-            contents = angular.copy($scope.page.contents),
-            current = EditorWidget.widget,
-            widget_copy = {},
+        var widget_copy = {},
             history = new History(200);
 
         $scope.changeWidget = function($event, widget){
@@ -27,7 +23,7 @@ angular.module('html5editorApp')
             });
           }
           widget.active = true;
-          current = EditorWidget.widget = widget;
+          EditorWidget.widget = widget;
         };
 
         $scope.onPanStart = function($event, widget){
