@@ -31,20 +31,11 @@ angular.module('html5editorApp')
         };
 
         $scope.onPanStart = function($event, widget){
-          x = widget.left;
-          y = widget.top;
-          contents = angular.copy($scope.page.contents);
+          $rootScope.$broadcast('widget.panstart');
         };
 
         $scope.onPanMove = function($event, widget){
-          widget.left = parseInt(x) + $event.deltaX;
-          widget.top = parseInt(y) + $event.deltaY;
-
-          angular.forEach($scope.page.contents, function(item, index){
-            if(!item.active)return;
-            item.left = parseInt(contents[index].left) + $event.deltaX;
-            item.top = parseInt(contents[index].top) + $event.deltaY;
-          });
+          $rootScope.$broadcast('widget.panmove', $event.deltaX, $event.deltaY);
         };
 
         $scope.push = function(widget){
