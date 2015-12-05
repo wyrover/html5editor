@@ -5,18 +5,22 @@ angular.module('html5editorApp')
     $stateProvider
       .state('template', {
         url: '/template',
+        abstract: true,
         views: {
           'nav':{
             templateUrl: 'components/navbar/navbar.html'
           },
           '':{
-            templateUrl: 'app/template/template.html',
-        controller: 'TemplateCtrl'
+            template: '<div ui-view="" class="container"></div>'
           },
           'footer':{
             templateUrl: 'components/footer/footer.html'
           }
         }
-        
+      })
+      .state('template.index', {
+        url: '',
+        templateUrl: 'app/template/template.html',
+        controller: 'TemplateCtrl'
       });
   });
