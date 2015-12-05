@@ -54,7 +54,7 @@ angular.module('html5editorApp')
             $scope.widget.top = widget.top;
         };
 
-        this.left = function(){console.log($scope.widget.left)
+        this.left = function(){
           $scope.widget.left--;
         };
         this.right = function(){

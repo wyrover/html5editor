@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('editorStage', function () {
+  .directive('editorStage', function ($rootScope) {
     return {
       require: 'ngModel',
       scope:{
@@ -18,16 +18,8 @@ angular.module('html5editorApp')
             history = new History(200);
 
         $scope.changeWidget = function($event, widget){
-          if(!$event.shiftKey&&!widget.active||widget.type=='background'){
-            angular.forEach($scope.page.contents, function(item){
-              item.active = false;
-              if(widget.group&&widget.group>0&&item.group==widget.group){
-                    item.active = true;
-              }
-            });
-          }
-          widget.active = true;
-          current = EditorWidget.widget = widget;
+          EditorWidget.widget = widget;
+          $rootScope.$broadcast('widget.change', $event.shiftKey, widget.active);
         };
 
         $scope.onPanStart = function($event, widget){
