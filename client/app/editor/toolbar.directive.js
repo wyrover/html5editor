@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, EditorWidget, TemplateModal){
         $scope.insertWidget = function(type){
           var defaults = EditorWidget.getDefaults(type);
           defaults.active = true;
@@ -21,7 +21,9 @@ angular.module('html5editorApp')
         };
 
         $scope.insertCustomWidget = function(){
-          console.log('insert custom widget')
+          TemplateModal().result.then(function(item){
+            console.log(item)
+          })
         };
       },
       link: function (scope, element, attrs) {
