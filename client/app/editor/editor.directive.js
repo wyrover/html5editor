@@ -21,7 +21,7 @@ angular.module('html5editorApp')
           angular.forEach($scope.page.contents, function(item, index){
             if(item.active) active2 = index;
           });
-          EditorWidget.widget = $scope.page.contents[active2]||$scope.page.background;
+          EditorWidget.widget = active2>=0?$scope.page.contents[active2]:$scope.page.background;
         };
 
         if($scope.sense._id){
