@@ -103,7 +103,7 @@ angular.module('html5editorApp')
                     Template.save({
                           name:name,
                           type:'widget',
-                          contents:[{contents:[widget]}]
+                          contents:[{contents:[].concat(widgets)}]
                     });
               });
         };
