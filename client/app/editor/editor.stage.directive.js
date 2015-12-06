@@ -108,6 +108,18 @@ angular.module('html5editorApp')
               });
         };
 
+        $scope.savePage = function(widget){
+              Modal.prompt({title:'请输入页面名字',value:'新页面'})
+              .result.then(function(name){
+                    var page = angular.copy($scope.page);
+                    Template.save({
+                          name:name,
+                          type:'widget',
+                          contents:[page]
+                    });
+              });
+        };
+
         $scope.$watch('page.contents',function(nv, ov){
               if(nv.length&&nv!==ov){
                     history.add(nv);
