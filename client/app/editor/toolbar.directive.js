@@ -21,8 +21,11 @@ angular.module('html5editorApp')
         };
 
         $scope.insertCustomWidget = function(){
-          TemplateModal().result.then(function(item){
-            console.log(item)
+          TemplateModal().result.then(function(template){
+            angular.forEach($scope.page.contents, function(item){
+              item.active = false;
+            });
+            $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
           })
         };
       },
