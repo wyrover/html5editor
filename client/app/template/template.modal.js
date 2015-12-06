@@ -5,8 +5,8 @@ angular.module('html5editorApp')
     $scope.list = Template.query({type:'widget'});
 
     $scope.remove = function(index){
-      list[index].$remove(function(){
-        list.splice(index, 1)
+      $scope.list[index].$remove(function(){
+        $scope.list.splice(index, 1)
       });
     };
 

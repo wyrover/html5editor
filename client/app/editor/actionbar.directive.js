@@ -9,11 +9,18 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/actionbar.html',
       restrict: 'EA',
-      controller: function($scope){
+      controller: function($scope, Template){
         $scope.save = function(){
           return $scope.sense.$save(function(){
             $state.go('sense.edit',{id:$scope.sense._id});
           });
+        };
+
+        $scope.saveTemplate = function(){
+          var template = $scope.sense.toJSON();
+          template.type = 'sense';
+          delete template._id;
+          Template.save(template);
         };
       },
       link: function (scope, element, attrs) {
