@@ -3,7 +3,7 @@
 angular.module('html5editorApp')
   .controller('ModalCtrl', function($scope, $modalInstance){
     $scope.ok = function(){
-      $modalInstance.close($scope.value)
+      $modalInstance.close($scope.modal.value)
     };
     $scope.cancel = function(){
       $modalInstance.dismiss();
@@ -20,7 +20,7 @@ angular.module('html5editorApp')
       var modalScope = $rootScope.$new();
       scope = scope || {};
 
-      angular.extend(modalScope, scope);
+      angular.extend(modalScope, {modal:scope});
 
       var instance = $modal.open({
         controller:'ModalCtrl',
