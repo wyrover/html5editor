@@ -11,18 +11,25 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         $scope.init = function(){
-          var active = 0;
+          var active = 0, active2 = 0;
+
           angular.forEach($scope.sense.contents, function(item, index){
             if(item.active) active = index;
           });
           $scope.page = $scope.sense.contents[active];
-          EditorWidget.widget = $scope.page.background;
+
+          angular.forEach($scope.page.contents, function(item, index){
+            if(item.active) active2 = index;
+          });
+          EditorWidget.widget = $scope.page.contents[active2]||$scope.page.background;
         };
+
         if($scope.sense._id){
           $scope.sense.$get(function(){
             $scope.init();
           });
         }
+        
         $scope.init();
       },
       link: function (scope, element, attrs, ngModel) {
