@@ -114,7 +114,7 @@ angular.module('html5editorApp')
                     var page = angular.copy($scope.page);
                     Template.save({
                           name:name,
-                          type:'widget',
+                          type:'page',
                           contents:[page]
                     });
               });
