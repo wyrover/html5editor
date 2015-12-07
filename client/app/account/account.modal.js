@@ -1,9 +1,30 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('AccountModalCtrl', function($scope, $modalInstance){
+  .controller('AccountModalCtrl', function($scope, $modalInstance, Auth){
     $scope.modal.title = $scope.modal.type=='login'?'登录':'注册';
     $scope.templateUrl = 'app/account/'+$scope.modal.type+'/'+$scope.modal.type+'.html';
+
+    $scope.user = {};
+    $scope.errors = {};
+
+    $scope.login = function(form) {
+      $scope.submitted = true;
+
+      if(form.$valid) {
+        Auth.login({
+          email: $scope.user.email,
+          password: $scope.user.password
+        })
+        .then( function(user) {
+          // Logged in, redirect to home
+          $modalInstance.close(user);
+        })
+        .catch( function(err) {
+          $scope.errors.other = err.message;
+        });
+      }
+    };
 
     $scope.ok = function(){
       $modalInstance.close($scope.modal.value)
@@ -13,6 +34,7 @@ angular.module('html5editorApp')
     };
   })
   .factory('AccountModal', function ($rootScope, $modal) {
+    var opened = false;
     /**
      * Opens a modal
      * @param  {Object} scope      - an object to be merged with modal's scope
@@ -33,12 +55,15 @@ angular.module('html5editorApp')
         backdrop:scope.type!='alert'
       });
 
+      opened = true;
+
       return instance;
     }
 
     // Public API here
     return  {
       login:function(options) {
+        if(opened) return;
         options = options||{};
         options.type = 'login';
         return openModal(options);
