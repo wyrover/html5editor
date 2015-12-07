@@ -55,6 +55,12 @@ angular.module('html5editorApp')
         backdrop:scope.type!='alert'
       });
 
+      instance.result.then(function(){
+          opened = false;
+      }, function(){
+          opened = false;
+      });
+
       opened = true;
 
       return instance;
