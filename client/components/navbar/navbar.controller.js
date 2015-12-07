@@ -1,12 +1,8 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, AccountModal) {
     $scope.menu = [{
-      'title': '主页',
-      'link': '/'
-    },
-    {
       'title': '模板',
       'link': '/template'
     },
@@ -23,6 +19,11 @@ angular.module('html5editorApp')
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');
+    };
+
+    $scope.login = function(e) {
+      e.preventDefault();
+      AccountModal.login();
     };
 
     $scope.isActive = function(route) {
