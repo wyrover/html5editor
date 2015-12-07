@@ -17,12 +17,10 @@ angular.module('html5editorApp')
           if(!$event.shiftKey&&!widget.active||widget.type=='background'){
             angular.forEach($scope.page.contents, function(item){
               item.active = false;
-              if(widget.group&&widget.group>0&&item.group==widget.group){
-                    item.active = true;
-              }
             });
           }
           widget.active = true;
+          $rootScope.$broadcast('widget.active', widget.group);
           EditorWidget.widget = widget;
         };
 

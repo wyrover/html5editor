@@ -21,6 +21,11 @@ angular.module('html5editorApp')
           $scope.widget.left = x + deltaX;
           $scope.widget.top = y + deltaY;
         });
+        $scope.$on('widget.active', function(e, group){
+          if(group>0&&$scope.widget.group==group){
+            $scope.widget.active = true;
+          }
+        });
       },
       link: function (scope, element, attrs, ngModel) {
         
