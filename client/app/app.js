@@ -8,7 +8,6 @@ angular.module('html5editorApp', [
   'ui.bootstrap',
   'hmTouchEvents',
   'ngFileUpload',
-  'io.dennis.contextmenu',
   'cgBusy',
   'cfp.hotkeys'
 ])
