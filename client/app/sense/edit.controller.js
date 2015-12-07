@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       $scope.sense = new Sense({
         _id:id,
         name: '新场景',
-        contents:[{background:{type:'background'},contents:[]}]
+        contents:[{background:{type:'background'},contents:[],active:true}]
       });
     };
 
