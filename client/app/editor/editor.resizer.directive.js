@@ -31,41 +31,47 @@ angular.module('html5editorApp')
             widget = angular.copy($scope.widget);
         };
         $scope.topMiddle = function($event){
-            $scope.widget.height = parseInt(widget.height) - $event.deltaY;
+            $scope.widget.height = Number(widget.height) - $event.deltaY;
+            $scope.widget.top = Number(widget.top) + $event.deltaY;
             $scope.widget.left = widget.left;
         };
         $scope.topLeft = function($event){
-            $scope.widget.height = parseInt(widget.height) - $event.deltaY;
-            $scope.widget.width = parseInt(widget.width) - $event.deltaX;
+            $scope.widget.height = Number(widget.height) - $event.deltaY;
+            $scope.widget.width = Number(widget.width) - $event.deltaX;
+            $scope.widget.top = Number(widget.top) + $event.deltaY;
+            $scope.widget.left = Number(widget.left) + $event.deltaX;
         };
         $scope.topRight = function($event){
-            $scope.widget.height = parseInt(widget.height) - $event.deltaY;
-            $scope.widget.width = parseInt(widget.width) + $event.deltaX;
+            $scope.widget.height = Number(widget.height) - $event.deltaY;
+            $scope.widget.width = Number(widget.width) + $event.deltaX;
+            $scope.widget.top = Number(widget.top) + $event.deltaY;
             $scope.widget.left = widget.left;
         };
         $scope.bottomLeft = function($event){
-            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
-            $scope.widget.width = parseInt(widget.width) - $event.deltaX;
+            $scope.widget.height = Number(widget.height) + $event.deltaY;
+            $scope.widget.width = Number(widget.width) - $event.deltaX;
+            $scope.widget.left = Number(widget.left) + $event.deltaX;
             $scope.widget.top = widget.top;
         };
         $scope.bottomRight = function($event){
-            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
-            $scope.widget.width = parseInt(widget.width) + $event.deltaX;
+            $scope.widget.height = Number(widget.height) + $event.deltaY;
+            $scope.widget.width = Number(widget.width) + $event.deltaX;
             $scope.widget.left = widget.left;
             $scope.widget.top = widget.top;
         };
         $scope.bottomMiddle = function($event){
-            $scope.widget.height = parseInt(widget.height) + $event.deltaY;
+            $scope.widget.height = Number(widget.height) + $event.deltaY;
             $scope.widget.left = widget.left;
             $scope.widget.top = widget.top;
         };
         $scope.middleRight = function($event){
-            $scope.widget.width = parseInt(widget.width) + $event.deltaX;
+            $scope.widget.width = Number(widget.width) + $event.deltaX;
             $scope.widget.left = widget.left;
             $scope.widget.top = widget.top;
         };
         $scope.middleLeft = function($event){
-            $scope.widget.width = parseInt(widget.width) - $event.deltaX;
+            $scope.widget.width = Number(widget.width) - $event.deltaX;
+            $scope.widget.left = Number(widget.left) + $event.deltaX;
             $scope.widget.top = widget.top;
         };
       },
