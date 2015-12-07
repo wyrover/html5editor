@@ -2,6 +2,9 @@
 
 angular.module('html5editorApp')
   .controller('AccountModalCtrl', function($scope, $modalInstance){
+    $scope.modal.title = $scope.modal.type=='login'?'登录':'注册';
+    $scope.templateUrl = 'app/account/'+$scope.modal.type+'/'+$scope.modal.type+'.html';
+
     $scope.ok = function(){
       $modalInstance.close($scope.modal.value)
     };
@@ -24,8 +27,9 @@ angular.module('html5editorApp')
 
       var instance = $modal.open({
         controller:'AccountModalCtrl',
+        templateUrl:'app/account/account.modal.html',
         scope: modalScope,
-        size:'sm',
+        //size:'sm',
         backdrop:scope.type!='alert'
       });
 
@@ -34,8 +38,9 @@ angular.module('html5editorApp')
 
     // Public API here
     return  {
-      prompt:function(options) {
-        options.type = 'prompt';
+      login:function(options) {
+        options = options||{};
+        options.type = 'login';
         return openModal(options);
       },
       confirm:function(options){
