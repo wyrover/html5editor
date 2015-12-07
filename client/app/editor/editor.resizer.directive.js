@@ -9,8 +9,16 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor-resizer.html',
       restrict: 'EA',
-      controller: function($scope){
+      controller: function($scope, $rootScope){
         var widget = $scope.widget;
+
+        $scope.onMoveStart = function($event){
+          $rootScope.$broadcast('widget.panstart');
+        };
+
+        $scope.onMove = function($event){
+          $rootScope.$broadcast('widget.panmove', $event.deltaX, $event.deltaY);
+        };
 
         $scope.onPanStart = function(){
             widget = angular.copy($scope.widget);

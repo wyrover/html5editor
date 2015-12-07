@@ -24,13 +24,7 @@ angular.module('html5editorApp')
           EditorWidget.widget = widget;
         };
 
-        $scope.onPanStart = function($event, widget){
-          $rootScope.$broadcast('widget.panstart');
-        };
-
-        $scope.onPanMove = function($event, widget){
-          $rootScope.$broadcast('widget.panmove', $event.deltaX, $event.deltaY);
-        };
+        
 
         $scope.push = function(widget){
           var index = $scope.page.contents.indexOf(widget);
