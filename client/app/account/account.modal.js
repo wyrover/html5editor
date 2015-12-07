@@ -26,6 +26,11 @@ angular.module('html5editorApp')
       }
     };
 
+    $scope.signup = function(e){
+        e.preventDefault();
+        $scope.templateUrl = 'app/account/signup/signup.html';
+    };
+
     $scope.ok = function(){
       $modalInstance.close($scope.modal.value)
     };
