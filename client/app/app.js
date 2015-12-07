@@ -34,7 +34,7 @@ angular.module('html5editorApp', [
       // Intercept 401s and redirect you to login
       responseError: function(response) {
         if(response.status === 401) {
-          $location.path('/login');
+          $location.path('/account/login');
           // remove any stale tokens
           $cookieStore.remove('token');
           return $q.reject(response);
