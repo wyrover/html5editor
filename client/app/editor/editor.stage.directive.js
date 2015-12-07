@@ -67,7 +67,7 @@ angular.module('html5editorApp')
         $scope.split = function(){
             angular.forEach($scope.page.contents, function(item, index){
                   if(item.active){
-                        delete item.group;
+                        item.group = 0;
                         item.active = false;
                   }
             });
