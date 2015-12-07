@@ -22,8 +22,6 @@
                    animationDelay: widget.animationDelay+'s',
                    animationDuration: widget.animationDuration+'s',
                    animationIterationCount:widget.animationIterationCount}"
-        ng-mousedown="changeWidget($event, widget)"
-        
         class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
         <editor-widget 
             ng-model="widget" 
@@ -48,9 +46,8 @@
 <!--         <div class="mask"></div> -->
         <editor-resizer 
             ng-model="widget" 
-            ng-if="widget.active"
-            class="editor-resizer" 
-            tabindex="1"
+            class="editor-resizer"
+            ng-class="{active:widget.active}" 
             ng-style="{transform:'rotate('+widget.transform+'deg)'}">
         </editor-resizer>
     </div>

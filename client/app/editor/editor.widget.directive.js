@@ -21,8 +21,9 @@ angular.module('html5editorApp')
           $scope.widget.left = x + deltaX;
           $scope.widget.top = y + deltaY;
         });
-        $scope.$on('widget.active', function(e, group){
-          if(group>0&&$scope.widget.group==group){
+        $scope.$on('widget.active', function(e, widget, shiftKey){
+          if(!shiftKey&&widget!=$scope.widget){$scope.widget.active = false;}
+          if(widget.group>0&&$scope.widget.group==widget.group){
             $scope.widget.active = true;
           }
         });

@@ -12,6 +12,18 @@ angular.module('html5editorApp')
       controller: function($scope, $rootScope){
         var widget = $scope.widget;
 
+        $scope.changeWidget = function($event){
+          var widget = $scope.widget;
+//           if(!$event.shiftKey&&!widget.active){
+//             angular.forEach($scope.page.contents, function(item){
+//               item.active = false;
+//             });
+//           }
+          widget.active = true;
+          $rootScope.$broadcast('widget.active', widget, $event.shiftKey);
+          EditorWidget.widget = widget;
+        };
+
         $scope.onMoveStart = function($event){
           $rootScope.$broadcast('widget.panstart');
         };
