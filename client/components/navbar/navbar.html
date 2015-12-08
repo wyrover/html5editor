@@ -17,14 +17,16 @@
 <!--         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li> -->
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/account/signup')}"><a href="/account/signup">注册</a></li>
-        <li ng-class="{active: isActive('/account/login')}" class="dropdown" dropdown>
-          <a  ng-hide="isLoggedIn()" href="/account/login" ng-click="login($event)">登录</a>
+      <ul class="nav navbar-nav navbar-right">        
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/account/signup')}" class=" col-sm-6">
+          <button class="btn btn-success btn-sm btn-block navbar-btn" href="/account/signup">注册</button>
+        </li>
+        <li ng-class="{active: isActive('/account/login')}" class="dropdown col-sm-6" dropdown>
+          <button class="btn btn-default btn-sm btn-block navbar-btn" ng-hide="isLoggedIn()" href="/account/login" ng-click="login($event)">登录</button>
           <a  ng-show="isLoggedIn()" dropdown-toggle><i class="glyphicon glyphicon-user"></i></a>
           <ul class="dropdown-menu"  ng-show="isLoggedIn()">
-            <li><p class="navbar-text">您好：{{ getCurrentUser().name }}</p> </li>
-            <li ng-class="{active: isActive('/account/settings')}"><a href="/account/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+            <li class="dropdown-header"><span class="">当前登录：{{ getCurrentUser().name }}</span> </li>
+            <li ng-class="{active: isActive('/account/settings')}"><a href="/account/settings">设置</a></li>
             <li ng-class="{active: isActive('/account/logout')}"><a href="" ng-click="logout()">退出</a></li>
           </ul>
         </li>
