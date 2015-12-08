@@ -1,4 +1,4 @@
-<button class="btn btn-default btn-block" ng-click="selectBackground()">选择图片</button>
-<div class="background-setting" ng-style="{
-  backgroundImage: 'url('+widget.widget.src+')'
-}"></div>
+<div class="background-setting">
+<img ng-src="{{widget.widget.src}}" class="block height" />
+</div>
+<div class="block absolute full top left text-center" ng-click="selectBackground()">+选择图片</div>
