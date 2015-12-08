@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar/actionbar.html',
       restrict: 'EA',
-      controller: function($scope, Template){
+      controller: function($scope, Modal, Template){
         $scope.save = function(){
           return $scope.sense.$save(function(){
             $state.go('sense.edit',{id:$scope.sense._id});
@@ -21,6 +21,12 @@ angular.module('html5editorApp')
           template.type = 'sense';
           delete template._id;
           Template.save(template);
+        };
+
+        $scope.settings = function(){
+          Modal.prompt({title:'设置场景名字',value:$scope.sense.name}).result.then(function(name){
+            $scope.sense.name = name;
+          });
         };
       },
       link: function (scope, element, attrs) {
