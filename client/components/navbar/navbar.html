@@ -24,6 +24,7 @@
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/account/signup')}" class="dropdown col-sm-6" dropdown>
           <a dropdown-toggle><i class="glyphicon glyphicon-bell"></i></a>
           <ul class="dropdown-menu">
+            <li class="disabled" ng-show="!notices.length"><a>暂无消息</a></li>
             <li ng-repeat="notice in notices" ng-class="{disabled:notice.status!=1}"><a>{{notice.name}}</a></li>
           </ul>
         </li>
