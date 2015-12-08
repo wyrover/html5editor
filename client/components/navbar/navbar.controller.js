@@ -23,6 +23,11 @@ angular.module('html5editorApp')
       AccountModal.login();
     };
 
+    $scope.signup = function(e) {
+      e.preventDefault();
+      AccountModal.signup();
+    };
+
     $scope.isActive = function(route) {
       return route === $location.path();
     };

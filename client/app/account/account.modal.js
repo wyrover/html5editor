@@ -79,12 +79,9 @@ angular.module('html5editorApp')
         options.type = 'login';
         return openModal(options);
       },
-      confirm:function(options){
-        options.type = 'confirm';
-        return openModal(options);
-      },
-      alert:function(options){
-        options.type = 'alert';
+      signup:function(options){
+        options = options||{};
+        options.type = 'signup';
         return openModal(options);
       }
     };
