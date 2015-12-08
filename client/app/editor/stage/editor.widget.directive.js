@@ -13,6 +13,7 @@ angular.module('html5editorApp')
         var x,y;
 
         $scope.widget.scale = $scope.widget.scale||1;
+        $scope.widget.transform = $scope.widget.transform||0;
         
         $scope.$on('widget.panstart', function(){
           x = Number($scope.widget.left);

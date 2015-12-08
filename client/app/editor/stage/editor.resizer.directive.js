@@ -75,8 +75,7 @@ angular.module('html5editorApp')
             $scope.widget.top = widget.top;
         };
         $scope.rotate = function($event){
-            console.log($event)
-            $scope.widget.transform = $event.angle;
+            $scope.widget.transform = widget.transform+$event.angle;
         };
       },
       link: function (scope, element, attrs, ctrls) {
