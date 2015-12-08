@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, AccountModal) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, AccountModal, Notice) {
     $scope.menu = [
     {
       'title': '场景',
@@ -12,6 +12,8 @@ angular.module('html5editorApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+
+    $scope.notices = new Notice();
 
     $scope.logout = function() {
       Auth.logout();
