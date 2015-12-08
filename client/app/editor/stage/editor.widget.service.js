@@ -33,6 +33,12 @@ angular.module('html5editorApp')
         width: '50',
         height: '50',
         fill: '#f00'
+      },
+      video: {
+        type: 'video',
+        code: '',
+        height: '100',
+        width: '320'
       }
     };
 
