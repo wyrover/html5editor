@@ -1,4 +1,17 @@
 <div class="background-setting">
-<img ng-src="{{widget.widget.src}}" class="block height" />
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th width="30%">图片</th>
+      <td><a class="glyphicon glyphicon-folder-open" ng-click="selectBackground()"></a></td>
+    </tr>
+    <tr>
+    <td colspan="2">
+      <div class="widget-image-setting">
+      <img ng-src="{{widget.widget.src}}" class="block height" />
+      </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
 </div>
-<div class="block absolute full top left text-center" ng-click="selectBackground()">+选择图片</div>
