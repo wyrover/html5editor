@@ -2,10 +2,7 @@
 
 angular.module('html5editorApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, AccountModal) {
-    $scope.menu = [{
-      'title': '模板',
-      'link': '/template'
-    },
+    $scope.menu = [
     {
       'title': '场景',
       'link': '/sense'
