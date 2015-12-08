@@ -13,7 +13,11 @@ angular.module('html5editorApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-    $scope.notices = new Notice();
+    $scope.notices = new Notice([]);
+
+    if($scope.isLoggedIn){
+      $scope.notices = Notice.query();
+    }
 
     $scope.logout = function() {
       Auth.logout();
