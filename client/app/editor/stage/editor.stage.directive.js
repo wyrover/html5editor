@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         page: '=ngModel'
       },
-      templateUrl: 'app/editor/editor-stage.html',
+      templateUrl: 'app/editor/stage/editor-stage.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget, hotkeys, History, Modal, Template){
         var widget_copy = {},

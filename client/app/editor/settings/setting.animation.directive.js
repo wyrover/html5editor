@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         sense: '=ngModel'
       },
-      templateUrl: 'app/editor/setting-animation.html',
+      templateUrl: 'app/editor/settings/setting-animation.html',
       restrict: 'EA',
       controller: function($scope, Upload, EditorWidget){
         $scope.animations = [

@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         widget: '=ngModel'
       },
-      templateUrl: 'app/editor/editor-widget.html',
+      templateUrl: 'app/editor/stage/editor-widget.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         var x,y;

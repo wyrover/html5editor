@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope: {
         page: '=ngModel'
       },
-      templateUrl: 'app/editor/toolbar.html',
+      templateUrl: 'app/editor/toolbar/toolbar.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget, TemplateModal){
         $scope.insertWidget = function(type){

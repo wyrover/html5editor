@@ -8,7 +8,7 @@ angular.module('html5editorApp')
         page: '=ngModel',
         sense: '=sense'
       },
-      templateUrl: 'app/editor/editor-pager.html',
+      templateUrl: 'app/editor/toolbar/editor-pager.html',
       restrict: 'EA',
       controller: function($scope){
         $scope.insertPage = function($index){

@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope: {
         widget: '=ngModel'
       },
-      templateUrl: 'app/editor/editor-resizer.html',
+      templateUrl: 'app/editor/stage/editor-resizer.html',
       restrict: 'EA',
       controller: function($scope, $rootScope){
         var widget = $scope.widget;
