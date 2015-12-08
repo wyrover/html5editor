@@ -16,4 +16,4 @@
     />
 </svg>
 <p ng-if="widget.type=='text'">{{widget.text}}</p>
-<div ng-if="widget.type=='video'" ng-bind-html="widget.code"></div>
+<div ng-if="widget.type=='video'" ng-bind-html="widget.code|trustAsHtml"></div>
