@@ -74,6 +74,10 @@ angular.module('html5editorApp')
             $scope.widget.left = Number(widget.left) + $event.deltaX;
             $scope.widget.top = widget.top;
         };
+        $scope.rotate = function($event){
+            console.log($event)
+            $scope.widget.transform = $event.angle;
+        };
       },
       link: function (scope, element, attrs, ctrls) {
 
