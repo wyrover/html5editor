@@ -22,7 +22,10 @@ angular.module('html5editorApp')
 
     $scope.login = function(e) {
       e.preventDefault();
-      AccountModal.login();
+      AccountModal.login()
+      .result.then(function(){
+        $scope.notices = Notice.query();
+      });
     };
 
     $scope.signup = function(e) {

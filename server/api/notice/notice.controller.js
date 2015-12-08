@@ -5,6 +5,7 @@ var Notice = require('./notice.model');
 
 // Get list of notices
 exports.index = function(req, res) {
+  return res.json([{name:'2.0上线了',info:'2.0上线了',status:1},{name:'2.0上线了',info:'2.0上线了',status:1}]);
   Notice.find(function (err, notices) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(notices);
