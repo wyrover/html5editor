@@ -11,6 +11,8 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         var x,y;
+
+        $scope.widget.scale = $scope.widget.scale||1;
         
         $scope.$on('widget.panstart', function(){
           x = Number($scope.widget.left);
