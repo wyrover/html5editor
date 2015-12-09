@@ -13,6 +13,7 @@ angular.module('html5editorApp')
         $scope.save = function(){
           return $scope.sense.$save(function(){
             $state.go('sense.edit',{id:$scope.sense._id});
+            Modal.alert({value:'保存成功'});
           });
         };
 

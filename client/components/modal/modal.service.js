@@ -1,13 +1,18 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('ModalCtrl', function($scope, $modalInstance){
+  .controller('ModalCtrl', function($scope, $modalInstance, $timeout){
     $scope.ok = function(){
       $modalInstance.close($scope.modal.value)
     };
     $scope.cancel = function(){
       $modalInstance.dismiss();
     };
+    if($scope.modal.type=='alert'){
+      $timeout(function(){
+        $modalInstance.close();
+      },2000)
+    }
   })
   .factory('Modal', function ($rootScope, $modal) {
     /**
