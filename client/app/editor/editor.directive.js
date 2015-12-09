@@ -11,14 +11,14 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, EditorWidget){
         $scope.init = function(){
-          var active = 0, active2 = 0;
+          var active = 0, active2 = -1;
 
           angular.forEach($scope.sense.contents, function(item, index){
             if(item.active) active = index;
           });
 
           $scope.page = $scope.sense.contents[active];
-          if(active==0){$scope.page.active = true;}
+          if(!$scope.page.active){$scope.page.active = true;}
 
           angular.forEach($scope.page.contents, function(item, index){
             if(item.active) active2 = index;
