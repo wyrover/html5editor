@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope:{
         sense: '=ngModel'
       },
-      templateUrl: 'app/editor/template.html',
+      templateUrl: 'app/editor/template/template.html',
       restrict: 'EA',
       controller: function($scope, EditorWidget){},
       link: function (scope, element, attrs, ngModel) {
