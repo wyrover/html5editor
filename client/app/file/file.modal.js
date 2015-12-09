@@ -1,31 +1,6 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('FileModalCtrl', function($scope, $modalInstance, File, Upload){
-    $scope.files = File.query({type:'image'});
-
-    $scope.remove = function(index){
-      files[index].$remove(function(){
-        files.splice(index, 1)
-      });
-    };
-
-    $scope.select = function(file){
-      $modalInstance.close(file);
-    };
-
-    $scope.upload = function(file){
-      Upload.upload({
-        url:'/api/files',
-        data: {
-          file: file
-        }
-      })
-      .success(function(res){
-        $scope.files.unshift(new File(res))
-      });
-    };
-  })
   .factory('FileModal', function ($rootScope, $modal) {
     
     function openModal(scope){
@@ -37,8 +12,34 @@ angular.module('html5editorApp')
       return $modal.open({
         size:'lg',
         templateUrl: 'app/file/modal.html',
-        controller: 'FileModalCtrl'
+        controller: FileModalCtrl
       });
+    };
+
+    function FileModalCtrl($scope, $modalInstance, File, Upload){
+      $scope.files = File.query({type:'image'});
+
+      $scope.remove = function(index){
+        files[index].$remove(function(){
+          files.splice(index, 1)
+        });
+      };
+
+      $scope.select = function(file){
+        $modalInstance.close(file);
+      };
+
+      $scope.upload = function(file){
+        Upload.upload({
+          url:'/api/files',
+          data: {
+            file: file
+          }
+        })
+        .success(function(res){
+          $scope.files.unshift(new File(res))
+        });
+      };
     };
 
     return function(options){

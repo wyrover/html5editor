@@ -1,19 +1,6 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('ModalCtrl', function($scope, $modalInstance, $timeout){
-    $scope.ok = function(){
-      $modalInstance.close($scope.modal.value)
-    };
-    $scope.cancel = function(){
-      $modalInstance.dismiss();
-    };
-    if($scope.modal.type=='alert'){
-      $timeout(function(){
-        $modalInstance.close();
-      },2000)
-    }
-  })
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal
@@ -28,7 +15,7 @@ angular.module('html5editorApp')
       angular.extend(modalScope, {modal:scope});
 
       var instance = $modal.open({
-        controller:'ModalCtrl',
+        controller:ModalCtrl,
         scope: modalScope,
         size:'sm',
         backdrop:scope.type!='alert'
@@ -36,6 +23,20 @@ angular.module('html5editorApp')
 
       return instance;
     }
+
+    function ModalCtrl($scope, $modalInstance, $timeout){
+      $scope.ok = function(){
+        $modalInstance.close($scope.modal.value)
+      };
+      $scope.cancel = function(){
+        $modalInstance.dismiss();
+      };
+      if($scope.modal.type=='alert'){
+        $timeout(function(){
+          $modalInstance.close();
+        },2000)
+      }
+    };
 
     // Public API here
     return  {

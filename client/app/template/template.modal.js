@@ -1,19 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('TemplateModalCtrl', function($scope, $modalInstance, Template){
-    $scope.list = Template.query({type:'widget'});
-
-    $scope.remove = function(index){
-      $scope.list[index].$remove(function(){
-        $scope.list.splice(index, 1)
-      });
-    };
-
-    $scope.select = function(file){
-      $modalInstance.close(file);
-    };
-  })
+  
   .factory('TemplateModal', function ($rootScope, $modal) {
     
     function openModal(scope){
@@ -25,8 +13,22 @@ angular.module('html5editorApp')
       return $modal.open({
         size:'lg',
         templateUrl: 'app/template/modal.html',
-        controller: 'TemplateModalCtrl'
+        controller: TemplateModalCtrl
       });
+    };
+
+    function TemplateModalCtrl($scope, $modalInstance, Template){
+      $scope.list = Template.query({type:'widget'});
+
+      $scope.remove = function(index){
+        $scope.list[index].$remove(function(){
+          $scope.list.splice(index, 1)
+        });
+      };
+
+      $scope.select = function(file){
+        $modalInstance.close(file);
+      };
     };
 
     return function(options){

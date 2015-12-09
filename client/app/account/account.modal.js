@@ -1,43 +1,6 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('AccountModalCtrl', function($scope, $modalInstance, Auth){
-    $scope.modal.title = $scope.modal.type=='login'?'登录':'注册';
-    $scope.templateUrl = 'app/account/'+$scope.modal.type+'/'+$scope.modal.type+'.html';
-
-    $scope.user = {};
-    $scope.errors = {};
-
-    $scope.login = function(form) {
-      $scope.submitted = true;
-
-      if(form.$valid) {
-        Auth.login({
-          email: $scope.user.email,
-          password: $scope.user.password
-        })
-        .then( function(user) {
-          // Logged in, redirect to home
-          $modalInstance.close(user);
-        })
-        .catch( function(err) {
-          $scope.errors.other = err.message;
-        });
-      }
-    };
-
-    $scope.signup = function(e){
-        e.preventDefault();
-        $scope.templateUrl = 'app/account/signup/signup.html';
-    };
-
-    $scope.ok = function(){
-      $modalInstance.close($scope.modal.value)
-    };
-    $scope.cancel = function(){
-      $modalInstance.dismiss();
-    };
-  })
   .factory('AccountModal', function ($rootScope, $modal) {
     var opened = false;
     /**
@@ -53,7 +16,7 @@ angular.module('html5editorApp')
       angular.extend(modalScope, {modal:scope});
 
       var instance = $modal.open({
-        controller:'AccountModalCtrl',
+        controller: AccountModalCtrl,
         templateUrl:'app/account/account.modal.html',
         scope: modalScope,
         //size:'sm',
@@ -70,6 +33,44 @@ angular.module('html5editorApp')
 
       return instance;
     }
+
+    function AccountModalCtrl($scope, $modalInstance, Auth){
+      $scope.modal.title = $scope.modal.type=='login'?'登录':'注册';
+      $scope.templateUrl = 'app/account/'+$scope.modal.type+'/'+$scope.modal.type+'.html';
+
+      $scope.user = {};
+      $scope.errors = {};
+
+      $scope.login = function(form) {
+        $scope.submitted = true;
+
+        if(form.$valid) {
+          Auth.login({
+            email: $scope.user.email,
+            password: $scope.user.password
+          })
+          .then( function(user) {
+            // Logged in, redirect to home
+            $modalInstance.close(user);
+          })
+          .catch( function(err) {
+            $scope.errors.other = err.message;
+          });
+        }
+      };
+
+      $scope.signup = function(e){
+          e.preventDefault();
+          $scope.templateUrl = 'app/account/signup/signup.html';
+      };
+
+      $scope.ok = function(){
+        $modalInstance.close($scope.modal.value)
+      };
+      $scope.cancel = function(){
+        $modalInstance.dismiss();
+      };
+    };
 
     // Public API here
     return  {

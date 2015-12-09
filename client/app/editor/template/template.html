@@ -6,7 +6,9 @@
     <tabset class="editor-tabset" justified="true">
       <tab heading="个人">
         <div class="col-sm-6" ng-repeat="scene in templates">
-        <editor-preview ng-model="scene"></editor-preview>
+        <div class="thumbnail relative">
+        <editor-preview class="editor-preview" ng-model="scene"></editor-preview>
+        </div>
         </div>
       </tab>
       <tab heading="企业">
