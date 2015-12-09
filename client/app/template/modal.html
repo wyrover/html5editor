@@ -2,11 +2,11 @@
   <button type="button" ng-click="$dismiss()" class="close">&times;</button>
   <h4 class="modal-title">选择模板</h4>
 </div>
-<div class="modal-body file-modal-body">
+<div class="modal-body template-modal-body">
 <div class="row" cg-busy="list.$promise">
   <div ng-repeat="item in list track by $index" class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <img ng-src="{{item.path}}" alt="...">
+      <editor-preview ng-model="item" class="editor-preview"></editor-preview>
       <div class="caption">
         <h3 class="thumbnail-title">{{item.name}}</h3>
         <p><a ng-click="select(item)" class="btn btn-primary" role="button">选择</a> 
