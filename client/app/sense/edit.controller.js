@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('SenseEditCtrl', function ($scope, $state, Sense) {
+  .controller('SenseEditCtrl', function ($scope, $state, Sense, Template) {
 
     var id = $state.params.id;
     

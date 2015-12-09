@@ -9,7 +9,9 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/template/template.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){},
+      controller: function($scope, Template){
+        $scope.templates = Template.query();
+      },
       link: function (scope, element, attrs, ngModel) {
         
       }

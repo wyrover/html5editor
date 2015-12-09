@@ -5,7 +5,9 @@
   <div class="panel-body bg-warning">
     <tabset class="editor-tabset" justified="true">
       <tab heading="个人">
-        <editor-preview ng-model="sense"></editor-preview>
+        <div class="col-sm-6" ng-repeat="scene in templates">
+        <editor-preview ng-model="scene"></editor-preview>
+        </div>
       </tab>
       <tab heading="企业">
         
