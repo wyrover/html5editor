@@ -5,7 +5,10 @@ var Template = require('./template.model');
 
 // Get list of templates
 exports.index = function(req, res) {
-  Template.find(function (err, templates) {
+  var query = req.query;
+  Template.find({})
+  .paginate(1, 4)
+  .exec(function (err, templates, total) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(templates);
   });

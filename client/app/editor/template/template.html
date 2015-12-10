@@ -17,6 +17,14 @@
     </tabset>
   </div>
   <div class="panel-footer">
-    
+    <pagination 
+      ng-model="currentPage" 
+      total-items="100" 
+      max-size="8" 
+      items-per-page="4" 
+      previous-text="&lt;"
+      next-text="&gt;"
+      class="pagination-sm">
+    </pagination>
   </div>
 </div>
