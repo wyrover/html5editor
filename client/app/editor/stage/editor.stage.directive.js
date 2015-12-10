@@ -142,6 +142,13 @@ angular.module('html5editorApp')
                 }
               })
               .add({
+                combo: 'ctrl+g',
+                callback: function(e){
+                  e.preventDefault();
+                  $scope.group();
+                }
+              })
+              .add({
                 combo:'del',
                 callback: function(){
                   $scope.remove();
