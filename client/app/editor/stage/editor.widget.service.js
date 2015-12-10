@@ -34,8 +34,8 @@ angular.module('html5editorApp')
         height: '50',
         fill: '#f00'
       },
-      video: {
-        type: 'video',
+      custom: {
+        type: 'custom',
         code: '',
         height: '100',
         width: '320'
