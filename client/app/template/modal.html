@@ -5,7 +5,7 @@
 <div class="modal-body template-modal-body">
 <div class="row" cg-busy="list.$promise">
   <div ng-repeat="item in list track by $index" class="col-sm-6 col-md-3">
-    <div class="thumbnail">
+    <div class="thumbnail relative">
       <editor-preview ng-model="item" class="editor-preview"></editor-preview>
       <div class="caption">
         <h3 class="thumbnail-title">{{item.name}}</h3>
