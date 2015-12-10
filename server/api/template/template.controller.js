@@ -7,10 +7,9 @@ var Template = require('./template.model');
 exports.index = function(req, res) {
   var query = req.query;
   Template.find({})
-  .paginate(1, 4)
-  .exec(function (err, templates, total) {
+  .paginate(1, 4, function (err, templates, total) {
     if(err) { return handleError(res, err); }
-    res.range({first:req.range.first,last:req.range.last,length:total});console.log(req.range)
+    res.range({first:req.range.first,last:req.range.last,length:total});
     return res.status(200).json(templates);
   });
 };
