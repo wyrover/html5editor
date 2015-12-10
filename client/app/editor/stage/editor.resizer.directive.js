@@ -11,6 +11,10 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, $rootScope){
         var widget = $scope.widget;
+        var x,y;
+
+        $scope.widget.scale = $scope.widget.scale||1;
+        $scope.widget.transform = $scope.widget.transform||0;
 
         $scope.changeWidget = function($event){
           var widget = $scope.widget;
@@ -77,6 +81,24 @@ angular.module('html5editorApp')
         $scope.rotate = function($event){
             $scope.widget.transform = widget.transform+$event.angle;
         };
+        
+        $scope.$on('widget.panstart', function(){
+          x = Number($scope.widget.left);
+          y = Number($scope.widget.top);
+        });
+        $scope.$on('widget.panmove', function(e, deltaX, deltaY){
+          if(!$scope.widget.active) return;
+          $scope.widget.left = x + deltaX;
+          $scope.widget.top = y + deltaY;
+        });
+        $scope.$on('widget.active', function(e, widget, shiftKey, active){
+          if(widget!=$scope.widget){
+            if(!shiftKey&&!active)$scope.widget.active = false;
+          }
+          if(widget.group>0&&$scope.widget.group==widget.group){
+            $scope.widget.active = true;
+          }
+        });
       },
       link: function (scope, element, attrs, ctrls) {
 
