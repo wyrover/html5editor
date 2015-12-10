@@ -10,6 +10,7 @@ exports.index = function(req, res) {
   .paginate(1, 4)
   .exec(function (err, templates, total) {
     if(err) { return handleError(res, err); }
+    res.range({first:req.range.first,last:req.range.last,length:total});console.log(req.range)
     return res.status(200).json(templates);
   });
 };

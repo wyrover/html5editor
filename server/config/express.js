@@ -11,6 +11,7 @@ var compression = require('compression');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
+var range = require('express-range');
 var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
@@ -27,6 +28,7 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
+  app.use(range({accept:'items'}));
   app.use(passport.initialize());
 
   app.use('/bower_components', express.static(path.join(config.root, 'bower_components')));
