@@ -15,12 +15,15 @@ angular.module('html5editorApp')
 
         $scope.changeWidget = function($event, widget){
             angular.forEach($scope.page.contents, function(item){
-              item.active = false;
+              if(!$event.shiftKey)item.active = false;
             });
+          widget.active = true;
           EditorWidget.widget = widget;
         };
 
-        
+        $rootScope.$on('widget.active', function($event,widget, shiftKey, active){
+              if(!shiftKey&&!active)$scope.page.background.active = false;
+        });
 
         $scope.push = function(widget){
           var index = $scope.page.contents.indexOf(widget);
