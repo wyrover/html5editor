@@ -86,28 +86,10 @@ angular.module('html5editorApp')
         $scope.save = function(widget){
               Modal.prompt({title:'请输入名字',value:'新名字'})
               .result.then(function(name){
-                    var widgets = [];
-                    angular.forEach($scope.page.contents, function(item){
-                          item.active&&widgets.push(item);
-                    });
-                    if(!widgets.length) return;
-                    Template.save({
-                          name:name,
-                          type:'widget',
-                          contents:[{contents:[].concat(widgets)}]
-                    });
-              });
-        };
-
-        $scope.savePage = function(widget){
-              Modal.prompt({title:'请输入页面名字',value:'新页面'})
-              .result.then(function(name){
                     var page = angular.copy($scope.page);
-                    Template.save({
-                          name:name,
-                          type:'page',
-                          contents:[page]
-                    });
+                    page.name = name;
+                    page.type = 'widget';
+                    Template.save(page);
               });
         };
 
