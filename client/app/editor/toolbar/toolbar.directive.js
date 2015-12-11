@@ -22,7 +22,7 @@ angular.module('html5editorApp')
 
         $scope.insertCustomWidget = function(){
           TemplateModal().result.then(function(template){
-            var page = angular.copy(template);
+            var page = angular.copy(template.contents[0]);
             angular.extend($scope.page.background, page.background);
             $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
           })

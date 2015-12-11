@@ -7,6 +7,7 @@ var Template = require('./template.model');
 exports.index = function(req, res) {
   var query = req.query;
   Template.find({})
+  .sort('-_id')
   .paginate(1, 4, function (err, templates, total) {
     if(err) { return handleError(res, err); }
     res.range({first:req.range.first,last:req.range.last,length:total});

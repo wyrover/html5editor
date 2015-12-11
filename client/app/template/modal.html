@@ -7,7 +7,7 @@
   <div ng-repeat="item in list track by $index" class="col-sm-6 col-md-3">
     <div class="thumbnail relative">
       <editor-preview ng-model="item" class="editor-preview"></editor-preview>
-      <div class="caption">
+      <div class="caption mask">
         <h3 class="thumbnail-title">{{item.name}}</h3>
         <p><a ng-click="select(item)" class="btn btn-primary" role="button">选择</a> 
             <a class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
