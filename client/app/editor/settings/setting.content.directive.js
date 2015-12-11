@@ -19,8 +19,6 @@ angular.module('html5editorApp')
           {name:'单选按钮',type:'radio'},
           {name:'多选按钮',type:'checkbox'},
         ];
-
-        $scope.fieldType = $scope.widget.widget.fieldType||'input';
         
         $scope.selectBackground = function(){
           FileModal().result.then(function(file){

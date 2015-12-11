@@ -36,7 +36,9 @@ angular.module('html5editorApp')
       },
       form: {
         type:'form',
-        input:'text'
+        inputType:'text',
+        fieldType:'input',
+        placeholder:'提示信息'
       },
       custom: {
         type: 'custom',

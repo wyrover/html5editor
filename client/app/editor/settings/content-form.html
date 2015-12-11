@@ -4,7 +4,7 @@
             <th width="20%">类型</th>
             <td>
                 <select class="form-control input-sm" 
-                    ng-model="fieldType"
+                    ng-model="widget.widget.fieldType"
                     ng-options="field.type as field.name for field in fieldTypes"
                 ></select>
             </td>
@@ -20,7 +20,7 @@
         <tr>
             <th width="20%">提示</th>
             <td>
-                <input class="form-control input-sm" ng-model="text" />
+                <input class="form-control input-sm" ng-model="widget.widget.placeholder" />
             </td>
         </tr>
         <tr>
