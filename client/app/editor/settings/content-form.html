@@ -1,0 +1,35 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <th width="20%">类型</th>
+            <td>
+                <select class="form-control input-sm" 
+                    ng-model="fieldType"
+                    ng-options="field.type as field.name for field in fieldTypes"
+                ></select>
+            </td>
+        </tr>
+        <tr>
+            <th width="20%">字段</th>
+            <td>
+                <label class="radio-inline"><input type="radio" name="inputType" />姓名</label>
+                <label class="radio-inline"><input type="radio" name="inputType" />手机</label>
+                <label class="radio-inline"><input type="radio" name="inputType" />邮箱</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="20%">提示</th>
+            <td>
+                <input class="form-control input-sm" ng-model="text" />
+            </td>
+        </tr>
+        <tr>
+            <th width="20%">必填</th>
+            <td>
+                <div class="checkbox">
+                    <label><input type="checkbox" /></label>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
