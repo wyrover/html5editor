@@ -83,12 +83,16 @@ angular.module('html5editorApp')
             }
         };
 
-        $scope.save = function(widget){
+        $scope.save = function(widget){console.log($scope.page)
               Modal.prompt({title:'请输入名字',value:'新名字'})
               .result.then(function(name){
-                    var page = angular.copy($scope.page);
+                    var page = {contents:[],background:{}};
                     page.name = name;
                     page.type = 'widget';
+                    page.background = $scope.page.background.active?angular.copy($scope.page.background):{};
+                    angular.forEach($scope.page.contents, function(item,index){
+                          item.active&&page.contents.push(item);
+                    });
                     Template.save(page);
               });
         };
