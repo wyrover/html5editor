@@ -34,6 +34,10 @@ angular.module('html5editorApp')
         height: '50',
         fill: '#f00'
       },
+      form: {
+        type:'form',
+        input:'text'
+      },
       custom: {
         type: 'custom',
         code: '',
