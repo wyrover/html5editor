@@ -17,8 +17,15 @@
 		width="100%" height="100%" 
     />
 </svg>
-<div name="form" ng-if="widget.type=='form'">
-	<input ng-if="!widget.fieldType||widget.fieldType=='input'||widget.fieldType=='radio'||widget.fieldType=='checkbox'||''"
-	 placeholder="{{widget.widget.placeholder}}"
-	 type="{{widget.fieldType}}" class="form-control input-sm" />
+<div ng-if="widget.type=='form'" class="form-group">
+	<input ng-if="widget.fieldType=='input'" placeholder="{{widget.placeholder}}" type="text" class="form-control input-sm" />
+	<textarea ng-if="widget.fieldType=='textarea'" placeholder="{{widget.placeholder}}" class="form-control input-sm">
+	</textarea>
+	<div ng-if="widget.fieldType=='radio'"  class="radio">
+	 <label><input type="radio" />{{widget.placeholder}}</label>
+	</div>
+	<div ng-if="widget.fieldType=='checkbox'"  class="checkbox">
+	 <label><input type="checkbox" />{{widget.placeholder}}</label>
+	</div>
+	<select ng-if="widget.fieldType=='select'" class="form-control input-sm"></select>
 </div>
