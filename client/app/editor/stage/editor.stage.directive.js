@@ -76,6 +76,12 @@ angular.module('html5editorApp')
             });
         };
 
+        $scope.selectAll = function(){
+            angular.forEach($scope.page.contents, function(item, index){
+                  item.active = true;
+            });  
+        };
+
         $scope.remove = function(){
             var index = $scope.page.contents.indexOf(EditorWidget.widget);
             if(index>-1){
@@ -137,6 +143,13 @@ angular.module('html5editorApp')
                 callback: function(e){
                   e.preventDefault();
                   $scope.group();
+                }
+              })
+              .add({
+                combo: 'ctrl+a',
+                callback: function(e){
+                  e.preventDefault();
+                  $scope.selectAll();
                 }
               })
               .add({
