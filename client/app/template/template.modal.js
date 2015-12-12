@@ -29,6 +29,11 @@ angular.module('html5editorApp')
       $scope.select = function(file){
         $modalInstance.close(file);
       };
+
+      $scope.onPageChange = function(){
+        console.log($scope.currentPage,$scope.list)
+        $scope.list=Template.range('items=0-9').query();
+      };
     };
 
     return function(options){
