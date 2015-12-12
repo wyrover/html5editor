@@ -4,6 +4,14 @@ angular.module('html5editorApp')
   .service('Header', function () {
     var headers = {};
 
+    function rangeAdd(key, val){
+      headers[key]=val;
+    }
+
+    function rangeRemove(key){
+      delete headers[key];
+    }
+
     /**
      * Format the content-range header.
      *
@@ -53,6 +61,9 @@ angular.module('html5editorApp')
     }
 
     return {
-
+      rangeAdd: rangeAdd,
+      rangeRemove: rangeRemove,
+      rangeFormat: format,
+      rangeParse: parse
     }
   });
