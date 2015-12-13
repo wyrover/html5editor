@@ -17,8 +17,15 @@ angular.module('html5editorApp')
       });
     };
 
-    function TemplateModalCtrl($scope, $modalInstance, Template){
-      $scope.list = Template.query({type:'widget'});
+    function TemplateModalCtrl($scope, $modalInstance, Template, Header){
+      
+      $scope.totalItems = 1;
+
+      $scope.list = Template.query({type:'widget'}, function(data,headersGetter){
+        var headers = headersGetter();
+        var range = Header.rangeParse(headers['content-range']);console.log(range)
+        $scope.totalItems = range.length;
+      });
 
       $scope.remove = function(index){
         $scope.list[index].$remove(function(){
@@ -31,8 +38,13 @@ angular.module('html5editorApp')
       };
 
       $scope.onPageChange = function(){
-        console.log($scope.currentPage,$scope.list)
-        $scope.list=Template.range('items=0-9').query();
+        var range = {
+          unit:'items',
+          first:$scope.currentPage*4,
+          last:($scope.currentPage+1)*4-1,
+          //length:$scope.totalItems
+        };
+        $scope.list=Template.range(Header.rangeFormat(range)).query();
       };
     };
 

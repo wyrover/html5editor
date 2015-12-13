@@ -30,7 +30,7 @@ angular.module('html5editorApp')
 
       if (last - first < 0) return options.unit + ' */' + options.length;
 
-      return options.unit + ' ' + first + '-' + last + '/' + options.length;
+      return options.unit + '=' + first + '-' + last ;
     }
 
     /**
