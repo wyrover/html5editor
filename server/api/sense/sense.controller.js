@@ -5,7 +5,9 @@ var Sense = require('./sense.model');
 
 // Get list of senses
 exports.index = function(req, res) {
-  Sense.find({user: req.user._id}, function (err, senses) {
+  Sense.find({user: String(req.user._id)})
+  .sort('-created_time')
+  .exec(function (err, senses) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(senses);
   });

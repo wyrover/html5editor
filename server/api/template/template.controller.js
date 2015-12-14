@@ -7,7 +7,7 @@ var Template = require('./template.model');
 exports.index = function(req, res) {
   var query = req.query;
   Template.find({})
-  .sort('-_id')
+  .sort('-created_time')
   .skip(req.range.first)
   .limit(req.range.last-req.range.first+1)
   .exec(function (err, templates) {

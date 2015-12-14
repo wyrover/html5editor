@@ -8,7 +8,11 @@ var TemplateSchema = new Schema({
   contents: Array,
   active: Boolean,
   type:String,
-  user: Schema.Types.ObjectId
+  user: Schema.Types.ObjectId,
+  created_time: {
+    type: Date,
+    default: new Date
+  }
 });
 
 module.exports = mongoose.model('Template', TemplateSchema);
