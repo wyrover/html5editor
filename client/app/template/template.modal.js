@@ -21,9 +21,9 @@ angular.module('html5editorApp')
       
       $scope.totalItems = 1;
 
-      $scope.list = Template.range(Header.rangeFormat({unit:'items',first:0,last:3})).query({type:'widget'}, function(data,headersGetter){
+      $scope.list = Template.page(1).query({type:'widget'}, function(data,headersGetter){
         var headers = headersGetter();
-        var range = Header.rangeParse(headers['content-range']);
+        var range = Template.parseRange(headers['content-range']);
         $scope.totalItems = range.length;
       });
 
@@ -38,12 +38,7 @@ angular.module('html5editorApp')
       };
 
       $scope.onPageChange = function(){
-        var range = {
-          unit:'items',
-          first:($scope.currentPage-1)*4,
-          last:($scope.currentPage)*4-1
-        };
-        $scope.list=Template.range(Header.rangeFormat(range)).query({type:'widget'});
+        $scope.list = Template.page($scope.currentPage).query({type:'widget'});
       };
     };
 

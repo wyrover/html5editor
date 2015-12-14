@@ -25,15 +25,18 @@ angular.module('html5editorApp')
  
      var resource = $resource( url, params, methods );
 
-     resource.range = function(str){
-       range = str;
+     resource.page = function(n){
+       var obj = {
+          unit:'items',
+          first:(n-1)*4,
+          last:n*4-1
+        };
+       range = format(obj);
        return this;
      };
 
-     resource.prototype.$range = function(str){
-       range = str;
-       return this;
-     };
+     resource.parseRange = parse;
+     resource.formatRange = format;
  
      resource.prototype.$save = function() {
        if ( !this._id ) {
@@ -43,6 +46,44 @@ angular.module('html5editorApp')
          return resource.prototype.$update.apply(this, arguments);
        }
      };
+
+     function format(options) {
+      options.length = options.length == null ? '*' : options.length;
+
+      var first = options.first;
+      var last = options.last || (options.first + options.limit - 1);
+
+      if (last - first < 0) return options.unit + ' */' + options.length;
+
+      return options.unit + '=' + first + '-' + last ;
+    }
+
+    /**
+     * Parse the content-range header.
+     *
+     * @param {String} str
+     * @returns {Object}
+     */
+
+    function parse(str) {
+      var matches;
+
+      if (matches = str.match(/^(\w+) (\d+)-(\d+)\/(\d+|\*)/)) return {
+          unit: matches[1],
+          first: +matches[2],
+          last: +matches[3],
+          length: matches[4] === '*' ? null : +matches[4]
+        };
+
+      if (matches = str.match(/^(\w+) \*\/(\d+|\*)/)) return {
+          unit: matches[1],
+          first: null,
+          last: null,
+          length: matches[2] === '*' ? null : +matches[2]
+        };
+
+      return null;
+    }
  
      return resource;
    };
