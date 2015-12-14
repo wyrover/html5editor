@@ -8,9 +8,10 @@ exports.index = function(req, res) {
   var query = req.query;
   Template.find({})
   .sort('-_id')
-  .paginate(1, 4, function (err, templates, total) {
+  .skip(req.range.first)
+  .limit(req.range.last-req.range.first)
+  .exec(function (err, templates) {
     if(err) { return handleError(res, err); }
-    res.range({first:req.range.first,last:req.range.last,length:total});
     return res.status(200).json(templates);
   });
 };
@@ -56,6 +57,13 @@ exports.destroy = function(req, res) {
       return res.status(204).send('No Content');
     });
   });
+};
+
+exports.count = function(req, res, next) {
+  Template.count({}, function(err, count){
+    res.range({first:req.range.first,last:req.range.last,length:count});
+    next();
+  })
 };
 
 function handleError(res, err) {

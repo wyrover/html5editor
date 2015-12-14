@@ -13,10 +13,9 @@ angular.module('html5editorApp')
         'id':'@_id'
       };
 
-      var range = '';
+      var range = 'items=0-10';
 
       function range(config){
-        console.log(config)
         return range;
       }
       
