@@ -21,11 +21,7 @@ angular.module('html5editorApp')
       
       $scope.totalItems = 1;
 
-      $scope.list = Template.page(1).query({type:'widget'}, function(data,headersGetter){
-        var headers = headersGetter();
-        var range = Template.parseRange(headers['content-range']);
-        $scope.totalItems = range.length;
-      });
+      $scope.list = query(1,{type:'widget'});
 
       $scope.remove = function(index){
         $scope.list[index].$remove(function(){
@@ -38,8 +34,17 @@ angular.module('html5editorApp')
       };
 
       $scope.onPageChange = function(){
-        $scope.list = Template.page($scope.currentPage).query({type:'widget'});
+        $scope.list = query($scope.currentPage,{type:'widget'});
       };
+
+      function query(page, params){
+        return Template.page(page)
+          .query(params,function(data,headersGetter){
+            var headers = headersGetter();
+            var range = Template.parseRange(headers['content-range']);
+            $scope.totalItems = range.length;
+          });
+      }
     };
 
     return function(options){
