@@ -9,7 +9,7 @@ exports.index = function(req, res) {
   Template.find({})
   .sort('-_id')
   .skip(req.range.first)
-  .limit(req.range.last-req.range.first)
+  .limit(req.range.last-req.range.first+1)
   .exec(function (err, templates) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(templates);
