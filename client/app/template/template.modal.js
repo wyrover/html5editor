@@ -17,7 +17,7 @@ angular.module('html5editorApp')
       });
     };
 
-    function TemplateModalCtrl($scope, $modalInstance, Template, Header){
+    function TemplateModalCtrl($scope, $modalInstance, Template){
       
       $scope.totalItems = 1;
 
