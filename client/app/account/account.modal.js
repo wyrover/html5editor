@@ -59,9 +59,42 @@ angular.module('html5editorApp')
         }
       };
 
+      $scope.register = function(form) {
+          $scope.submitted = true;
+
+          if(form.$valid) {
+            Auth.createUser({
+              name: $scope.user.name,
+              email: $scope.user.email,
+              password: $scope.user.password
+            })
+            .then( function() {
+              // Account created, redirect to home
+              $location.path('/');
+            })
+            .catch( function(err) {
+              err = err.data;
+              $scope.errors = {};
+
+              // Update validity of form fields that match the mongoose errors
+              angular.forEach(err.errors, function(error, field) {
+                form[field].$setValidity('mongoose', false);
+                $scope.errors[field] = error.message;
+              });
+            });
+          }
+        };
+
       $scope.signup = function(e){
           e.preventDefault();
-          $scope.templateUrl = 'app/account/signup/signup.html';
+          $modalInstance.close();
+          $rootScope.$emit('modal.signup.show');
+      };
+
+      $scope.signin = function(e){
+          e.preventDefault();
+          $modalInstance.close();
+          $rootScope.$emit('modal.login.show');
       };
 
       $scope.ok = function(){
@@ -72,8 +105,16 @@ angular.module('html5editorApp')
       };
     };
 
+    $rootScope.$on('modal.signup.show',function(){
+        api.signup();
+    });
+
+    $rootScope.$on('modal.login.show',function(){
+        api.login();
+    });
+
     // Public API here
-    return  {
+    var api =  {
       login:function(options) {
         if(opened) return;
         options = options||{};
@@ -86,4 +127,6 @@ angular.module('html5editorApp')
         return openModal(options);
       }
     };
+
+    return api;
   });
