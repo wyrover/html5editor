@@ -4,13 +4,17 @@ angular.module('html5editorApp')
   .service('History', function () {
 
     function History(timeout, size){
+      this.init(timeout, size);
+    }
+
+    History.prototype.init = function(timeout, size){
       this.cur = -1;
       this.stack = [];
       this.prev = -1;
       this.timeout = timeout||500;
       this.size = size||100;
       this.lastTime = new Date().getTime()+this.timeout;
-    }
+    };
 
     History.prototype.add = function(val){//console.log(this.canAdd())
       if(!this.canAdd(val)) return;
@@ -48,6 +52,10 @@ angular.module('html5editorApp')
 
     History.prototype.canForward = function(){
       return this.cur<this.stack.length-1;
+    };
+
+    History.prototype.clear = function(){
+      this.init();
     };
 
 
