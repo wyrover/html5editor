@@ -1,5 +1,7 @@
 <ul class="pager">
-    <li ng-repeat="page in sense.contents track by $index" ng-class="{active:page.active}"><a ng-click="activePage(page)">{{$index+1}}</a></li>
-    <li><a ng-click="insertPage($index)">+</a></li>
-    <li><a ng-click="removePage($index)">-</a></li>
+    <li ng-repeat="page in sense.contents track by $index" ng-class="{active:page.active}" hm-panend="sort($event,$index)">
+        <a ng-click="activePage(page)">{{$index+1}}</a>
+    </li>
+    <li class="pull-right"><a ng-click="removePage($index)">-</a></li>
+    <li class="pull-right"><a ng-click="insertPage($index)">+</a></li>
 </ul>

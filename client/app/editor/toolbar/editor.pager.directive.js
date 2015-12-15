@@ -31,6 +31,19 @@ angular.module('html5editorApp')
           $scope.sense.contents.splice($scope.sense.contents.length-1, 1);
           $scope.page = $scope.sense.contents[$scope.sense.contents.length-1];
         };
+
+        $scope.sort = function(e, index){
+          var tmp = $scope.sense.contents[index];
+          if(e.deltaX<0){
+            $scope.sense.contents[index]=$scope.sense.contents[index-1];
+            $scope.sense.contents[index-1] = tmp;
+          }
+          else{
+            $scope.sense.contents[index]=$scope.sense.contents[index+1];
+            $scope.sense.contents[index+1] = tmp;
+          }
+          $scope.activePage(tmp);
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         element.on('click', function(event){
