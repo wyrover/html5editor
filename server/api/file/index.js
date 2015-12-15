@@ -1,9 +1,14 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./file.controller');
+var config = require('../../config/environment');
 var multer = require('multer');
-var upload = multer({dest: 'files'});
+var storage = require('gridfs-storage-engine')({
+    url:config.mongo.uri
+});
+var upload = multer({storage:storage});
+
+var controller = require('./file.controller');
 
 var router = express.Router();
 

@@ -9,11 +9,17 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
+	Grid.mongo = mongoose.mongo;
 var pagination = require ('mongoose-pagination');
 var config = require('./config/environment');
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
+mongoose.connection.once('open', function(){
+	var gfs = Grid(mongoose.connection.db);
+	app.set('gfs', gfs);
+});
 mongoose.connection.on('error', function(err) {
 	console.error('MongoDB connection error: ' + err);
 	process.exit(-1);
