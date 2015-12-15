@@ -32,7 +32,6 @@ module.exports = function(app) {
   app.use(passport.initialize());
 
   app.use('/bower_components', express.static(path.join(config.root, 'bower_components')));
-  app.use('/files', express.static(path.join(config.root, 'files')));
 
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));

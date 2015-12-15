@@ -20,9 +20,9 @@
   </div>
   <div ng-repeat="file in files track by $index" class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <img ng-src="{{file.path}}" alt="...">
+      <img ng-src="/files/{{file._id}}" alt="{{file.filename}}">
       <div class="caption">
-        <h3 class="thumbnail-title">{{file.originalname}}</h3>
+        <h3 class="thumbnail-title">{{file.filename}}</h3>
         <p><a ng-click="select(file)" class="btn btn-primary" role="button">选择</a> 
             <a href="#" class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
       </div>
