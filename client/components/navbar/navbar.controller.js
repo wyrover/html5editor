@@ -6,6 +6,10 @@ angular.module('html5editorApp')
     {
       'title': '场景',
       'link': '/sense'
+    },
+    {
+      'title': '模板',
+      'link': '/template'
     }];
 
     $scope.isCollapsed = true;

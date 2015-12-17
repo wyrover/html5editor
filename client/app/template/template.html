@@ -1,4 +1,11 @@
 <div class="template-list" cg-busy="templates.$promise">
+  <div  class="col-sm-3">
+    <div class="thumbnail">
+      <div class="caption">
+        <p><a ui-sref="template.new" class="btn btn-default btn-primary btn-block" role="button">+创建</a>
+      </div>
+    </div>
+  </div>
   <div ng-repeat="template in templates track by $index" class="col-sm-3">
     <div class="thumbnail">
       <editor-preview ng-model="template" class="editor-preview"></editor-preview>
