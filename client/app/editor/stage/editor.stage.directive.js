@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/stage/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History, Modal, Template){
+      controller: function($scope, EditorWidget, hotkeys, History, Modal, Widget){
         var widget_copy = {},
             history = new History(200);
         
@@ -91,7 +91,7 @@ angular.module('html5editorApp')
             }
         };
 
-        $scope.save = function(widget){console.log($scope.page)
+        $scope.save = function(widget){
               Modal.prompt({title:'请输入名字',value:'新名字'})
               .result.then(function(name){
                     var page = {contents:[],background:{}};
@@ -99,7 +99,7 @@ angular.module('html5editorApp')
                     angular.forEach($scope.page.contents, function(item,index){
                           item.active&&page.contents.push(item);
                     });
-                    Template.save({
+                    Widget.save({
                           name:name,
                           type:'widget',
                           contents:[page]

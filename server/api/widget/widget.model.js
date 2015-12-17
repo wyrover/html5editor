@@ -5,8 +5,14 @@ var mongoose = require('mongoose'),
 
 var WidgetSchema = new Schema({
   name: String,
-  info: String,
-  active: Boolean
+  contents: Array,
+  active: Boolean,
+  type:String,
+  user: Schema.Types.ObjectId,
+  created_time: {
+    type: Date,
+    default: new Date
+  }
 });
 
 module.exports = mongoose.model('Widget', WidgetSchema);
