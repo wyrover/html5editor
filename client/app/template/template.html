@@ -2,10 +2,11 @@
   <div ng-repeat="template in templates track by $index" class="col-sm-3">
     <div class="thumbnail">
       <editor-preview ng-model="template" class="editor-preview"></editor-preview>
-      <div class="caption">
+      <div class="caption mask">
         <h3>{{template.name}}</h3>
-        <p><a ui-sref="template.edit({id:template._id})" class="btn btn-primary" role="button">编辑</a> 
-            <a href="#" class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
+        <p><a ui-sref="template.edit({id:template._id})" class="btn btn-primary btn-block" role="button">编辑</a> </p>
+        <p><button ng-click="select(template)" class="btn btn-info btn-block" role="button">选择</button> </p>
+        <p><a href="#" class="btn btn-danger btn-block" role="button" ng-click="remove($index)">删除</a></p>
       </div>
     </div>
   </div>
