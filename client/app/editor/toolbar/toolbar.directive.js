@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar/toolbar.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, TemplateModal){
+      controller: function($scope, EditorWidget, WidgetModal){
         $scope.insertWidget = function(type){
           var defaults = EditorWidget.getDefaults(type);
           defaults.active = true;
@@ -21,7 +21,7 @@ angular.module('html5editorApp')
         };
 
         $scope.insertCustomWidget = function(){
-          TemplateModal().result.then(function(template){
+          WidgetModal().result.then(function(template){
             var page = angular.copy(template.contents[0]);
             angular.extend($scope.page.background, page.background);
             $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
