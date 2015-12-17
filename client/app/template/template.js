@@ -22,5 +22,15 @@ angular.module('html5editorApp')
         url: '',
         templateUrl: 'app/template/template.html',
         controller: 'TemplateCtrl'
+      })
+      .state('template.new', {
+        url: '/new',
+        templateUrl: 'app/template/edit.html',
+        controller: 'TemplateEditCtrl'
+      })
+      .state('template.edit', {
+        url: '/edit/:id',
+        templateUrl: 'app/template/edit.html',
+        controller: 'TemplateEditCtrl'
       });
   });
