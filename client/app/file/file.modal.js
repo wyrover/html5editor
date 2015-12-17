@@ -20,8 +20,8 @@ angular.module('html5editorApp')
       $scope.files = File.query({type:'image'});
 
       $scope.remove = function(index){
-        files[index].$remove(function(){
-          files.splice(index, 1)
+        $scope.files[index].$remove(function(){
+          $scope.files.splice(index, 1)
         });
       };
 
