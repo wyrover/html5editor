@@ -21,7 +21,7 @@ angular.module('html5editorApp')
       
       $scope.totalItems = 1;
 
-      $scope.list = query(1,{type:'widget'});
+      $scope.list = query(1);
 
       $scope.remove = function(index){
         $scope.list[index].$remove(function(){

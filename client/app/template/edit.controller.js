@@ -6,7 +6,7 @@ angular.module('html5editorApp')
     var id = $state.params.id;
     
     $scope.init = function(id){
-      $scope.sense = new Sense({
+      $scope.sense = new Template({
         _id:id,
         name: '新场景',
         contents:[{background:{type:'background'},contents:[],active:true}]

@@ -34,7 +34,7 @@ angular.module('html5editorApp')
       };
 
       $scope.onPageChange = function(){
-        $scope.list = query($scope.currentPage,{type:'widget'});
+        $scope.list = query($scope.currentPage);
       };
 
       function query(page, params){

@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <button type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 class="modal-title">选择模板</h4>
+</div>
+<div class="modal-body template-modal-body">
+  <div class="row" cg-busy="list.$promise">
+    <div ng-repeat="item in list track by $index" class="col-sm-6 col-md-3">
+      <div class="thumbnail relative">
+        <editor-preview ng-model="item" class="editor-preview"></editor-preview>
+        <div class="caption mask">
+          <h3 class="thumbnail-title">{{item.name}}</h3>
+          <p><a ng-click="select(item)" class="btn btn-primary" role="button">选择</a> 
+              <a class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+<!--     <hr /> -->
+    <div class="col-md-12">
+     <pagination 
+      ng-model="currentPage" 
+      ng-change="onPageChange()"
+      total-items="totalItems" 
+      max-size="8" 
+      items-per-page="4" 
+      previous-text="&lt;"
+      next-text="&gt;"
+      class="pagination pagination-sm">
+    </div>
+    </pagination>
+  </div>
+</div>
