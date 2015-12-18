@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, AccountModal, Notice) {
+  .controller('NavbarCtrl', function ($scope, $state, Auth, AccountModal, Notice) {
     $scope.menu = [
     {
       'title': '场景',
@@ -42,6 +42,6 @@ angular.module('html5editorApp')
     };
 
     $scope.isActive = function(route) {
-      return route === $location.path();
+      return $state.includes(route.split('/')[1]);
     };
   });
