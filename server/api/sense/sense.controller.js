@@ -26,6 +26,7 @@ exports.show = function(req, res) {
 
 // Creates a new sense in the DB.
 exports.create = function(req, res) {
+  delete req.body._id;
   req.body.user = req.user._id;
   Sense.create(req.body, function(err, sense) {
     if(err) { return handleError(res, err); }
