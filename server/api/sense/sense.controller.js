@@ -7,6 +7,8 @@ var Sense = require('./sense.model');
 exports.index = function(req, res) {
   Sense.find({user: String(req.user._id)})
   .sort('-created_time')
+  .skip(req.range.first)
+  .limit(req.range.last-req.range.first+1)
   .exec(function (err, senses) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(senses);
@@ -60,6 +62,13 @@ exports.destroy = function(req, res) {
       return res.status(204).send('No Content');
     });
   });
+};
+
+exports.count = function(req, res, next) {
+  Sense.count({}, function(err, count){
+    res.range({first:req.range.first,last:req.range.last,length:count});
+    next();
+  })
 };
 
 function handleError(res, err) {

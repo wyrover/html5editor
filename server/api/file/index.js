@@ -7,16 +7,17 @@ var storage = require('gridfs-storage-engine')({
     url:config.mongo.uri
 });
 var upload = multer({storage:storage});
+var auth = require('../../auth/auth.service');
 
 var controller = require('./file.controller');
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
-router.post('/', upload.single('file'), controller.create);
-router.put('/:id', controller.update);
-router.patch('/:id', controller.update);
-router.delete('/:id', controller.destroy);
+router.get('/', auth.isAuthenticated(), controller.count, controller.index);
+router.get('/:id', auth.isAuthenticated(), controller.show);
+router.post('/', auth.isAuthenticated(), controller.user, upload.single('file'), controller.create);
+router.put('/:id', auth.isAuthenticated(), controller.update);
+router.patch('/:id', auth.isAuthenticated(), controller.update);
+router.delete('/:id', auth.isAuthenticated(), auth.isAuthenticated(), controller.destroy);
 
 module.exports = router;

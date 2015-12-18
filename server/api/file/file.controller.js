@@ -5,16 +5,19 @@ var File = require('./file.model');
 
 // Get list of files
 exports.index = function(req, res) {
-  var gfs = req.app.get('gfs');
-  return gfs.files.find({}).toArray(function(err, files){
-    res.status(200).json(files);
+  File.find({})
+  .sort('-uploadDate')
+  .skip(req.range.first)
+  .limit(req.range.last-req.range.first+1)
+  .exec(function (err, files) {
+    if(err) { return handleError(res, err); }
+    return res.status(200).json(files);
   });
 };
 
 // Get a single file
 exports.show = function(req, res) {
-  var gfs = req.app.get('gfs');
-  gfs.findOne({_id:req.params.id}, function (err, file) {
+  File.findById(req.params.id, function (err, file) {
     if(err) { return handleError(res, err); }
     if(!file) { return res.status(404).send('Not Found'); }
     return res.json(file);
@@ -42,6 +45,18 @@ exports.destroy = function(req, res) {
     if(err) { return handleError(res, err); }
     return res.send('');
   });
+};
+
+exports.count = function(req, res, next) {
+  File.count({}, function(err, count){console.log('file count:', count)
+    res.range({first:req.range.first,last:req.range.last,length:count});
+    next();
+  })
+};
+
+exports.user = function(req, res, next){
+  req.body.user = req.user._id;
+  next();
 };
 
 function handleError(res, err) {
