@@ -12,16 +12,9 @@ angular.module('html5editorApp')
       controller: function($scope, Modal, Template){
         $scope.save = function(){
           return $scope.sense.$save(function(){
-            $state.go('sense.edit',{id:$scope.sense._id});
+            $state.go('^.edit',{id:$scope.sense._id});
             Modal.alert({value:'保存成功'});
           });
-        };
-
-        $scope.saveTemplate = function(){
-          var template = $scope.sense.toJSON();
-          template.type = 'sense';
-          delete template._id;
-          Template.save(template);
         };
 
         $scope.settings = function(){
