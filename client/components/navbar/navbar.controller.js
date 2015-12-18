@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('NavbarCtrl', function ($scope, $state, Auth, AccountModal, Notice) {
+  .controller('NavbarCtrl', function ($scope, $state, $location, Auth, AccountModal, Notice) {
     $scope.menu = [
     {
       'title': '场景',
