@@ -9,7 +9,8 @@ angular.module('html5editorApp', [
   'hmTouchEvents',
   'ngFileUpload',
   'cgBusy',
-  'cfp.hotkeys'
+  'cfp.hotkeys',
+  'monospaced.qrcode'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $modalProvider) {
     $urlRouterProvider
