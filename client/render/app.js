@@ -8,11 +8,11 @@ angular.module('html5editorApp', [
 ])
 
 .controller('MainCtrl', function($scope, Sense){
-    $scope.sense = Sense.get();
+    $scope.sense = Sense.get({id:'sss'});
 })
 
 .factory('Sense', function($resource){
-    return $resource('/render/senses/:id/:controller');
+    return $resource('/render/:id/:controller');
 })
 
   .run(function ($rootScope) {
