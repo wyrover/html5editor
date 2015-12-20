@@ -1,0 +1,45 @@
+<div class="sense" ng-controller="MainCtrl">
+    <div class="full relative animated {{stage.background.animation}}"
+        ng-repeat="stage in sense.contents"
+        ng-style="{backgroundImage:'url('+stage.background.src+')',
+                   backgroundSize: 'cover',
+                   backgroundColor:stage.background.backgroundColor,
+                   animationDelay: stage.background.animationDelay+'s',
+                   animationDuration: stage.background.animationDuration+'s',
+                   animationIterationCount:stage.background.animationIterationCount}">
+
+        <div ng-repeat="widget in stage.contents track by $index"
+            ng-style="{position:widget.position,
+                       left:widget.left+'px',
+                       top:widget.top+'px',
+                       width:widget.width*widget.scale+'px',
+                       height:widget.height*widget.scale+'px',
+                       animationDelay: widget.animationDelay+'s',
+                       animationDuration: widget.animationDuration+'s',
+                       animationIterationCount:widget.animationIterationCount}"
+            class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
+            <editor-widget 
+                ng-model="widget" 
+                class="block full editor-widget-element"
+                ng-style="{
+                padding:widget.padding+'px',
+                lineHeight:widget.lineHeight+'em',
+                transform:'rotate('+widget.transform+'deg)',
+                borderWidth:widget.borderWidth+'px',
+                borderStyle:widget.borderStyle,
+                borderColor:widget.borderColor,
+                borderRadius: widget.borderRadius+'px',
+                boxShadow: '0px 0px '+widget.boxShadow+'px '+widget.boxShadowColor,
+               backgroundColor:widget.backgroundColor,
+               opacity:widget.opacity,
+               fontWeight:widget.fontWeight,
+               fontStyle:widget.fontStyle,
+               textDecoration:widget.textDecoration,
+               textAlign:widget.textAlign,
+               color:widget.color
+            }">
+            </editor-widget>
+        </div>
+
+    </div>
+</div>
