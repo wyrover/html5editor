@@ -24,6 +24,7 @@
             class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
             <div
                 ng-model="widget" 
+                ng-include="'render/widget.html'"
                 class="block full editor-widget-element"
                 ng-style="{
                 padding:widget.padding+'px',
