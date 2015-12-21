@@ -1,6 +1,99 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Arial", "SimHei", "Microsoft Yahei";
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* 位置 */
+.static {
+    position: static;
+}
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
+.fixed {
+    position: fixed;
+}
+.top {
+    top:0;
+}
+.left {
+    left:0;
+}
+.right {
+    right:0;
+}
+.bottom {
+    bottom:0;
+}
+
+/* 宽度 */
 .full{
     width:100%;
     height:100%;
+}
+.wide{
+    width:100%;
+}
+.height{
+    height:100%;
+}
+.mask{
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+
+/* 块 */
+.block {
+    display:block;
+}
+.inline{
+    display:inline;
+}
+.inline-block{
+    display:inline-block;
+}
+
+.ng-cloak{
+    display:none;
+}
+
+@keyframes arrowing{0%{transform:translateY(-5px);opacity:.8}50%{transform:translateY(10px);opacity:1}to{transform:translateY(-5px)}}
+@-webkit-keyframes arrowing{0%,to{opacity:.8}0%{-webkit-transform:translateY(-5px)}50%{-webkit-transform:translateY(10px);opacity:1}to{-webkit-transform:translateY(-5px);opacity:.8}}
+
+.arrow-up{
+    width: 40px;
+    height: 28px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -20px;
+    text-align: center;
+    z-index: 999;
+    animation-name: arrowing;
+    -webkit-animation-name: arrowing;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.background {
+	background-size: cover;
 }
 
 .sense{
