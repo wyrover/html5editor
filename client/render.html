@@ -10,8 +10,17 @@
     <title>轻舞，轻量级HTML5编辑器！</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-      <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="render/animate.min.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) render/app.css -->
     <link rel="stylesheet" href="render/app.css">
+      <!-- injector:css -->
+      <!-- endinjector -->
+    <!-- endbuild -->
   </head>
   <body ng-app="html5editorApp">
   
@@ -19,7 +28,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <ng-include src="'render/main.html'"></ng-include>
+    <div ng-include="'render/main.html'"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
     <script>

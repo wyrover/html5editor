@@ -8,7 +8,7 @@ angular.module('html5editorApp', [
 ])
 
 .controller('MainCtrl', function($scope, Sense){
-    $scope.sense = Sense.get({id:'sss'});
+    $scope.sense = Sense.get({id:'56776d5852b8d6523897c7af'});
 })
 
 .factory('Sense', function($resource){
