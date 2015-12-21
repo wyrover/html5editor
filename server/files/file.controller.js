@@ -6,7 +6,10 @@ var _ = require('lodash');
 exports.show = function(req, res) {
   var gfs = req.app.get('gfs');
   gfs.exist({_id:req.params.id}, function(err, found){
-    if (err||!found) return handleError(res, err);
+    if (err) return handleError(res, err);
+    if(!found){
+      return res.status(404).send('');
+    }
     var stream = gfs.createReadStream({_id:req.params.id});
     stream.on('error', function(err){
       res.status(404, err)
