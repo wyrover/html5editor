@@ -7,8 +7,15 @@ angular.module('html5editorApp', [
   'hmTouchEvents'
 ])
 
-.controller('MainCtrl', function($scope, Sense){
-    $scope.sense = Sense.get({id:'56776d5852b8d6523897c7af'});
+.controller('MainCtrl', function($scope, $location, Sense){
+    $scope.sense = Sense.get({id:$location.$$path.substr(1)});
+    $scope.current = 0;
+    $scope.pageUp = function(){
+      $scope.current--;
+    };
+    $scope.pageDown = function(){
+      $scope.current++;
+    };
 })
 
 .factory('Sense', function($resource){

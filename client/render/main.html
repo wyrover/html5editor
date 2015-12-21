@@ -1,5 +1,9 @@
-<div class="sense full" ng-controller="MainCtrl">
+<div class="sense full"
+ hm-swipeup="pageDown($event)"
+ hm-swipedown="pageUp($event)"
+ ng-controller="MainCtrl">
     <div class="full relative animated {{stage.background.animation}}"
+        ng-if="current==$index"
         ng-repeat="stage in sense.contents"
         ng-style="{backgroundImage:'url('+stage.background.src+')',
                    backgroundSize: 'cover',
@@ -18,7 +22,7 @@
                        animationDuration: widget.animationDuration+'s',
                        animationIterationCount:widget.animationIterationCount}"
             class="editor-widgets-item editor-widget-{{widget.type}} animated {{widget.animation}}" >
-            <editor-widget 
+            <div
                 ng-model="widget" 
                 class="block full editor-widget-element"
                 ng-style="{
@@ -38,8 +42,7 @@
                textAlign:widget.textAlign,
                color:widget.color
             }">
-            </editor-widget>
+            </div>
         </div>
-
     </div>
 </div>
