@@ -24,6 +24,7 @@ angular.module('html5editorApp')
             if(item.active) active2 = index;
           });
           EditorWidget.widget = active2>=0?$scope.page.contents[active2]:$scope.page.background;
+          EditorWidget.widget.active = true;
         };
 
         if($scope.sense._id){
