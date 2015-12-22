@@ -21,7 +21,7 @@ angular.module('html5editorApp')
         ];
         
         $scope.selectBackground = function(){
-          FileModal().result.then(function(file){console.log(file)
+          FileModal().result.then(function(file){
             $scope.widget.widget.src = '/files/'+file._id;
           });
         };

@@ -1,12 +1,10 @@
-<div class="full block absolute topp left"hm-panstart="onMoveStart($event)" hm-panmove="onMove($event)" ng-mousedown="changeWidget($event)"></div>
-<div class="editor-resizer-handle editor-resizer-top-left" hm-panstart="onPanStart($event)" hm-panmove="topLeft($event)"></div>
-<div class="editor-resizer-handle editor-resizer-top-middle" hm-panstart="onPanStart($event)" hm-panmove="topMiddle($event)"></div>
-<div class="editor-resizer-handle editor-resizer-top-right" hm-panstart="onPanStart($event)" hm-panmove="topRight($event)"></div>
-<div class="editor-resizer-handle editor-resizer-bottom-left" hm-panstart="onPanStart($event)" hm-panmove="bottomLeft($event)"></div>
-<div class="editor-resizer-handle editor-resizer-bottom-middle" hm-panstart="onPanStart($event)" hm-panmove="bottomMiddle($event)"></div>
-<div class="editor-resizer-handle editor-resizer-bottom-right" hm-panstart="onPanStart($event)" hm-panmove="bottomRight($event)"></div>
+<div class="full block absolute top left" hm-panstart="onMoveStart($event)" hm-panmove="onMove($event)" ng-mousedown="changeWidget($event)"></div>
+<div class="editor-resizer-handle editor-resizer-top-left" ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="topLeft($event)"></div>
+<div class="editor-resizer-handle editor-resizer-top-middle"  ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="topMiddle($event)"></div>
+<div class="editor-resizer-handle editor-resizer-top-right" ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="topRight($event)"></div>
+<div class="editor-resizer-handle editor-resizer-bottom-left" ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="bottomLeft($event)"></div>
+<div class="editor-resizer-handle editor-resizer-bottom-middle" ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="bottomMiddle($event)"></div>
+<div class="editor-resizer-handle editor-resizer-bottom-right" ng-if="widget.type!='text'" hm-panstart="onPanStart($event)" hm-panmove="bottomRight($event)"></div>
 <div class="editor-resizer-handle editor-resizer-middle-left" hm-panstart="onPanStart($event)" hm-panmove="middleLeft($event)"></div>
 <div class="editor-resizer-handle editor-resizer-middle-right" hm-panstart="onPanStart($event)" hm-panmove="middleRight($event)"></div>
-<div class="editor-resizer-rotate" hm-panstart="onPanStart($event)" hm-panmove="rotate($event)">
-<i class="glyphicon glyphicon-repeat"></i>
-</div>
+<div class="editor-resizer-rotate" hm-panstart="onPanStart($event)" hm-panmove="rotate($event)"><i class="glyphicon glyphicon-repeat"></i></div>
