@@ -27,6 +27,7 @@ angular.module('html5editorApp')
             angular.extend($scope.page.background, page.background);
             $scope.page.background.active = false;
             $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
+            EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
           })
         };
       },
