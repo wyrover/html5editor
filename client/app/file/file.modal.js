@@ -18,6 +18,7 @@ angular.module('html5editorApp')
 
     function FileModalCtrl($scope, $modalInstance, File, Upload){
       $scope.files = File.query({type:'image'});
+      $scope.totalItems = 1;
 
       $scope.remove = function(index){
         $scope.files[index].$remove(function(){
@@ -40,6 +41,20 @@ angular.module('html5editorApp')
           $scope.files.unshift(new File(res))
         });
       };
+
+      $scope.onPageChange = function(){
+        $scope.files = query($scope.currentPage,{type:'image'});
+      };
+
+      function query(page, params){
+        return File.page(page)
+          .query(params,function(data,headersGetter){
+            var headers = headersGetter();
+            var range = File.parseRange(headers['content-range']);
+            $scope.totalItems = range.length;
+          });
+      }
+
     };
 
     return function(options){
