@@ -16,6 +16,7 @@ angular.module('html5editorApp')
           angular.forEach($scope.page.contents, function(item){
             item.active = false;
           });
+          $scope.page.background.active = false;
           $scope.page.contents.push(defaults);
           EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
         };
@@ -24,6 +25,7 @@ angular.module('html5editorApp')
           WidgetModal().result.then(function(template){
             var page = angular.copy(template.contents[0]);
             angular.extend($scope.page.background, page.background);
+            $scope.page.background.active = false;
             $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
           })
         };
