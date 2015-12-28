@@ -5,7 +5,7 @@ angular.module('html5editorApp')
     $scope.menu = [
     {
       'title': '场景',
-      'link': '/sense'
+      'link': '/scene'
     },
     {
       'title': '模板',

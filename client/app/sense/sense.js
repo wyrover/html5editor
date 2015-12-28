@@ -3,8 +3,8 @@
 angular.module('html5editorApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('sense', {
-        url: '/sense',
+      .state('scene', {
+        url: '/scene',
         abstract: true,
         views: {
           'nav':{
@@ -18,17 +18,17 @@ angular.module('html5editorApp')
           }
         }
       })
-      .state('sense.index', {
+      .state('scene.index', {
         url: '',
         templateUrl: 'app/sense/sense.html',
         controller: 'SenseCtrl'
       })
-      .state('sense.new', {
+      .state('scene.new', {
         url: '/new',
         templateUrl: 'app/sense/edit.html',
         controller: 'SenseEditCtrl'
       })
-      .state('sense.edit', {
+      .state('scene.edit', {
         url: '/edit/:id',
         templateUrl: 'app/sense/edit.html',
         controller: 'SenseEditCtrl'

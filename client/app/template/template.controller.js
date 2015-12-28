@@ -14,7 +14,7 @@ angular.module('html5editorApp')
       var sense = template.toJSON();
       delete sense._id;
       Sense.save(sense, function(data){
-        $state.go('sense.edit', {id: data._id});
+        $state.go('scene.edit', {id: data._id});
       });
     };
 
