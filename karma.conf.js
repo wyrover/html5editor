@@ -20,6 +20,7 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-async-loader/dist/angular-async-loader.js',
       'bower_components/hammerjs/hammer.js',
+      'bower_components/angular-hammerjs/angular.hammer.js',
       'bower_components/AngularHammer/angular.hammer.js',
       'bower_components/angular-fx/dist/angular-fx.min.js',
       'bower_components/ng-file-upload/ng-file-upload.js',
