@@ -10,10 +10,13 @@ angular.module('html5editorApp', [
 .controller('MainCtrl', function($scope, $location, Sense){
     $scope.sense = Sense.get({id:$location.$$path.substr(1)});
     $scope.current = 0;
+
     $scope.pageUp = function(){
+      if($scope.current<=0) return;
       $scope.current--;
     };
     $scope.pageDown = function(){
+      if($scope.current>=$scope.sense.contents.length-1) return;
       $scope.current++;
     };
 })
@@ -22,6 +25,8 @@ angular.module('html5editorApp', [
     return $resource('/render/:id/:controller');
 })
 
-  .run(function ($rootScope) {
-    
-  });
+.filter('trustAsHtml', function ($sce) {
+  return function (input) {
+    return $sce.trustAsHtml(input);
+  };
+})
