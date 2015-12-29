@@ -1,3 +1,25 @@
 .sense-list .thumbnail{
-    height: 250px;
+    height:360px;
+    width:240px;
+    padding:0;
+    overflow:hidden;
+}
+
+.sense-list .editor-preview{
+    position:absolute;
+    transform: scale(0.75, 0.75);
+    left:-40px;
+    top:-60px;
+    //margin-top:-120px;
+    //margin-left: -80px;
+}
+
+.sense-list .thumbnail .mask{
+    display:none;
+    background-color:rgba(0,0,0,0.3);
+    color:#fff;
+}
+
+.sense-list .thumbnail:hover .mask{
+    display:block;
 }
