@@ -16,7 +16,7 @@ angular.module('html5editorApp', [
     $urlRouterProvider
       .otherwise('/');
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
     $modalProvider.options.templateUrl = "components/modal/modal.html";
   })
