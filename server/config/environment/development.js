@@ -8,5 +8,11 @@ module.exports = {
     uri: 'mongodb://localhost/html5editor-dev'
   },
 
+  weibo: {
+    app_key: 'app_key',
+    app_secret: 'app_secret',
+    callbackURL: 'callbackURL'
+  },
+
   seedDB: true
 };

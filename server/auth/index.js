@@ -7,9 +7,11 @@ var User = require('../api/user/user.model');
 
 // Passport Configuration
 require('./local/passport').setup(User, config);
+require('./weibo/passport').setup(User, config);
 
 var router = express.Router();
 
 router.use('/local', require('./local'));
+router.use('/weibo', require('./weibo'));
 
 module.exports = router;
