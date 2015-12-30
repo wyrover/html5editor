@@ -14,5 +14,11 @@ module.exports = {
     callbackURL: 'callbackURL'
   },
 
+  qq: {
+    app_key: 'app_key',
+    app_secret: 'app_secret',
+    callbackURL: 'callbackURL'
+  },
+
   seedDB: true
 };
