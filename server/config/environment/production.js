@@ -19,5 +19,12 @@ module.exports = {
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
             'mongodb://localhost/html5editor'
+  },
+
+  weibo: {
+    app_key: 'app_key',
+    app_secret: 'app_secret',
+    callbackURL: 'callbackURL'
   }
+  
 };
