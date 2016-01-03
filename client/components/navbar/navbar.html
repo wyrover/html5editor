@@ -12,7 +12,7 @@
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+            <a ui-sref="{{item.link}}.index">{{item.title}}</a>
         </li>
 <!--         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li> -->
       </ul>
@@ -33,7 +33,7 @@
           <a  ng-show="isLoggedIn()" dropdown-toggle><i class="glyphicon glyphicon-user"></i></a>
           <ul class="dropdown-menu"  ng-show="isLoggedIn()">
             <li class="dropdown-header"><span class="">当前登录：{{ getCurrentUser().name }}</span> </li>
-            <li ng-class="{active: isActive('/account/settings')}"><a href="/account/settings">设置</a></li>
+            <li ng-class="{active: isActive('/account/settings')}"><a ui-sref="account.settings">设置</a></li>
             <li ng-class="{active: isActive('/account/logout')}"><a href="" ng-click="logout()">退出</a></li>
           </ul>
         </li>

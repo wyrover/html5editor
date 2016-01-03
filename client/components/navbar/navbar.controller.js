@@ -5,11 +5,11 @@ angular.module('html5editorApp')
     $scope.menu = [
     {
       'title': '场景',
-      'link': '/scene'
+      'link': 'scene'
     },
     {
       'title': '模板',
-      'link': '/template'
+      'link': 'template'
     }];
 
     $scope.isCollapsed = true;
@@ -42,6 +42,6 @@ angular.module('html5editorApp')
     };
 
     $scope.isActive = function(route) {
-      return $state.includes(route.split('/')[1]);
+      return $state.includes(route.split('/')[0]);
     };
   });
