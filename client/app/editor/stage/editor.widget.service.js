@@ -11,6 +11,8 @@ angular.module('html5editorApp')
           borderColor: '#888888',
           padding: '0',
           animation: '',
+          scale: 1,
+          transform: 0
         };
     
     var widgets = {

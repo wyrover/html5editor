@@ -12,8 +12,6 @@ angular.module('html5editorApp')
       controller: function($scope, EditorWidget, hotkeys, History, Modal, Widget){
         var widget_copy = {},
             history = new History(200);
-        
-        history.add($scope.page.contents);
 
         $scope.changeWidget = function($event, widget){
             angular.forEach($scope.page.contents, function(item){

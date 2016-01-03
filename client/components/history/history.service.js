@@ -16,7 +16,7 @@ angular.module('html5editorApp')
       this.lastTime = new Date().getTime()+this.timeout;
     };
 
-    History.prototype.add = function(val){//console.log(this.canAdd())
+    History.prototype.add = function(val){
       if(!this.canAdd(val)) return;
       this.stack.push(angular.copy(val));
       this.lastTime = new Date().getTime();
