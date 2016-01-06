@@ -10,10 +10,12 @@
   <div ng-repeat="sense in senses track by $index" class="col-sm-6 col-md-2">
     <div class="thumbnail">
       <img ng-src="{{sense.thumb}}" />
-      <div class="caption mask">
-        <h3>{{sense.name}}</h3>
-        <p><a ui-sref="scene.edit({id:sense._id})" class="btn btn-primary" role="button">编辑</a> 
-            <a ng-href="" class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
+      <div class="caption">
+        <h4>{{sense.name}}</h4>
+        <p class="actions text-center">
+          <a ui-sref="scene.edit({id:sense._id})" class="btn btn-primary" role="button"><i class="glyphicon glyphicon-edit"></i></a> 
+          <a ng-href="" class="btn btn-danger" role="button" ng-click="remove($index)"><i class="glyphicon glyphicon-trash"></i></a>
+        </p>
       </div>
     </div>
   </div>
