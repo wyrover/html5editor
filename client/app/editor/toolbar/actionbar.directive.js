@@ -14,12 +14,14 @@ angular.module('html5editorApp')
           html2canvas(document.getElementById('page'),{
             onrendered: function(canvas){
                var myImage = canvas.toDataURL("image/png");
+               $scope.sense.thumb = myImage;
+               $scope.sense.$save(function(){
+                $state.go('^.edit',{id:$scope.sense._id});
+                Modal.alert({value:'保存成功'});
+              });
             }
           });
-          return $scope.sense.$save(function(){
-            $state.go('^.edit',{id:$scope.sense._id});
-            Modal.alert({value:'保存成功'});
-          });
+          
         };
 
         $scope.settings = function(){

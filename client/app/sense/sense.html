@@ -9,7 +9,7 @@
   </div>
   <div ng-repeat="sense in senses track by $index" class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <editor-preview ng-model="sense" class="editor-preview"></editor-preview>
+      <img ng-src="{{sense.thumb}}" />
       <div class="caption mask">
         <h3>{{sense.name}}</h3>
         <p><a ui-sref="scene.edit({id:sense._id})" class="btn btn-primary" role="button">编辑</a> 

@@ -12,7 +12,8 @@ var TemplateSchema = new Schema({
   created_time: {
     type: Date,
     default: new Date
-  }
+  },
+  thumb: String
 });
 
 module.exports = mongoose.model('Template', TemplateSchema);
