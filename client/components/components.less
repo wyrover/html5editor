@@ -1,68 +1,15 @@
-/* 位置 */
-.static {
-    position: static;
-}
-.relative {
-    position: relative;
-}
-.absolute {
-    position: absolute;
-}
-.fixed {
-    position: fixed;
-}
-.top {
-    top:0;
-}
-.left {
-    left:0;
-}
-.right {
-    right:0;
-}
-.bottom {
-    bottom:0;
-}
-
-/* 宽度 */
-.full{
-    width:100%;
-    height:100%;
-}
-.wide{
-    width:100%;
-}
-.height{
-    height:100%;
-}
-.mask{
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-}
-
-/* 块 */
-.block {
-    display:block;
-}
-.inline{
-    display:inline;
-}
-.inline-block{
-    display:inline-block;
-}
-
-/* 边距 */
-.p15{
-    padding:15px;
-}
-
-
 /* 手机壳 */
 .phone-shell{
     width: 320px;
-    border-radius: 25px;
+    border-radius: 20px;
+
+    .panel-heading,
+    .panel-footer {
+        height:40px;
+    }
+
+    .panel-body{
+        height: 480px;
+        padding: 0;
+    }
 }
