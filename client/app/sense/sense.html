@@ -1,5 +1,5 @@
 <div class="row sense-list" cg-busy="senses.$promise">
-  <div  class="col-sm-6 col-md-3">
+  <div  class="col-sm-6 col-md-2">
     <div class="thumbnail">
       <div class="caption">
         <p><a ui-sref="scene.new" class="btn btn-default btn-primary btn-block btn-lg" role="button">创建新场景</a>
@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-  <div ng-repeat="sense in senses track by $index" class="col-sm-6 col-md-3">
+  <div ng-repeat="sense in senses track by $index" class="col-sm-6 col-md-2">
     <div class="thumbnail">
       <img ng-src="{{sense.thumb}}" />
       <div class="caption mask">
