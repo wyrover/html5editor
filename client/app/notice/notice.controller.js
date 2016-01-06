@@ -12,7 +12,9 @@ angular.module('html5editorApp')
       });
      instance.result.then(function(data){
         angular.merge($scope.model, angular.copy(data));
-        $scope.model.$save();
+        $scope.model.$save(function(){
+          $scope.notices.unshift($scope.model);
+        });
      });
     };
   });
