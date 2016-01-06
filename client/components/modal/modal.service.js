@@ -17,7 +17,7 @@ angular.module('html5editorApp')
       var instance = $modal.open({
         controller:ModalCtrl,
         scope: modalScope,
-        size:'sm',
+        size:scope.size||'sm',
         backdrop:scope.type!='alert'
       });
 
@@ -40,6 +40,11 @@ angular.module('html5editorApp')
 
     // Public API here
     return  {
+      open:function(options) {
+        options.type = 'normal';
+        options.size = 'lg';
+        return openModal(options);
+      },
       prompt:function(options) {
         options.type = 'prompt';
         return openModal(options);

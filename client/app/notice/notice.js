@@ -22,15 +22,5 @@ angular.module('html5editorApp')
         url: '',
         templateUrl: 'app/notice/notice.html',
         controller: 'NoticeCtrl'
-      })
-      .state('notice.new', {
-        url: '/new',
-        templateUrl: 'app/notice/edit.html',
-        controller: 'NoticeEditCtrl'
-      })
-      .state('notice.edit', {
-        url: '/edit/:id',
-        templateUrl: 'app/notice/edit.html',
-        controller: 'NoticeEditCtrl'
-      });;
+      })      
   });
