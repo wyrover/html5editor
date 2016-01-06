@@ -42,7 +42,7 @@ angular.module('html5editorApp')
     return  {
       open:function(options) {
         options.type = 'normal';
-        options.size = 'lg';
+        options.size = 'normal';
         return openModal(options);
       },
       prompt:function(options) {

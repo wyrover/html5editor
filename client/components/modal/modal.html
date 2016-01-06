@@ -7,7 +7,7 @@
 <input ng-if="modal.type=='prompt'" ng-model="modal.value" class="form-control" />
 <div ng-if="modal.type=='normal'" ng-include="modal.templateUrl"></div>
 </div>
-<div class="modal-footer"  ng-if="modal.type!='alert'">
+<div class="modal-footer"  ng-if="modal.type!='alert'&&modal.type!='normal'">
   <button  ng-click="ok()" class="btn btn-primary">确认</button>
   <button  ng-click="cancel()" class="btn btn-default">取消</button>
 </div>
