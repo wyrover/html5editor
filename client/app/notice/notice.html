@@ -2,12 +2,10 @@
     <div class="panel-heading">
         <button class="btn btn-default btn-sm" ng-click="insert()">添加</button>
     </div>
-    <table class="table">
-        <tbody>
-            <tr ng-repeat="notice in notices">
-                <td>{{notice.name}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <ul class="list-group">
+        <li ng-repeat="notice in notices" class="list-group-item">
+            <a ui-sref="notice.show({id:notice._id})">{{notice.name}}</a>
+        </li>
+    </ul>
     <div class="panel-footer"></div>
 </div>

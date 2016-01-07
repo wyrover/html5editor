@@ -22,5 +22,11 @@ angular.module('html5editorApp')
         url: '',
         templateUrl: 'app/notice/notice.html',
         controller: 'NoticeCtrl'
-      })      
+      })
+      .state('notice.show', {
+        url: '/show/:id',
+        templateUrl: 'app/notice/show.html',
+        controller: 'NoticeShowCtrl'
+      })
+           
   });

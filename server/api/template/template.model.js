@@ -13,7 +13,11 @@ var TemplateSchema = new Schema({
     type: Date,
     default: new Date
   },
-  thumb: String
+  thumb: String,
+  public: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model('Template', TemplateSchema);
