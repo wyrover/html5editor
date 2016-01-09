@@ -6,7 +6,10 @@ var mongoose = require('mongoose'),
 var NoticeSchema = new Schema({
   name: String,
   info: String,
-  status: Number
+  status: {
+    type: Number,
+    default: 0
+  }
 });
 
 module.exports = mongoose.model('Notice', NoticeSchema);
