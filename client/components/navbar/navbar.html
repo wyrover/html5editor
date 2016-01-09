@@ -25,7 +25,9 @@
           <a dropdown-toggle><i class="glyphicon glyphicon-bell"></i></a>
           <ul class="dropdown-menu">
             <li class="disabled" ng-show="!notices.length"><a>暂无消息</a></li>
-            <li ng-repeat="notice in notices" ng-class="{disabled:notice.status!=1}"><a>{{notice.name}}</a></li>
+            <li ng-repeat="notice in notices" ng-class="{disabled:notice.status!=0}">
+            <a ui-sref="notice.show({id:notice._id})">{{notice.name}}</a>
+            </li>
           </ul>
         </li>
         <li ng-class="{active: isActive('/account/login')}" class="dropdown col-sm-6" dropdown>
