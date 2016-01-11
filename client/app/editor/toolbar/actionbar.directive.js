@@ -16,9 +16,9 @@ angular.module('html5editorApp')
                var myImage = canvas.toDataURL("image/png");
                $scope.sense.thumb = myImage;
                $scope.sense.$save(function(){
-                $state.go('^.edit',{id:$scope.sense._id});
-                Modal.alert({value:'保存成功'});
-              });
+                  $state.go('^.edit',{id:$scope.sense._id});
+                  Modal.alert({value:'保存成功'});
+                });
             }
           });
           

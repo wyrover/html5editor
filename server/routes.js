@@ -7,7 +7,11 @@
 var errors = require('./components/errors');
 var path = require('path');
 
+var range = require('express-range');
+
 module.exports = function(app) {
+
+  app.use('/api', range({accept:'items'}));
 
   // Insert routes below
   app.use('/api/notices', require('./api/notice'));
