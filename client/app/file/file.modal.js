@@ -16,7 +16,7 @@ angular.module('html5editorApp')
       });
     };
 
-    function FileModalCtrl($scope, $modalInstance, File, Upload){
+    function FileModalCtrl($scope, $modalInstance, File, Upload, angularLoad){
       $scope.files = File.query({type:'image'});
       $scope.totalItems = 1;
 
