@@ -55,6 +55,11 @@ angular.module('html5editorApp')
           });
       }
 
+      angularLoad.loadScript("bower_components/plupload/js/plupload.full.min.js")
+      .then(function(){
+        console.log(plupload)
+      })
+
     };
 
     return function(options){
