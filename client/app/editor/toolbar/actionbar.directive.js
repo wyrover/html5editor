@@ -11,17 +11,10 @@ angular.module('html5editorApp')
       restrict: 'EA',
       controller: function($scope, Modal, Template){
         $scope.save = function(){
-          html2canvas(document.getElementById('page'),{
-            onrendered: function(canvas){
-               var myImage = canvas.toDataURL("image/png");
-               $scope.sense.thumb = myImage;
-               $scope.sense.$save(function(){
-                  $state.go('^.edit',{id:$scope.sense._id});
-                  Modal.alert({value:'保存成功'});
-                });
-            }
-          });
-          
+           $scope.sense.$save(function(){
+              $state.go('^.edit',{id:$scope.sense._id});
+              Modal.alert({value:'保存成功'});
+            });
         };
 
         $scope.settings = function(){

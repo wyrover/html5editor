@@ -28,7 +28,6 @@ module.exports = function(config) {
       'bower_components/angular-hotkeys/build/hotkeys.js',
       'bower_components/qrcode-generator/js/qrcode.js',
       'bower_components/angular-qrcode/angular-qrcode.js',
-      'bower_components/html2canvas/build/html2canvas.js',
       'bower_components/angular-load/angular-load.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
