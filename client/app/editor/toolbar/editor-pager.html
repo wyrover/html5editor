@@ -2,6 +2,6 @@
     <li ng-repeat="page in sense.contents track by $index" ng-class="{active:page.active}" hm-panend="sort($event,$index)">
         <a ng-click="activePage(page)">{{$index+1}}</a>
     </li>
-    <li class="pull-right"><a ng-click="removePage($index)" tooltip="删除当前页面" tooltip-append-to-body="true">-</a></li>
-    <li class="pull-right"><a ng-click="insertPage($index)" tooltip="插入新页面" tooltip-append-to-body="true">+</a></li>
+    <li class="pull-right"><a ng-click="removePage($index)" uib-tooltip="删除当前页面" tooltip-append-to-body="true">-</a></li>
+    <li class="pull-right"><a ng-click="insertPage($index)" uib-tooltip="插入新页面" tooltip-append-to-body="true">+</a></li>
 </ul>
