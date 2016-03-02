@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .factory('FileModal', function ($rootScope, $modal) {
+  .factory('FileModal', function ($rootScope, $uibModal) {
     
     function openModal(scope){
       var modalScope = $rootScope.$new();
@@ -9,14 +9,14 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, scope);
 
-      return $modal.open({
+      return $uibModal.open({
         size:'lg',
         templateUrl: 'app/file/modal.html',
         controller: FileModalCtrl
       });
     };
 
-    function FileModalCtrl($scope, $modalInstance, File, Upload, angularLoad){
+    function FileModalCtrl($scope, $uibModalInstance, File, Upload, angularLoad){
       $scope.files = File.query({type:'image'});
       $scope.totalItems = 1;
 
@@ -27,7 +27,7 @@ angular.module('html5editorApp')
       };
 
       $scope.select = function(file){
-        $modalInstance.close(file);
+        $uibModalInstance.close(file);
       };
 
       $scope.upload = function(file){

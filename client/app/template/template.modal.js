@@ -2,7 +2,7 @@
 
 angular.module('html5editorApp')
   
-  .factory('TemplateModal', function ($rootScope, $modal) {
+  .factory('TemplateModal', function ($rootScope, $uibModal) {
     
     function openModal(scope){
       var modalScope = $rootScope.$new();
@@ -10,14 +10,14 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, scope);
 
-      return $modal.open({
+      return $uibModal.open({
         size:'lg',
         templateUrl: 'app/template/modal.html',
         controller: TemplateModalCtrl
       });
     };
 
-    function TemplateModalCtrl($scope, $modalInstance, Template){
+    function TemplateModalCtrl($scope, $uibModalInstance, Template){
       
       $scope.totalItems = 1;
 
@@ -30,7 +30,7 @@ angular.module('html5editorApp')
       };
 
       $scope.select = function(file){
-        $modalInstance.close(file);
+        $uibModalInstance.close(file);
       };
 
       $scope.onPageChange = function(){

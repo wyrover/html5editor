@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .controller('SenseCtrl', function ($scope, $modal, $state, Sense, Modal, TemplateModal) {
+  .controller('SenseCtrl', function ($scope, $uibModal, $state, Sense, Modal, TemplateModal) {
     $scope.senses = Sense.query();
 
     $scope.remove = function(index){

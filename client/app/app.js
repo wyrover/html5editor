@@ -13,13 +13,13 @@ angular.module('html5editorApp', [
   'monospaced.qrcode',
   'angularLoad'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $modalProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-
-    //$locationProvider.html5Mode(true);
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    $urlRouterProvider.otherwise('/');
     $httpProvider.interceptors.push('authInterceptor');
-    $modalProvider.options.templateUrl = "components/modal/modal.html";
+  })
+
+  .config(function($uibModalProvider){
+    $uibModalProvider.options.templateUrl = "components/modal/modal.html";
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

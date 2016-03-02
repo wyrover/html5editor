@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .factory('AccountModal', function ($rootScope, $modal) {
+  .factory('AccountModal', function ($rootScope, $uibModal) {
     var opened = false;
     /**
      * Opens a modal
@@ -34,7 +34,7 @@ angular.module('html5editorApp')
       return instance;
     }
 
-    function AccountModalCtrl($scope, $modalInstance, Auth){
+    function AccountModalCtrl($scope, $uibModalInstance, Auth){
       $scope.modal.title = $scope.modal.type=='login'?'登录':'注册';
       $scope.templateUrl = 'app/account/'+$scope.modal.type+'/'+$scope.modal.type+'.html';
 
@@ -51,7 +51,7 @@ angular.module('html5editorApp')
           })
           .then( function(user) {
             // Logged in, redirect to home
-            $modalInstance.close(user);
+            $uibModalInstance.close(user);
           })
           .catch( function(err) {
             $scope.errors.other = err.message;
@@ -87,21 +87,21 @@ angular.module('html5editorApp')
 
       $scope.signup = function(e){
           e.preventDefault();
-          $modalInstance.close();
+          $uibModalInstance.close();
           $rootScope.$emit('modal.signup.show');
       };
 
       $scope.signin = function(e){
           e.preventDefault();
-          $modalInstance.close();
+          $uibModalInstance.close();
           $rootScope.$emit('modal.login.show');
       };
 
       $scope.ok = function(){
-        $modalInstance.close($scope.modal.value)
+        $uibModalInstance.close($scope.modal.value)
       };
       $scope.cancel = function(){
-        $modalInstance.dismiss();
+        $uibModalInstance.dismiss();
       };
     };
 

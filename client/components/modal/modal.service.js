@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .factory('Modal', function ($rootScope, $modal) {
+  .factory('Modal', function ($rootScope, $uibModal) {
     /**
      * Opens a modal
      * @param  {Object} scope      - an object to be merged with modal's scope
@@ -14,7 +14,7 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, {modal:scope});
 
-      var instance = $modal.open({
+      var instance = $uibModal.open({
         controller:ModalCtrl,
         scope: modalScope,
         size:scope.size||'sm',
@@ -24,16 +24,16 @@ angular.module('html5editorApp')
       return instance;
     }
 
-    function ModalCtrl($scope, $modalInstance, $timeout){
+    function ModalCtrl($scope, $uibModalInstance, $timeout){
       $scope.ok = function(){
-        $modalInstance.close($scope.modal.value)
+        $uibModalInstance.close($scope.modal.value)
       };
       $scope.cancel = function(){
-        $modalInstance.dismiss();
+        $uibModalInstance.dismiss();
       };
       if($scope.modal.type=='alert'){
         $timeout(function(){
-          $modalInstance.close();
+          $uibModalInstance.close();
         },2000)
       }
     };

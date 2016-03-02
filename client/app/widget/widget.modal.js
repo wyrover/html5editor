@@ -2,7 +2,7 @@
 
 angular.module('html5editorApp')
   
-  .factory('WidgetModal', function ($rootScope, $modal) {
+  .factory('WidgetModal', function ($rootScope, $uibModal) {
     
     function openModal(scope){
       var modalScope = $rootScope.$new();
@@ -10,14 +10,14 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, scope);
 
-      return $modal.open({
+      return $uibModal.open({
         size:'lg',
         templateUrl: 'app/widget/modal.html',
         controller: WidgetModalCtrl
       });
     };
 
-    function WidgetModalCtrl($scope, $modalInstance, Widget){
+    function WidgetModalCtrl($scope, $uibModalInstance, Widget){
       
       $scope.totalItems = 1;
 
@@ -30,7 +30,7 @@ angular.module('html5editorApp')
       };
 
       $scope.select = function(file){
-        $modalInstance.close(file);
+        $uibModalInstance.close(file);
       };
 
       $scope.onPageChange = function(){
