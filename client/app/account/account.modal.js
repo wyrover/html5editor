@@ -15,7 +15,7 @@ angular.module('html5editorApp')
 
       angular.extend(modalScope, {modal:scope});
 
-      var instance = $modal.open({
+      var instance = $uibModal.open({
         controller: AccountModalCtrl,
         templateUrl:'app/account/account.modal.html',
         scope: modalScope,

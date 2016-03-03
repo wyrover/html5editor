@@ -21,8 +21,8 @@
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/account/signup')}" class=" col-sm-6">
           <button class="btn btn-success btn-sm btn-block navbar-btn" href="/account/signup" ng-click="signup($event)">注册</button>
         </li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('notice')}" class="dropdown col-sm-6" dropdown>
-          <a dropdown-toggle><i class="glyphicon glyphicon-bell"></i></a>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('notice')}" class="dropdown col-sm-6" uib-dropdown>
+          <a uib-dropdown-toggle><i class="glyphicon glyphicon-bell"></i></a>
           <ul class="dropdown-menu">
             <li class="disabled" ng-show="!notices.length"><a>暂无消息</a></li>
             <li ng-repeat="notice in notices" ng-class="{disabled:notice.status!=0}">
@@ -30,9 +30,9 @@
             </li>
           </ul>
         </li>
-        <li ng-class="{active: isActive('/account/login')}" class="dropdown col-sm-6" dropdown>
+        <li ng-class="{active: isActive('/account/login')}" class="dropdown col-sm-6" uib-dropdown>
           <button class="btn btn-default btn-sm btn-block navbar-btn" ng-hide="isLoggedIn()" href="/account/login" ng-click="login($event)">登录</button>
-          <a  ng-show="isLoggedIn()" dropdown-toggle><i class="glyphicon glyphicon-user"></i></a>
+          <a  ng-show="isLoggedIn()" uib-dropdown-toggle><i class="glyphicon glyphicon-user"></i></a>
           <ul class="dropdown-menu"  ng-show="isLoggedIn()">
             <li class="dropdown-header"><span class="">当前登录：{{ getCurrentUser().name }}</span> </li>
             <li ng-class="{active: isActive('/account/settings')}"><a ui-sref="account.settings">设置</a></li>
