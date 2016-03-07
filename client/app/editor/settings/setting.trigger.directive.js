@@ -9,22 +9,14 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/setting-trigger.html',
       restrict: 'EA',
-      controller: function($scope, Upload, EditorWidget, FileModal){
-        $scope.widget = EditorWidget;
+      controller: function($scope, Upload, Editor, FileModal){
+        $scope.widget = Editor;
 
-        $scope.fieldTypes = [
-          {name:'输入框',type:'input'},
-          {name:'文本框',type:'textarea'},
-          {name:'下拉框',type:'select'},
-          {name:'单选按钮',type:'radio'},
-          {name:'多选按钮',type:'checkbox'},
-        ];
-        
-        $scope.selectBackground = function(){
-          FileModal().result.then(function(file){
-            $scope.widget.widget.src = '/files/'+file._id;
-          });
-        };
+        $scope.event_types = [
+          {name:'点击',value:'click'},
+          {name:'左滑',value:'swipeleft'},
+          {name:'右滑',value:'swiperight'}
+        ]
       },
       link: function (scope, element, attrs, ngModel) {
         

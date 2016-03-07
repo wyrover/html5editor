@@ -1,16 +1,48 @@
 <table class="table table-hovered">
     <thead>
       <tr>
+        <td>名称</td>
+        <td colspan="4">
+            <input class="form-control input-sm" ng-model="widget.name" placeholder="请设置元件名称" />
+        </td>
+      </tr>
+      <tr>
         <th>事件</th>
-        <th>对象</th>
+        <th>页面</th>
+        <th>元素</th>
         <th>动作</th>
         <th>操作</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+        <tr>
+            <td>
+                <select class="form-control input-sm" ng-model="event" ng-options="e.value as e.name for e in event_types">
+                    <option value="">事件</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-control input-sm" ng-model="event" ng-options="index as ('页面'+index) for (index,e) in sense.contents">
+                    <option value="">页面</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-control input-sm" ng-model="event" ng-options="index as ('元素'+index) for (index,e) in sense.contents">
+                    <option value="">元素</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-control input-sm" ng-model="event" ng-options="e.value as e.name for e in event_types">
+                </select>
+            </td>
+            <td>
+                <button class="btn btn-default btn-block btn-sm">X</button>
+            </td>
+        </tr>
+    </tbody>
     <tfoot>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <button class="btn btn-default btn-block">+</button>
             </td>
         </tr>

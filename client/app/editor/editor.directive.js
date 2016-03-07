@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/editor.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, Editor){
         $scope.init = function(){
           var active = 0, active2 = -1;
 
@@ -23,8 +23,8 @@ angular.module('html5editorApp')
           angular.forEach($scope.page.contents, function(item, index){
             if(item.active) active2 = index;
           });
-          EditorWidget.widget = active2>=0?$scope.page.contents[active2]:$scope.page.background;
-          EditorWidget.widget.active = true;
+          Editor.widget = active2>=0?$scope.page.contents[active2]:$scope.page.background;
+          Editor.widget.active = true;
         };
 
         if($scope.sense._id){

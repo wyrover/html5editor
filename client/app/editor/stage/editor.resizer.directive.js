@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .directive('editorResizer', function (EditorWidget) {
+  .directive('editorResizer', function (Editor) {
     return {
       require: ['ngModel'],
       scope: {
@@ -20,7 +20,7 @@ angular.module('html5editorApp')
           var widget = $scope.widget;
           $rootScope.$broadcast('widget.active', widget, $event.shiftKey, widget.active);
           widget.active = true;
-          EditorWidget.widget = widget;
+          Editor.widget = widget;
         };
 
         $scope.onMoveStart = function($event){

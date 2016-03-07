@@ -10,7 +10,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar/editor-pager.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, Editor){
         $scope.insertPage = function($index){
             $scope.page = {background:{type:'background'},contents:[]};
             $scope.sense.contents.push($scope.page);
@@ -26,7 +26,7 @@ angular.module('html5editorApp')
             page.active = true;
             page.background.active = true;
             $scope.page = page;
-            EditorWidget.widget = page.background;
+            Editor.widget = page.background;
         };
 
         $scope.removePage = function($index){

@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/stage/editor-stage.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, hotkeys, History, Modal, Widget){
+      controller: function($scope, Editor, hotkeys, History, Modal, Widget){
         var widget_copy = {},
             history = new History(200);
 
@@ -18,7 +18,7 @@ angular.module('html5editorApp')
               if(!$event.shiftKey)item.active = false;
             });
           widget.active = true;
-          EditorWidget.widget = widget;
+          Editor.widget = widget;
         };
 
         $rootScope.$on('widget.active', function($event,widget, shiftKey, active){
@@ -52,7 +52,7 @@ angular.module('html5editorApp')
               w.left += 10;
               w.active = false;
               w.group = -1;
-              EditorWidget.widget = w;
+              Editor.widget = w;
               widget_copy = w;
               $scope.page.contents.push(w);
         };
@@ -83,7 +83,7 @@ angular.module('html5editorApp')
         };
 
         $scope.remove = function(){
-            var index = $scope.page.contents.indexOf(EditorWidget.widget);
+            var index = $scope.page.contents.indexOf(Editor.widget);
             if(index>-1){
               $scope.page.contents.splice(index, 1);
             }
@@ -115,7 +115,7 @@ angular.module('html5editorApp')
             .add({
                 combo:'ctrl+c',
                 callback: function(){
-                  $scope.copy(EditorWidget.widget);
+                  $scope.copy(Editor.widget);
                 }
               })
               .add({
@@ -161,7 +161,7 @@ angular.module('html5editorApp')
               .add({
                     combo:'left',
                     callback:function(e){
-                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          Editor.widget.type!='background'&&e.preventDefault();
                           $rootScope.$broadcast('widget.panstart');
                           $rootScope.$broadcast('widget.panmove', -1, 0);
                     }
@@ -169,7 +169,7 @@ angular.module('html5editorApp')
               .add({
                     combo:'down',
                     callback:function(e){
-                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          Editor.widget.type!='background'&&e.preventDefault();
                           $rootScope.$broadcast('widget.panstart');
                           $rootScope.$broadcast('widget.panmove', 0, 1);
                     }
@@ -177,7 +177,7 @@ angular.module('html5editorApp')
               .add({
                     combo:'right',
                     callback:function(e){
-                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          Editor.widget.type!='background'&&e.preventDefault();
                           $rootScope.$broadcast('widget.panstart');
                           $rootScope.$broadcast('widget.panmove', 1, 0);
                     }
@@ -185,7 +185,7 @@ angular.module('html5editorApp')
               .add({
                     combo:'up',
                     callback:function(e){
-                          EditorWidget.widget.type!='background'&&e.preventDefault();
+                          Editor.widget.type!='background'&&e.preventDefault();
                           $rootScope.$broadcast('widget.panstart');
                           $rootScope.$broadcast('widget.panmove', 0, -1);
                     }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('html5editorApp')
-  .service('EditorWidget', function ($rootScope) {
+  .service('Editor', function ($rootScope) {
     var defaults = {
           position:'absolute',
           top:'0',
@@ -51,9 +51,8 @@ angular.module('html5editorApp')
     };
 
     return {
-      widget:{
-
-      },
+      page:{},
+      widget:{},
       getDefaults: function(type){
         var conf = angular.copy(defaults);
         angular.extend(conf, angular.copy(widgets[type]));

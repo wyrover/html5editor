@@ -9,8 +9,8 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/setting-style.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
-        $scope.widget = EditorWidget;
+      controller: function($scope, Editor){
+        $scope.widget = Editor;
         $scope.border_style = [
                     {name:'无', style:'none'},
                     {name: '实线', style: 'solid'},

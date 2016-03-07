@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/stage/editor-widget.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget){
+      controller: function($scope, Editor){
                 
       },
       link: function (scope, element, attrs, ngModel) {

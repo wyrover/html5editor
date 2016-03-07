@@ -9,8 +9,8 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/setting-content.html',
       restrict: 'EA',
-      controller: function($scope, Upload, EditorWidget, FileModal){
-        $scope.widget = EditorWidget;
+      controller: function($scope, Upload, Editor, FileModal){
+        $scope.widget = Editor;
 
         $scope.fieldTypes = [
           {name:'输入框',type:'input'},

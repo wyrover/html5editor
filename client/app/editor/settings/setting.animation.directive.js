@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/setting-animation.html',
       restrict: 'EA',
-      controller: function($scope, Upload, EditorWidget){
+      controller: function($scope, Upload, Editor){
         $scope.animations = [
                     {name:'无', animation:''},
                     {name:'闪烁', animation:'flash'},
@@ -43,7 +43,7 @@ angular.module('html5editorApp')
 
         $scope.animationName = '';
 
-        $scope.widget = EditorWidget;
+        $scope.widget = Editor;
 
         $scope.changeAnimation = function(animation){
           //$scope.animationName = animation.animation;

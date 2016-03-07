@@ -9,16 +9,16 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/toolbar/toolbar.html',
       restrict: 'EA',
-      controller: function($scope, EditorWidget, WidgetModal){
+      controller: function($scope, Editor, WidgetModal){
         $scope.insertWidget = function(type){
-          var defaults = EditorWidget.getDefaults(type);
+          var defaults = Editor.getDefaults(type);
           defaults.active = true;
           angular.forEach($scope.page.contents, function(item){
             item.active = false;
           });
           $scope.page.background.active = false;
           $scope.page.contents.push(defaults);
-          EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
+          Editor.widget = $scope.page.contents[$scope.page.contents.length-1];
         };
 
         $scope.insertCustomWidget = function(){
@@ -27,7 +27,7 @@ angular.module('html5editorApp')
             angular.extend($scope.page.background, page.background);
             $scope.page.background.active = false;
             $scope.page.contents = $scope.page.contents.concat(template.contents[0].contents);
-            EditorWidget.widget = $scope.page.contents[$scope.page.contents.length-1];
+            Editor.widget = $scope.page.contents[$scope.page.contents.length-1];
           })
         };
       },
