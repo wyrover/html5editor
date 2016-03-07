@@ -1,1 +1,43 @@
-<div>This is the file view.</div>
+<div class="row" cg-busy="files.$promise">
+    <div  class="col-sm-6 col-md-3">
+      <div class="thumbnail relative">
+<!--         <button class="btn btn-default">上传</button> -->
+<!--         <input type="file" class="mask transparent" /> -->
+        <div class="caption">
+          <p><a  class="btn btn-default btn-lg btn-block" 
+              role="button"
+              ngf-drop 
+             ng-model="file"
+             ngf-drag-over-class="uploader-drop-box-drag-over"
+              ngf-select="upload($file)"
+             class="uploader-drop-box" 
+             ngf-drop-available="true">+添加</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="file in files track by $index" class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <img ng-src="/files/{{file._id}}" alt="{{file.filename}}">
+        <div class="caption">
+          <h3 class="thumbnail-title">{{file.filename}}</h3>
+          <p><a ng-click="select(file)" class="btn btn-primary" role="button">选择</a> 
+              <a href="#" class="btn btn-danger" role="button" ng-click="remove($index)">删除</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+     <pagination 
+      ng-model="currentPage" 
+      ng-change="onPageChange()"
+      total-items="totalItems" 
+      max-size="8" 
+      items-per-page="4" 
+      previous-text="&lt;"
+      next-text="&gt;"
+      class="pagination pagination-sm">
+    </div>
+    </pagination>
+  </div>
