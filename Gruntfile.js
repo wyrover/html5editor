@@ -225,7 +225,7 @@ module.exports = function (grunt) {
       target: {
         src: '<%= yeoman.client %>/index.html',
         ignorePath: '<%= yeoman.client %>/',
-        exclude: [/html2canvas/]
+        exclude: []
       },
 
       // Automatically inject Bower components into the karma config 

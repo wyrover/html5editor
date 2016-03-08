@@ -47,6 +47,15 @@ angular.module('html5editorApp')
           }
           $scope.activePage(tmp);
         };
+
+        $scope.snapshot = function(e){
+          var el = e.target;
+          html2canvas(document.getElementById('page'),{
+            onrendered: function(canvas){
+               Canvas2Image.saveAsPNG(canvas, 480, 320);
+            }
+          });
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         

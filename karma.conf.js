@@ -13,6 +13,7 @@ module.exports = function(config) {
     files: [
       // bower:js
       'bower_components/html2canvas/build/html2canvas.js',
+      'bower_components/canvas2image/canvas2image/canvas2image.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-cookies/angular-cookies.js',
