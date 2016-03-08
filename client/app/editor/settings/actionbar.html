@@ -10,26 +10,25 @@
         </a>
     </div>
     <div class="btn-group">
+        <button class="btn btn-xs btn-link" 
+            tooltip-append-to-body="true"
+            uib-tooltip-template="'app/editor/preview/qrcode.html'">
+        <i class="glyphicon glyphicon-qrcode"></i>
+        </button>
+    </div>
+    <div class="btn-group">
         <button class="btn btn-xs btn-link" ng-click="save()" uib-tooltip="保存场景" tooltip-append-to-body="true">
         <i class="glyphicon glyphicon-floppy-open"></i>
         </button>
     </div>
-<!--     <div class="btn-group">
-        <button class="btn btn-xs btn-link" 
-            tooltip="预览场景" 
-            tooltip-append-to-body="true"
-            popover-template="'app/editor/toolbar/qrcode.html'">
-        <i class="glyphicon glyphicon-eye-open"></i>
-        </button>
-    </div> -->
-<!--     <div class="btn-group">
+    <div class="btn-group">
         <button class="btn btn-xs btn-link" ng-click="saveTemplate()" tooltip="保存场景为模板" tooltip-append-to-body="true">
         <i class="glyphicon glyphicon-open-file"></i>
         </button>
-    </div> -->
-<!--     <div class="btn-group">
-        <button class="btn btn-xs btn-link" tooltip="分享场景模板" tooltip-append-to-body="true">
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-xs btn-link" tooltip="分享场景模板，分享越多可用模板越多" tooltip-append-to-body="true">
         <i class="glyphicon glyphicon-share"></i>
         </button>
-    </div> -->
+    </div>
 </div>
