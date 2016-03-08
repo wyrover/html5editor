@@ -27,6 +27,7 @@ angular.module('html5editorApp')
             page.background.active = true;
             $scope.page = page;
             Editor.widget = page.background;
+            Editor.page = page;
         };
 
         $scope.removePage = function($index){

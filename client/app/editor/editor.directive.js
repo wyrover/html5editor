@@ -17,7 +17,7 @@ angular.module('html5editorApp')
             if(item.active) active = index;
           });
 
-          $scope.page = $scope.sense.contents[active];
+          $scope.page = Editor.page = $scope.sense.contents[active];
           if(!$scope.page.active){$scope.page.active = true;}
 
           angular.forEach($scope.page.contents, function(item, index){

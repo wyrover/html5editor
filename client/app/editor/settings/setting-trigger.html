@@ -3,7 +3,7 @@
       <tr>
         <td>名称</td>
         <td colspan="4">
-            <input class="form-control input-sm" ng-model="widget.name" placeholder="请设置元件名称" />
+            <input class="form-control input-sm" ng-model="editor.widget.name" placeholder="请设置元件名称" />
         </td>
       </tr>
       <tr>
@@ -27,12 +27,13 @@
                 </select>
             </td>
             <td>
-                <select class="form-control input-sm" ng-model="event" ng-options="index as ('元素'+index) for (index,e) in sense.contents">
+                <select class="form-control input-sm" ng-model="event" ng-options="index as e.name||('元素'+index) for (index,e) in editor.page.contents">
                     <option value="">元素</option>
                 </select>
             </td>
             <td>
                 <select class="form-control input-sm" ng-model="event" ng-options="e.value as e.name for e in event_types">
+                    <option value="">动作</option>
                 </select>
             </td>
             <td>
