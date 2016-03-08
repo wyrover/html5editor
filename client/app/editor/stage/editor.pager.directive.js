@@ -52,7 +52,7 @@ angular.module('html5editorApp')
           var el = e.target;
           html2canvas(document.getElementById('page'),{
             onrendered: function(canvas){
-               Canvas2Image.saveAsPNG(canvas, 480, 320);
+               Canvas2Image.saveAsPNG(canvas, 320, 480);
             }
           });
         };
