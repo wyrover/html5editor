@@ -7,7 +7,7 @@ angular.module('html5editorApp')
       scope: {
         sense: '=ngModel'
       },
-      templateUrl: 'app/editor/toolbar/actionbar.html',
+      templateUrl: 'app/editor/settings/actionbar.html',
       restrict: 'EA',
       controller: function($scope, Modal, Template){
         $scope.save = function(){
