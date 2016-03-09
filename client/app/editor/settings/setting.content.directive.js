@@ -25,6 +25,10 @@ angular.module('html5editorApp')
             $scope.widget.widget.src = '/files/'+file._id;
           });
         };
+
+        $scope.clearBackground = function(){
+          $scope.widget.widget.src = '';
+        };
       },
       link: function (scope, element, attrs, ngModel) {
         
