@@ -42,7 +42,9 @@ exports.update = function(req, res) {
   req.body.user = req.user._id;
   Sense.findById(req.params.id, function (err, sense) {
     if (err) { return handleError(res, err); }
-    if(!sense||String(sense.user)!=String(req.user._id)) { return res.status(404).send('Not Found'); }
+    if(!sense||String(sense.user)!=String(req.user._id)) { 
+      return res.status(404).send('Not Found'); 
+    }
     var updated = _.merge(sense, req.body);
     updated.markModified('contents');
     updated.save(function (err) {

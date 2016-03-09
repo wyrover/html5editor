@@ -17,5 +17,8 @@ var mongoose = require('mongoose'),
 // });
 
 var FileSchema = new Schema({}, {strict: false});
+var FileModel = mongoose.model('File', FileSchema, 'fs.files');
 
-module.exports = mongoose.model('File', FileSchema, 'fs.files');
+FileModel.ensureIndexes({'metadata.user':1});
+
+module.exports = FileModel;

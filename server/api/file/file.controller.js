@@ -5,7 +5,8 @@ var File = require('./file.model');
 
 // Get list of files
 exports.index = function(req, res) {
-  File.find({})
+  File.find()
+  //.populate('metadata')
   .sort('-uploadDate')
   .skip(req.range.first)
   .limit(req.range.last-req.range.first+1)
@@ -28,9 +29,10 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   //console.log(req.file, req.body)
   if(!req.file){
-    res.status(500).json({message:'上传失败'});
+    return res.status(500).json({message:'上传失败'});
   }
-  res.json(req.file.gridfsEntry);
+  
+  res.json(req.file.gridfsEntry)  
 };
 
 // Updates an existing file in the DB.
@@ -56,6 +58,7 @@ exports.count = function(req, res, next) {
 
 exports.user = function(req, res, next){
   req.body.user = req.user._id;
+  //console.log('-----',req.file, req.body)
   next();
 };
 
