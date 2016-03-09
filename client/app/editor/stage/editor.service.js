@@ -34,7 +34,7 @@ angular.module('html5editorApp')
         shape: 'rect',
         width: '50',
         height: '50',
-        fill: '#f00'
+        fill: '#009688'
       },
       form: {
         type:'form',
