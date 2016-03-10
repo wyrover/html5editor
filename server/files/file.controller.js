@@ -1,10 +1,12 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
+var gfs = Grid(mongoose.connection.db, mongoose.mongo);
 
 // Get a single file
 exports.show = function(req, res) {
-  var gfs = req.app.get('gfs');
   gfs.exist({_id:req.params.id}, function(err, found){
     if (err) return handleError(res, err);
     if(!found){

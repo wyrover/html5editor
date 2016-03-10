@@ -2,6 +2,11 @@
 
 var _ = require('lodash');
 var File = require('./file.model');
+var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
+var multer = require('multer');
+var gfs = Grid(mongoose.connection.db, mongoose.mongo);
+
 
 // Get list of files
 exports.index = function(req, res) {
@@ -26,13 +31,20 @@ exports.show = function(req, res) {
 };
 
 // Creates a new file in the DB.
-exports.create = function(req, res) {
-  //console.log(req.file, req.body)
-  if(!req.file){
-    return res.status(500).json({message:'上传失败'});
-  }
-  
-  res.json(req.file.gridfsEntry)  
+exports.create = function(req, res, next) {
+  var storage = require('multer-gridfs')({
+      gfs:gfs,
+      metadata: function(req, file){
+          return {user:req.user._id};
+      }
+  });
+  var upload = multer({storage:storage}).single('file');
+  upload(req, res, function(err){console.log(req.file)
+    if(err){
+      return res.json(err);
+    }
+    res.json(req.file.obj);
+  });
 };
 
 // Updates an existing file in the DB.
@@ -42,7 +54,6 @@ exports.update = function(req, res) {
 
 // Deletes a file from the DB.
 exports.destroy = function(req, res) {
-  var gfs = req.app.get('gfs');
   gfs.remove({_id:req.params.id}, function (err, file) {
     if(err) { return handleError(res, err); }
     return res.send('');
