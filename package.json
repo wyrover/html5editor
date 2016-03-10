@@ -23,7 +23,7 @@
     "morgan": "~1.5.3",
     "multer": "^1.1.0",
     "multer-gridfs": "0.0.1",
-    "passport": "~0.2.2",
+    "passport": "^0.2.2",
     "passport-local": "~1.0.0",
     "passport-qq": "0.0.3",
     "passport-weibo": "^0.1.2",
