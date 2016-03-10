@@ -3,10 +3,10 @@
 angular.module('html5editorApp')
   .controller('NavbarCtrl', function ($scope, $state, $location, Auth, AccountModal, Notice) {
     $scope.menu = [
-//     {
-//       'title': '模板',
-//       'link': 'template'
-//     },
+    {
+      'title': '模板',
+      'link': 'template'
+    },
     {
       'title': '场景',
       'link': 'scene'
