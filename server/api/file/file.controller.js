@@ -10,8 +10,7 @@ var gfs = Grid(mongoose.connection.db, mongoose.mongo);
 
 // Get list of files
 exports.index = function(req, res) {
-  File.find()
-  //.populate('metadata')
+  File.find({'metadata.user':req.user._id})
   .sort('-uploadDate')
   .skip(req.range.first)
   .limit(req.range.last-req.range.first+1)
