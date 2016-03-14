@@ -10,7 +10,8 @@ angular.module('html5editorApp')
       templateUrl: 'app/editor/settings/setting-trigger.html',
       restrict: 'EA',
       controller: function($scope, Upload, Editor, FileModal){
-        $scope.editor = Editor;console.log($scope.editor)
+        $scope.editor = Editor;
+        //console.log($scope.editor)
 
         $scope.event_types = [
           {name:'点击',value:'click'},

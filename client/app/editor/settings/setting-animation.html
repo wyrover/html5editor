@@ -12,15 +12,20 @@
         <tr>
             <th>动画</th>
             <td>
-                <div class="col-sm-4">
-                <select ng-model="widget.widget.animation" ng-options="animation.animation as animation.name for animation in animations"></select> 
+                <div class="col-sm-6">
+                <select ng-model="widget.widget.animation" 
+                    ng-options="animation.animation as animation.name for animation in animations"
+                    class="form-control input-sm">
+                </select> 
                 </div>
-                <div class="col-sm-4">
-                <select ng-model="widget.widget.animation" ng-options="animation.animation as animation.name for animation in animations"></select> 
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                 <input type="checkbox" ng-model="widget.widget.animationIterationCount" ng-true-value="'infinite'" />循环
                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-default btn-block">添加动画</button>
             </td>
         </tr>
     </tbody>

@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/actionbar.html',
       restrict: 'EA',
-      controller: function($scope, Modal, Template){
+      controller: function($scope, SenseSettingsModal, Template){
         $scope.save = function(){
            $scope.sense.$save(function(){
               $state.go('^.edit',{id:$scope.sense._id});
@@ -18,7 +18,12 @@ angular.module('html5editorApp')
         };
 
         $scope.settings = function(){
-          Modal.prompt({title:'设置场景名字',value:$scope.sense.name}).result.then(function(name){
+          SenseSettingsModal({
+            resolve: {
+              sense: $scope.sense
+            }
+          })
+          .result.then(function(name){
             $scope.sense.name = name;
           });
         };
