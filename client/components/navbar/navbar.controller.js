@@ -10,14 +10,15 @@ angular.module('html5editorApp')
     {
       'title': '场景',
       'link': 'scene'
-    },{
-      'title': '图文',
-      'link': 'article'
     },
-    {
-      'title': '广告',
-      'link': 'adver'
-    },
+//     {
+//       'title': '图文',
+//       'link': 'article'
+//     },
+//     {
+//       'title': '广告',
+//       'link': 'adver'
+//     },
     {
       'title': '素材',
       'link': 'file'
