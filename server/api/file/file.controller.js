@@ -38,7 +38,8 @@ exports.create = function(req, res, next) {
       }
   });
   var upload = multer({storage:storage}).single('file');
-  upload(req, res, function(err){console.log(req.file)
+  upload(req, res, function(err){
+    //console.log(req.file, arguments)
     if(err){
       return res.json(err);
     }
