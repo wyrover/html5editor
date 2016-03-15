@@ -5,7 +5,7 @@ angular.module('html5editorApp')
   .factory('SenseSettingsModal', function ($rootScope, $uibModal) {
 
     function ModalCtrl($scope, $uibModalInstance, sense){
-      
+      $scope.sense = sense;
       console.log(sense)
     };
 
