@@ -9,7 +9,7 @@ angular.module('html5editorApp')
       },
       templateUrl: 'app/editor/settings/actionbar.html',
       restrict: 'EA',
-      controller: function($scope, SenseSettingsModal, Template){
+      controller: function($scope, SenseSettingsModal, Modal, Template){
         $scope.save = function(){
            $scope.sense.$save(function(){
               $state.go('^.edit',{id:$scope.sense._id});
