@@ -34,7 +34,8 @@ angular.module('html5editorApp')
         shape: 'rect',
         width: '50',
         height: '50',
-        fill: '#009688'
+        fill: '#009688',
+        src:'assets/svg/rect.svg'
       },
       form: {
         type:'form',
