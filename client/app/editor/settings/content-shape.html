@@ -9,25 +9,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <div class="col-sm-3 p15" ng-class="{'bg-success':widget.widget.shape=='rect'}">
-                    <svg  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
-                        <rect ng-click="widget.widget.shape='rect'" x="0" y="0" fill="#009688" width="100%" height="100%" />
-                    </svg>
-                </div>
-                <div class="col-sm-3  p15" ng-class="{'bg-success':widget.widget.shape=='circle'}">
-                    <svg  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
-                        <ellipse ng-click="widget.widget.shape='circle'" rx="250" ry="250" cx="250" cy="250" fill="#009688"  width="100%" height="100%" />
-                    </svg>
-                </div>
-                <div class="col-sm-3  p15"  ng-class="{'bg-success':widget.widget.shape=='traingle'}">
-                    <svg  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
-                        <polygon ng-click="widget.widget.shape='traingle'" points="250,0 500,500 0,500" fill="#009688"  width="100%" height="100%"></polygon>
-                    </svg>
-                </div>
-                <div class="col-sm-3 p15"  ng-class="{'bg-success':widget.widget.shape=='angle'}">
-                    <svg  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
-                        <polygon ng-click="widget.widget.shape='angle'" points="0,0 500,500 0,500" fill="#009688"  width="100%" height="100%"></polygon>
-                    </svg>
+                <div ng-repeat="shape in shapes track by $index" class="col-sm-3 p15"  ng-class="{'bg-success':widget.widget.shape==shape.value}">
+                    <img class="full img-responsive" ng-src="/assets/svg/{{shape.value}}.svg" ng-click="selectShape(shape)" />
                 </div>
             </td>
         </tr>

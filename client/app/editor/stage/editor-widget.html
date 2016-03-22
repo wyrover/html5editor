@@ -1,12 +1,7 @@
 <img ng-if="widget.type=='image'" ng-src="{{widget.src}}" class="full img-responsive" />
-<p ng-if="widget.type=='text'">{{widget.text}}</p>
+<div ng-if="widget.type=='text'">{{widget.text}}</div>
 <div ng-if="widget.type=='custom'" ng-bind-html="widget.code|trustAsHtml"></div>
-<svg ng-if="widget.type=='shape'"  viewBox="0 0 500 500" preserveAspectRatio="none" class="full">
-    <rect ng-if="widget.shape=='rect'" x="0" y="0" fill="{{widget.fill}}" width="100%" height="100%" />
-    <ellipse ng-if="widget.shape=='circle'" rx="250" ry="250" cx="250" cy="250" fill="{{widget.fill}}"  width="100%" height="100%" />
-    <polygon ng-if="widget.shape=='traingle'" points="250,0 500,500 0,500" fill="{{widget.fill}}"  width="100%" height="100%"></polygon>
-    <polygon ng-if="widget.shape=='angle'" points="0,0 500,500 0,500" fill="{{widget.fill}}"  width="100%" height="100%"></polygon>
-</svg>
+<img ng-if="widget.type=='shape'" ng-src="{{widget.src}}" />
 <div ng-if="widget.type=='form'" class="form-group">
 	<input ng-if="widget.fieldType=='input'" placeholder="{{widget.placeholder}}" type="text" class="form-control input-sm" />
 	<textarea ng-if="widget.fieldType=='textarea'" placeholder="{{widget.placeholder}}" class="form-control input-sm">

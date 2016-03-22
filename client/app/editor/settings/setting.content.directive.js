@@ -19,6 +19,18 @@ angular.module('html5editorApp')
           {name:'单选按钮',type:'radio'},
           {name:'多选按钮',type:'checkbox'},
         ];
+
+        $scope.shapes = [
+          {name:'圆形',value:'ellipse'},
+          {name:'三角形',value:'traingle'},
+          {name:'矩形',value:'rect'},
+          {name:'边角',value:'angle'}
+        ];
+
+        $scope.selectShape = function(shape){
+          $scope.widget.widget.shape = shape.value;
+          $scope.widget.widget.src="/assets/svg/"+shape.value+'.svg';
+        };
         
         $scope.selectBackground = function(){
           FileModal().result.then(function(file){
