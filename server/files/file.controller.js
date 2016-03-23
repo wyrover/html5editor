@@ -12,6 +12,7 @@ exports.show = function(req, res) {
     if(!found){
       return res.status(404).send('');
     }
+    console.log(found)
     var stream = gfs.createReadStream({_id:req.params.id});
     stream.on('error', function(err){
       res.status(404, err)

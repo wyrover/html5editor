@@ -1,7 +1,7 @@
 <img ng-if="widget.type=='image'" ng-src="{{widget.src}}" class="full img-responsive" />
 <div ng-if="widget.type=='text'">{{widget.text}}</div>
 <div ng-if="widget.type=='custom'" ng-bind-html="widget.code|trustAsHtml"></div>
-<img ng-if="widget.type=='shape'" ng-src="{{widget.src}}" />
+<div ng-if="widget.type=='shape'" ng-include="widget.src"></div>
 <div ng-if="widget.type=='form'" class="form-group">
 	<input ng-if="widget.fieldType=='input'" placeholder="{{widget.placeholder}}" type="text" class="form-control input-sm" />
 	<textarea ng-if="widget.fieldType=='textarea'" placeholder="{{widget.placeholder}}" class="form-control input-sm">
