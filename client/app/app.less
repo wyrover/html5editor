@@ -1,23 +1,22 @@
-@import 'bootstrap-less/less/bootstrap.less';
-@icon-font-path: '/bower_components/bootstrap-less/fonts/';
+/* bower:less */
+@import "../../bower_components/bootstrap-less/less/bootstrap.less";
+/* endinject  */
 
-@import 'components.less';
-
-// injector
-@import 'account/login/login.less';
-@import 'admin/admin.less';
-@import 'editor/preview/preview.less';
-@import 'editor/stage/editor.less';
-@import 'editor/template/template.less';
-@import 'file/file.less';
-@import 'main/main.less';
-@import 'notice/notice.less';
-@import 'sense/sense.less';
-@import 'template/template.less';
-@import 'components.less';
-@import 'contextmenu/contextmenu.less';
-@import 'footer/footer.less';
-@import 'modal/modal.less';
-@import 'uploader/uploader.less';
-@import 'util/util.less';
-// endinjector
+/* inject:less */
+@import "../components/components.less";
+@import "../components/contextmenu/contextmenu.less";
+@import "../components/footer/footer.less";
+@import "../components/modal/modal.less";
+@import "../components/uploader/uploader.less";
+@import "../components/util/util.less";
+@import "account/login/login.less";
+@import "editor/preview/preview.less";
+@import "editor/stage/editor.less";
+@import "editor/template/template.less";
+@import "admin/admin.less";
+@import "file/file.less";
+@import "main/main.less";
+@import "notice/notice.less";
+@import "sense/sense.less";
+@import "template/template.less";
+/* endinject  */
